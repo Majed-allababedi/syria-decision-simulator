@@ -1,0 +1,52 @@
+{{Short description|Militant organization in Syria}}
+{{Infobox militant organization
+| name             = Minbar Ansar al-Rasoul
+| native_name      = منبر أنصار الرسول
+| native_name_lang = ar
+| dates_active     = 2025 — present
+| country          = {{Flag|Syria}}
+| active_regions   = [[Jaramana]], [[Rif Dimashq Governorate]], [[Syria]]
+| war              = {{Tree list}}
+* [[Aftermath of the Syrian civil war]]
+** [[Southern Syria conflict (2025–present)]]
+*** [[#2026 Jaramana attack|2026 Jaramana attack]]
+{{Tree list/end}}
+| ideology         = [[Islamism]]<br/>[[Persecution of Druze|Anti-Druzism]]<br/>[[Anti-Christian]]
+}}
+
+The '''Minbar Ansar al-Rasoul''' ({{Langx|Ar|منبر أنصار الرسول|4=Prophet's Supporters Platform}}) is a militant [[Sunni Islam|Sunni]] [[Islamism|Islamist]] organization in [[Jaramana]].<ref>{{Cite web |title=الصحة السورية تعلن مقتل شخصين في انفجار عبوة ناسفة بحافلة في جرمانا بريف دمشق (موسع) |url=https://arabic.news.cn/20260807/2a0847baaae24fc1b3e4c8a98ae24ed1/c.html |access-date=2026-08-06 |website=arabic.news.cn}}</ref>
+
+==History==
+===Foundation===
+On July 13, 2025, the group published threatening messages to the Christian and Druze communities of [[Jaramana]].<ref>{{Cite web |title=Minbar Ansar al-Rasoul claims deadly Damascus bus bombing |url=https://shafaq.com/en/Middle-East/Minbar-Ansar-al-Rasoul-claims-deadly-Damascus-bus-bombing |access-date=2026-08-06 |website=Shafaq News {{!}} Latest breaking news in Iraq and the world |language=en}}</ref> 
+
+===Activities===
+On July 15, 2025, the group celebrated the "victory" of the [[Internal Security Command (Syria)|Internal Security Forces]] over the Druze protesters in Jaramana.<ref name=":0">{{Cite web |date=August 6, 2026 |title=من هي جماعة "منبر أنصار الرسول" التي تبنّت تفجير جرمانا في ريف دمشق؟ |url=https://www.annahar.com/arab-world/arabian-levant/336471/%D9%85%D9%86-%D9%87%D9%8A-%D8%AC%D9%85%D8%A7%D8%B9%D8%A9-%D9%85%D9%86%D8%A8%D8%B1-%D8%A3%D9%86%D8%B5%D8%A7%D8%B1-%D8%A7%D9%84%D8%B1%D8%B3%D9%88%D9%84-%D8%A7%D9%84%D8%AA%D9%8A-%D8%AA%D8%A8%D9%86%D8%AA-%D8%AA%D9%81%D8%AC%D9%8A%D8%B1-%D8%AC%D8%B1%D9%85%D8%A7%D9%86%D8%A7-%D9%81%D9%8A-%D8%B1%D9%8A%D9%81-%D8%AF%D9%85%D8%B4%D9%82 |access-date=August 7, 2026|website=[[An-Nahar]]}}</ref>
+
+On August 2, 2026, the group claimed to have a "cyber arm" that collects information on citizens of Jaramana and threatened to attack Jaramana.<ref>{{Cite web |last=Alabi |first=Rizik |date=August 9, 2026 |title=Obscure Group Claims Responsibility for Jaramana Bus Bombing That Killed 2 and Injured at Least 13 |url=https://themedialine.org/headlines/obscure-group-claims-responsibility-for-jaramana-bus-bombing-that-killed-2-and-injured-at-least-13/ |access-date=August 19, 2026 |website=[[The Media Line]]}}</ref>
+
+====2026 Jaramana attack====
+{{Infobox civilian attack
+| name = 2026 Jaramana attack
+| location = Al-Rawda Street, [[Jaramana]], [[Syria]]
+| date = August 6, 2026
+| part_of = [[Aftermath of the Syrian civil war]]
+| type = [[Improvised explosive device|IED]] detonation
+| deaths = 3 civilians
+| injuries = 14 injured
+| victims = [[Druze]] civilians
+| perpetrators = Minbar Ansar al-Rasoul
+}}
+On August 6, 3 people died following the detonation of an [[Improvised explosive device]] against a minibus in Jaramana,<ref>{{Cite web |date=August 6, 2026 |title=عاجل. قتلى وجرحى بانفجار عبوة ناسفة استهدفت حافلة ركاب في جرمانا بريف دمشق |url=https://arabic.euronews.com/2026/08/06/jaramana-damascus-countryside-improvised-explosive-device-ied-explosion-passenger-bu |access-date=2026-08-06 |website=arabic.euronews.com}}</ref> the explosion occurred during peak hour, leaving 14 people injured.<ref>{{Cite web |last=Staff |first=Al Jazeera |title=Two killed, several wounded in minibus blast near Syria’s Damascus |url=https://www.aljazeera.com/news/2026/8/6/blast-hits-vehicle-on-outskirts-of-syrias-damascus-state-media |access-date=2026-08-07 |website=Al Jazeera |language=en}}</ref> Minbar Ansar al-Rasoul claimed responsibility for the attack following a statement from religious leaders and residents of Jaramana calling for national unity.<ref>{{Cite web |last= |date=2026-08-06 |title=“Minbar Ansar Al-Rasoul” claims responsibility for Jaraman explosion - The Syrian Observatory For Human Rights |url=https://www.syriahr.com/en/385155/ |access-date=2026-08-06 |language=en-CA}}</ref><ref>{{Cite web |date=August 6, 2026 |title=سوريا.. “منبر أنصار الرسول” يعلن عن تبني تفجير جرمانا وحصيلة الضحايا ترتفع إلى 16 بين قتيل وجريح |url=https://www.raialyoum.com/%D9%82%D8%AA%D9%84%D9%89-%D8%A8%D8%A7%D9%86%D9%81%D8%AC%D8%A7%D8%B1-%D8%B9%D8%A8%D9%88%D8%A9-%D9%86%D8%A7%D8%B3%D9%81%D8%A9-%D8%AF%D8%A7%D8%AE%D9%84-%D8%AD%D8%A7%D9%81%D9%84%D8%A9-%D9%86%D9%82%D9%84/ |access-date=August 7, 2026}}</ref><ref>{{Cite web |last=i24NEWS |date=2026-08-06 |title=مجموعة مجهولة تعلن مسؤوليتها عن تفجير جرمانا في دمشق |url=https://www.i24news.tv/ar/%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1/middle-east/artc-98124b12 |access-date=2026-08-07 |website=i24NEWS |language=ar}}</ref>
+
+==Analysis==
+According to the Lebanese newspaper, [[An-Nahar]], the group focuses solely on the tension between Sunnis and Druze in [[Jaramana]], making no mention of the [[2026 Iran War]] or a "transnational project".<ref name=":0" />
+
+==References==
+{{Reflist}}
+
+[[Category:2025 establishments in Syria]]
+[[Category:Persecution of Druze]]
+[[Category:Jihadist groups]]
+[[Category:Persecution of Druze by Muslims]]
+[[Category:Military units and formations established in 2025]]

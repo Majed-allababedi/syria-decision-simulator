@@ -15,7 +15,7 @@ var UI = (function () {
     { id: "tech",  t: "مصرفي تقنوقراطي",  d: "خصم من كلفة القرارات الاقتصادية +5% نجاحاً فيها", cat: "اقتصادي", v: 6 },
     { id: "hawk",  t: "ضابط أمني صارم",   d: "+6% نجاح في القرارات الأمنية والعسكرية", cat: "أمني", v: 6 },
     { id: "dipl",  t: "دبلوماسي مخضرم",   d: "+6% نجاح في القرارات الدبلوماسية", cat: "دبلوماسي", v: 6 },
-    { id: "shaykh",t: "مستشار ديني مؤثر", d: "+6% في قرارات الهوية والتماسك، −4% في رضا الغرب", cat: "مجتمع", v: 6 },
+    { id: "shaykh",t: "مستشار ديني مؤثر", d: "+6% في قرارات المجتمع والهوية (بما فيها مسار الشريعة والأحوال الشخصية)", cat: "مجتمع", v: 6 },
     { id: "kurd",  t: "وسيط مكونات (كردي/درزي)", d: "+6% في قرارات المكونات والثقة العامة", cat: "مكونات", v: 6 },
     { id: "econ",  t: "وزير إعادة إعمار",  d: "+1.2 مليار $ بدايةً، لكن أثرها على الخدمات أعلى", cash: 1.2 }
   ];
@@ -23,7 +23,8 @@ var UI = (function () {
     { id: "security", t: "الأمن أولاً", d: "+3 أمن و+3 جيش بدايةً، −3 شرعية مؤسساتية", eff: { sec: 3, mil: 3, dem: -3 }, bonusCat: "أمني" },
     { id: "bread",    t: "الخبز أولاً", d: "+3 خدمات و+2 اقتصاد، −2 جيش", eff: { srv: 3, eco: 2, mil: -2 }, bonusCat: "اقتصادي" },
     { id: "consensus",t: "التوافق أولاً", d: "+4 تماسك و+3 شرعية، −2 أمن", eff: { coh: 4, leg: 3, sec: -2 }, bonusCat: "مكونات" },
-    { id: "sovereign",t: "السيادة أولاً", d: "+4 سيادة و+2 رصيد دبلوماسي، −3 مع أنقرة", eff: { sov: 4, dip: 2, r_tr: -3 }, bonusCat: "دبلوماسي" }
+    { id: "sovereign",t: "السيادة أولاً", d: "+4 سيادة و+2 رصيد دبلوماسي، −3 مع أنقرة", eff: { sov: 4, dip: 2, r_tr: -3 }, bonusCat: "دبلوماسي" },
+    { id: "sharia",   t: "المرجعية أولاً", d: "+12 مرجعية الشريعة و+2 شرعية، −3 تماسك و−3 مع أوروبا", eff: { shr: 12, leg: 2, coh: -3, r_eu: -3 }, bonusCat: "مجتمع" }
   ];
 
   /* ---------- أدوات عرض ---------- */
@@ -31,6 +32,7 @@ var UI = (function () {
   function nameOf(k) {
     if (SY.STATS[k]) return SY.STATS[k].n;
     if (SY.NEG[k]) return SY.NEG[k].n;
+    if (SY.AXIS[k]) return SY.AXIS[k].n;
     if (k === "cash") return "الخزينة";
     if (k === "cap") return "الرصيد السياسي";
     if (k.indexOf("r_") === 0) return "علاقة: " + (SY.REL[k.slice(2)] || k.slice(2));
@@ -49,7 +51,7 @@ var UI = (function () {
       var v = eff[k];
       var neg = isNeg(k);
       var good = neg ? v < 0 : v > 0;
-      var cls = v === 0 ? "nu" : good ? "up" : "dn";
+      var cls = SY.AXIS[k] ? "ax" : (v === 0 ? "nu" : good ? "up" : "dn");
       var val = k === "cash" ? (v > 0 ? "+" : "") + v + " مليار$" : (v > 0 ? "+" : "") + v;
       return '<span class="eff ' + cls + '">' + esc(nameOf(k)) + " " + val + "</span>";
     }).join("");
@@ -106,12 +108,13 @@ var UI = (function () {
       '<li>لكل قرار <b>ثلاثة مستويات نتيجة</b> (نجح / نصف نجاح / انقلب) — لا شيء مضمون.</li>' +
       '<li>مربّع <span style="color:var(--green)">الواقع</span> يخبرك بما جرى فعلاً في هذا التاريخ، لتقارن قرارك بالتاريخ.</li>' +
       '<li>الانجراف الشهري حقيقي: ضغط إسرائيلي مرتفع ينهش السيادة، والفقـر ينهش الشرعية.</li></ul></div>' +
-      '<div class="card"><h2>📊 المؤشرات التسعة</h2><div class="rows">' +
+      '<div class="card"><h2>📊 المؤشرات ومحور الهوية</h2><div class="rows">' +
       Object.keys(SY.STATS).map(function (k) {
         return '<div class="row"><span class="rn">' + SY.STATS[k].ic + " " + SY.STATS[k].n + "</span><span class='tiny' style='flex:1'>" + SY.STATS[k].s + "</span></div>";
       }).join("") +
       '<div class="row"><span class="rn">🔥 الضغط الإسرائيلي</span><span class="tiny" style="flex:1">الأعلى أسوأ: غارات وتوغل وقضم</span></div>' +
       '<div class="row"><span class="rn">💥 الاحتقان</span><span class="tiny" style="flex:1">الأعلى أسوأ: قابلية الانفجار الأهلي</span></div>' +
+      '<div class="row"><span class="rn">🕌 مرجعية الشريعة</span><span class="tiny" style="flex:1">محور محايد: موضع الدين من التشريع والقضاء. يرضي جهة ويقلق أخرى — انظر لوحة المؤشرات.</span></div>' +
       "</div></div></div>";
   }
 
@@ -290,16 +293,20 @@ var UI = (function () {
     function g(k, neg) {
       var v = S.st[k];
       var d = prev ? Math.round(v - (prev[k] || 0)) : 0;
-      var dlab = d === 0 ? "" : '<span class="gd ' + (d > 0 ? "up" : "dn") + '">' + (d > 0 ? "▲" : "▼") + Math.abs(d) + "</span>";
+      var axis = !!SY.AXIS[k];
+      var dlab = d === 0 ? "" : '<span class="gd ' + (axis ? "neu" : (d > 0 ? "up" : "dn")) + '">' + (d > 0 ? "▲" : "▼") + Math.abs(d) + "</span>";
       var barColor = neg ? "linear-gradient(90deg,#7a2b2b,#e8615f)" : "linear-gradient(90deg," + colorOf(k) + "88," + colorOf(k) + ")";
-      return '<div class="g ' + (neg ? "neg" : "") + '" title="' + esc((SY.STATS[k] || SY.NEG[k] || {}).s || "") + '">' +
-        '<div class="gl"><span>' + ((SY.STATS[k] || SY.NEG[k] || {}).ic || "") + " " + esc(nameOf(k)) + "</span><span>" + dlab + '<span class="gv">' + v + "</span></span></div>" +
+      var meta = SY.STATS[k] || SY.NEG[k] || SY.AXIS[k] || {};
+      return '<div class="g ' + (neg ? "neg " : "") + (axis ? "axis" : "") + '" title="' + esc(meta.s || "") + '">' +
+        '<div class="gl"><span>' + (meta.ic || "") + " " + esc(nameOf(k)) + "</span><span>" + dlab + '<span class="gv">' + v + "</span></span></div>" +
         '<div class="gbar"><i style="width:' + v + '%;background:' + barColor + '"></i></div></div>';
     }
     var h = '<div class="card tight"><div class="gauges">' +
       Object.keys(SY.STATS).map(function (k) { return g(k, false); }).join("") +
       Object.keys(SY.NEG).map(function (k) { return g(k, true); }).join("") +
+      Object.keys(SY.AXIS).map(function (k) { return g(k, false); }).join("") +
       "</div>" +
+      '<div class="axisnote">🕌 <b>محور الهوية محايد</b>: ليس ربْحاً ولا خسارة في حدّ ذاته. صعوده يرضي مقاتلي «الجيل القديم» وشارعاً سنياً محافظاً، ويُقلق العلويين والدروز والمسيحيين والمانحين الأوروبيين؛ ونزوله يفعل العكس. التاريخ يقول إن الوعد لم يُلغَ ولم يُنفَّذ كاملاً — الخيار لك.</div>' +
       '<div class="resrow"><div class="res ' + (S.res.cash < 1 ? "warn" : "") + '"><b>' + S.res.cash.toFixed(1) + "</b><span>خزينة (مليار $)</span></div>" +
       '<div class="res ' + (S.res.cap < 25 ? "warn" : "") + '"><b>' + Math.round(S.res.cap) + "</b><span>رصيد سياسي</span></div></div>" +
       '<div class="tiny" style="margin-top:8px">المؤشرات الحمراء: الأعلى فيها أسوأ. مرّر الفأرة على أي مؤشر لترى معناه.</div></div>';
@@ -361,12 +368,14 @@ var UI = (function () {
     var pts = S.line;
     if (pts.length < 2) { x.fillStyle = "#63768c"; x.fillText("لا بيانات كافية", 10, 30); return; }
     function X(i) { return W - (i / (SY.MONTHS_TOTAL - 1)) * W; } // RTL: الزمن من اليمين
-    var keys = ["leg", "coh", "eco", "sov", "mil", "press"];
+    var keys = ["leg", "coh", "eco", "sov", "mil", "press", "shr"];
     keys.forEach(function (k) {
       x.beginPath(); x.strokeStyle = (k === "press") ? "#e8615f" : colorOf(k); x.lineWidth = 1.8;
+      x.setLineDash(k === "shr" ? [6, 4] : []);
       pts.forEach(function (p, i) { var px = X(p.m), py = H - (p[k] / 100) * H; if (i === 0) x.moveTo(px, py); else x.lineTo(px, py); });
       x.stroke();
     });
+    x.setLineDash([]);
     var lg = document.getElementById("legend");
     if (lg) lg.innerHTML = keys.map(function (k) {
       return "<span><i style='background:" + (k === "press" ? "#e8615f" : colorOf(k)) + "'></i>" + nameOf(k) + "</span>";
@@ -407,6 +416,7 @@ var UI = (function () {
     L.push("التقدير: " + sc.grade + "  (" + sc.final + "/100)");
     Object.keys(SY.STATS).forEach(function (k) { L.push(nameOf(k) + ": " + S.st[k]); });
     Object.keys(SY.NEG).forEach(function (k) { L.push(nameOf(k) + ": " + S.st[k]); });
+    Object.keys(SY.AXIS).forEach(function (k) { L.push(nameOf(k) + ": " + S.st[k] + " (محور محايد)"); });
     L.push("الخزينة: " + S.res.cash + " مليار $   الرصيد السياسي: " + Math.round(S.res.cap));
     L.push("");
     L.push("=== القرارات (" + S.log.length + ") ===");
@@ -448,6 +458,7 @@ var UI = (function () {
     h += '<div class="two"><div class="card"><h2>لوحة الحالة النهائية</h2>' +
       Object.keys(SY.STATS).map(function (k) { return '<div class="kv"><span>' + nameOf(k) + "</span><b>" + S.st[k] + "</b></div>"; }).join("") +
       Object.keys(SY.NEG).map(function (k) { return '<div class="kv"><span>' + nameOf(k) + "</span><b>" + S.st[k] + "</b></div>"; }).join("") +
+      Object.keys(SY.AXIS).map(function (k) { return '<div class="kv"><span>' + nameOf(k) + "</span><b>" + S.st[k] + "</b></div>"; }).join("") +
       '<div class="kv"><span>الخزينة</span><b>' + S.res.cash + " مليار $</b></div>" +
       '<div class="kv"><span>ما فتحته من مسارات</span><b>' + Object.keys(S.flags).filter(function (x) { return S.flags[x] > 0; }).length + "</b></div></div>" +
       '<div class="card"><h2>تطور المؤشرات عبر 37 شهراً</h2><canvas id="chart"></canvas><div class="legend" id="legend"></div>' +

@@ -1,0 +1,37 @@
+{{Short description|Judicial body of Syria}}
+{{Infobox organization
+| name             = Supreme Judicial Council of Syria
+| formation        = {{start date and age|1971}}
+| native_name      = مجلس القضاء الأعلى في سوريا
+| native_name_lang = ar
+| logo             = Emblem of Syria (2025–present).svg
+| logo_size        = 80 px
+| logo_caption     = Coat of arms of Syria
+| headquarters     = [[Damascus]], Syria
+| region_served    = [[Syrian Arab Republic]]
+| leader_title     = 
+| leader_name      = vacant
+| leader_title2    = 
+| leader_name2     = 
+| leader_title3    = 
+| leader_name3     = 
+| website          = 
+}}
+{{Politics of Syria}}
+The '''Supreme Judicial Council of Syria''' ({{langx|ar|مجلس القضاء الأعلى في سوريا}})  is the highest judicial authority in [[Syria]].<ref name= "Chief">{{Cite web|url=https://www.syria.law/index.php/overview-syrian-court-system/|title=An Overview of the Syrian Court System|access-date=28 November 2021|date=9 May 2016|website=Syrian Law Journal|language=en-US|archive-date=2 January 2020|archive-url=https://web.archive.org/web/20200102192149/https://www.syria.law/index.php/overview-syrian-court-system/|url-status=dead}}</ref>
+
+==Competences==
+
+=== Ba'athist Syria ===
+The Council was charged with the appointment, transfer and dismissal of judges.<ref name="Chief"></ref> It was composed of senior civil judges and chaired by the [[President of Syria]].<ref name="Chief"></ref> The independence of the judiciary was meant to be guaranteed by President in his role as chairman of the High Judicial Council, according to Article 131 of the [[Constitution of Syria#Constitution of 2012|Constitution]]. Article 133 stipulated that judges be autonomous and subject to no authority other than the law.<ref name="Lib">[http://rs6.loc.gov/frd/cs/sytoc.html Country Studies: Syria] {{Webarchive|url=https://web.archive.org/web/20150208180808/http://rs6.loc.gov/frd/cs/sytoc.html |date=2015-02-08 }}, ''Library of Congress''</ref>
+
+=== Current ===
+Following the [[fall of the Assad regime]], the Council was reconstituted, with a group of judges from the Court of Cassation in the [[Syrian Salvation Government]] becoming the new members.<ref name=":0">{{Cite web |last= |date=2025-10-02 |title=Syria – The Newly Created Position of “Sheikh/Head of the Judicial Directorate”: Entrenching Loyalties at the Expense of Judicial Independence |url=https://stj-sy.org/en/syria-the-newly-created-position-of-sheikh-head-of-the-judicial-directorate-entrenching-loyalties-at-the-expense-of-judicial-independence/ |access-date=2025-11-11 |website=Syrians for Truth and Justice |language=en-US}}</ref> Article 43 of the [[Constitutional Declaration of the Syrian Arab Republic|Constitutional Declaration]] states that the judiciary is independent, and judges are subject only to the law, while the Supreme Judicial Council ensures the proper functioning of the judiciary and upholds its independence. Meanwhile, Article 51 stipulated that all current law continue to apply unless amended or repealed. As such, the Council still operates under the old Judicial Authority Law for the time being.<ref name=":0" /><ref name="newinterimconstition">{{Cite web |date=13 March 2025 |title=Constitutional Declaration of the Syrian Arab Republic |url=https://constitutionnet.org/sites/default/files/2025-03/2025.03.13%20-%20Constitutional%20declaration%20%28English%29.pdf |url-status=live |archive-url=https://web.archive.org/web/20250318030710/https://constitutionnet.org/sites/default/files/2025-03/2025.03.13%20-%20Constitutional%20declaration%20%28English%29.pdf |archive-date=18 March 2025 |access-date=18 March 2025}}</ref>
+
+==References==
+{{reflist}}
+
+{{Syria topics}}
+
+[[Category:National councils of the judiciary]]
+[[Category:Judiciary of Syria]]

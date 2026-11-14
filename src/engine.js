@@ -28,9 +28,18 @@ var SY = (function () {
     cash: { n: "الخزينة", u: "مليار $", max: 60, s: "ما تملكه الدولة فعلياً للإنفاق" },
     cap:  { n: "الرصيد السياسي", u: "/100", max: 100, s: "ما تستطيع إنفاقه على قرارات مؤلمة" }
   };
+  // محور هوية: محايد — لا يُكسِب ولا يُخسِر في حد ذاته، بل يقرّر مَن يرضى ومَن يغضب.
+  // لا يدخل في متوسط النتيجة، لكنه يغيّر ديناميكا المكونات والتمويل وسخط المقاتلين.
+  var AXIS = {
+    shr: {
+      n: "مرجعية الشريعة في التشريع", ic: "🕌",
+      s: "موضع الدين من التشريع والقضاء — وعد القيادة لمقاتليها قبل النصر وبعده",
+      lo: "دولة مدنية بقانون", hi: "تحكيم كامل للشريعة"
+    }
+  };
   var REL = {
     us:   "واشنطن", eu: "أوروبا", gulf: "الخليج", tr: "أنقرة",
-    ru:   "موسكو",  il: "تel أبيب", ir: "طهران",   arab: "العرب والأمم"
+    ru:   "موسكو",  il: "تل أبيب", ir: "طهران",   arab: "العرب والأمم"
   };
   var POP = {
     sunn: "القاعدة السنية", alaw: "العلويون", druze: "الدروز",
@@ -73,7 +82,8 @@ var SY = (function () {
       difficulty: 1.0,
       st: {
         leg: 74, coh: 46, sec: 34, eco: 22, srv: 18, mil: 20, sov: 30, dip: 40, dem: 12,
-        press: 78, frag: 62
+        press: 78, frag: 62,
+        shr: 48   // الوعد قائم (الفقه «مصدر رئيسي» في الإعلان الدستوري) والتنفيذ مؤجَّل
       },
       res: { cash: 0.6, cap: 70 },
       rel: { us: 22, eu: 30, gulf: 55, tr: 72, ru: 38, il: 8, ir: 10, arab: 45 },
@@ -227,6 +237,20 @@ var SY = (function () {
     d("leg", (st.srv - 45) * 0.012 + (st.eco - 45) * 0.012 - (st.frag - 50) * 0.01);
     // هجرة الكفاءات ورساميل عند ارتفاع الاحتقان
     d("cash", st.frag > 65 ? -0.10 : (st.eco > 45 ? 0.20 : 0.08));
+    // ===== محور تحكيم الشريعة: سوق ضغط ذو اتجاهين =====
+    var shrPress = (52 - st.shr) * 0.012;   // انجذاب طبيعي إلى «صيغة الوسط» الدستورية
+    if (has(S, "fighters_pledge")) shrPress += 0.35;          // بيعة/وعد للمقاتلين قائم
+    if (has(S, "sharia_council_state")) shrPress += 0.25;     // مأسسة المرجعية داخل الدولة
+    if (has(S, "salafist_split")) shrPress += 0.30;           // منافسة السلفيين على الشارع الديني
+    if (has(S, "minority_pact")) shrPress -= 0.30;            // عقد مع المكونات غير السنية
+    if (has(S, "awqaf_purged")) shrPress -= 0.20;             // ضبط المؤسسة الدينية بيدها
+    if (st.shr > 70) shrPress -= 0.25;                        // كلفة خارجية/مؤسساتية تدفع للتراجع
+    if (st.shr < 32) shrPress += 0.22;                        // ضغط القاعدة يعيد رفع السقف
+    d("shr", shrPress);
+    // كلفة الانزياح: النزول يُغضب المقاتلين، والصعود يُقلق المكونات والمانحين
+    if (st.shr < 32) { d("t_war", 0.22); d("p_sunn", -0.12); d("frag", 0.10); }
+    if (st.shr > 72) { d("p_alaw", -0.22); d("p_christ", -0.18); d("p_druze", -0.12); d("r_eu", -0.10); }
+    if (st.shr >= 45 && st.shr <= 62 && st.dem > 45) { d("coh", 0.10); d("r_gulf", 0.06); }
     return out;
   }
 
@@ -234,12 +258,14 @@ var SY = (function () {
   function collapse(S) {
     var st = S.st;
     if (S.month < 2) return null;
-    if (st.sec < 10 && st.frag > 80) return { id: "X_collapse", t: "انهار احتكار السلاح", d: "تفككت الأجهزة وباتت Milيشيات وقطاع طرق يديرون المحافظات. الدولة اسم على خريطة." };
+    if (st.sec < 10 && st.frag > 80) return { id: "X_collapse", t: "انهار احتكار السلاح", d: "تفككت الأجهزة وباتت ميليشيات وقطاع طرق يديرون المحافظات. الدولة اسم على خريطة." };
     if (st.leg < 12) return { id: "X_legitimacy", t: "انفجر الشارع", d: "شرعية انهارت في الشارع بعد وعود لم تُنفَّذ؛ حراك شعبي يجبر القيادة على الرحيل أو المواجهة الدموية." };
     if (st.mil < 8 && st.press > 82) return { id: "X_deterrence", t: "سقوط الردع", d: "بلا جيش وبلا ضغط منخفض: الجنوب يُبتلع، ودمشق تتفاوض تحت النار على كل شيء." };
     if (S.res.cash < -3 && st.eco < 20) return { id: "X_bankrupt", t: "إفلاس الدولة", d: "رواتب معطلة، ليرة تنهار، مستشفيات تقفل. الانهيار القادم اجتماعي لا عسكري." };
     if (st.coh < 15 && (S.pop.alaw < 12 || S.pop.druze < 12 || S.pop.kurd < 12)) return { id: "X_balkan", t: "تفكك فعلي", d: "مكونات خرجت من العقد الوطني، وخطوط تماس داخلية دائمة: ثلاث سوريات لا دولة واحدة." };
     if (st.frag > 95 && st.sec < 35 && (S.thr.war > 58 || S.thr.isis > 66)) return { id: "X_chaos", t: "فوضى عامة", d: "اقتتال في ثلاث مناطق في شهر واحد، واغتيالات بالجملة، والجيش منشغل بنفسه." };
+    if (st.shr > 88 && S.pop.alaw < 20 && st.coh < 35) return { id: "X_theo", t: "الهوية قبل العقد", d: "تشريعات سريعة بلا عقد وطني: مكونات حليفة انسحبت من الدولة، وحاضنة المقاتلين وحدها في الشارع." };
+    if (st.shr < 14 && S.thr.war > 72 && st.leg < 45) return { id: "X_breach", t: "تمرد الحاضنة", d: "جيل المقاتلين الذين بيعوا على «كتاب الله» خرج على الدولة: خلايا، اعتصامات مسلحة، وخطباء يصفون القصر بالمرتدّ." };
     return null;
   }
 
@@ -303,7 +329,7 @@ var SY = (function () {
     S.line.push({
       m: S.month, leg: S.st.leg, coh: S.st.coh, eco: S.st.eco, mil: S.st.mil,
       sov: S.st.sov, dip: S.st.dip, sec: S.st.sec, dem: S.st.dem, srv: S.st.srv,
-      press: S.st.press, frag: S.st.frag, cash: S.res.cash
+      press: S.st.press, frag: S.st.frag, shr: S.st.shr, cash: S.res.cash
     });
     return { drift: dr, msgs: msgs };
   }
@@ -336,7 +362,7 @@ var SY = (function () {
 
   /* ---------- 13) واجهة المحرك ---------- */
   var api = {
-    STATS: STATS, NEG: NEG, RES: RES, REL: REL, POP: POP, THR: THR,
+    STATS: STATS, NEG: NEG, AXIS: AXIS, RES: RES, REL: REL, POP: POP, THR: THR,
     MONTHS_TOTAL: MONTHS_TOTAL, monthLabel: monthLabel, clamp: clamp,
     initialState: initialState, applyEff: applyEff, addFlags: addFlags, has: has,
     condOK: condOK, getVal: getVal, chance: chance, pickEvent: pickEvent,
@@ -365,7 +391,7 @@ var SY = (function () {
             var v = 0;
             for (var k in eff) {
               var neg = (k === "press" || k === "frag" || k.indexOf("t_") === 0);
-              var wgt = (k in STATS ? 1 : k === "cash" ? 3 : k === "cap" ? 0.6 : (k.indexOf("r_") === 0 ? 0.4 : k.indexOf("p_") === 0 ? 0.9 : neg ? -0.9 : 0.8));
+              var wgt = (k in STATS ? 1 : k in AXIS ? 0 : k === "cash" ? 3 : k === "cap" ? 0.6 : (k.indexOf("r_") === 0 ? 0.4 : k.indexOf("p_") === 0 ? 0.9 : neg ? -0.9 : 0.8));
               v += eff[k] * wgt * (neg ? -1 : 1);
             }
             return v;

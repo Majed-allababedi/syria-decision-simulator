@@ -1,0 +1,140 @@
+{{AI-generated |reason= [[Wikipedia:AI noticeboard/TheBirdsShedTears]] |date=October 2026}}
+{{Short description|Position of religious authority in Syria}}
+{{Use dmy dates|date=August 2026}}
+{{Infobox official post
+| post = Grand Mufti
+| image = صورة شخصية الشيخ أسامة الرفاعي.jpg
+| image_size = 
+| incumbent = [[Osama al-Rifai]]
+| incumbent_since = 28 March 2025
+| status = [[Grand Mufti]] of [[Syria]]
+| style = 
+| member_of = 
+| department = 
+| native_name = {{lang|ar|مفتي سوريا الكبير}}
+| type = Religious leadership / Advisory
+| term_length = Life tenure ''(no fixed term)''
+| formation = {{start date and age|1920|8|3|df=y}}
+| first = [[Muhammad Atallah al-Kasm]]
+| appointer = [[President of Syria]]
+| body = Syria
+}}
+
+The '''Grand Mufti of Syria'''{{efn|{{IPAc-en|ɡ|r|æ|n|d|_|ˈ|m|ʊ|f|t|i|_|ə|v|_|ˈ|s|ɪ|r|i|ə}} {{respell|GRAND|MOOF|tee|of|SEER|ee|ə}}; {{lang|ar|مفتي سوريا الكبير}}, ''Muftī Sūriyā al-Kabīr''}} is a legal religious representative in Syria, responsible for issuing [[fatwa|formal legal opinion]]s and advising on the [[Sharia|Islamic legal code]]. It served as the official post until president [[Bashar al-Assad]] dissolved the office contentiously on 15 November 2021, transferring its duties to the state-aligned agency Supreme Council of Fatwa under the [[Ministry of Endowments (Syria)|Ministry of Endowments]].<ref name="z792">{{cite web | title=Syrian president abolishes position of Grand Mufti | website=Al Jazeera | date=16 Nov 2021 | url=https://www.aljazeera.com/news/2021/11/16/syrian-president-abolishes-position-of-grand-mufti | access-date=5 Nov 2024}}</ref><ref name="q591">{{cite web | title=Syria's Assad scraps top Muslim cleric post | publisher=The New Arab | date=16 Nov 2021 | url=https://www.newarab.com/news/syrias-assad-scraps-top-muslim-cleric-post | access-date=6 Nov 2024}}</ref> However, the [[Syrian opposition]] subsequently re-established the office in territories [[Syrian Interim Government|outside government control]] in an attempt to maintain its historical presence.<ref name="n038">{{cite web | title=احتفاء بقرار "المجلس الإسلامي" تعيين مفت عام لـ سوريا | website=تلفزيون سوريا | date=21 Nov 2021 | url=https://www.syria.tv/%D8%A7%D8%AD%D8%AA%D9%81%D8%A7%D8%A1-%D8%A8%D9%82%D8%B1%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A-%D8%AA%D8%B9%D9%8A%D9%8A%D9%86-%D9%85%D9%81%D8%AA-%D8%B9%D8%A7%D9%85-%D9%84%D9%80-%D8%B3%D9%88%D8%B1%D9%8A%D8%A7 | language=ar | access-date=8 Nov 2024}}</ref><ref name="p822">{{cite web | title=الإفتاء في سوريا.. انتخاب الشيخ "أسامة الرّفاعي" رئيس المجلس الإ | website=Halab Today TV قناة حلب اليوم | date=20 Nov 2021 | url=https://halabtodaytv.net/archives/205574 | language=ar | access-date=8 Nov 2024}}</ref> The office is responsible for independent religious rulings and [[Grand Mufti|Sunni Muslim leadership]] amidst the [[Syrian civil war|ongoing civil conflict]] in the country.<ref name="x557">{{cite web | title=Syrian opposition appoints mufti after Assad abolishes post | publisher=The New Arab | date=21 Nov 2021 | url=https://www.newarab.com/news/syrian-opposition-appoints-mufti-after-assad-abolishes-post | access-date=6 Nov 2024}}</ref>
+
+== History ==
+The position of the [[grand mufti]], originally referred to as [[Shaykh al-Islām]], was established by the [[Ottoman Empire]]. It served as a formal designation for high-ranking [[Islamic scholar]]s. These scholars were entrusted with interpreting [[Islamic jurisprudence]] and offering guidance on religious matters. Although the historical records of muftis from different regions under Ottoman rule are limited, the office extended to various territories, including present-day Syria.<ref name="w281"/><ref name="f492">{{cite web | title=Definition & Significance in Islam | website=Encyclopedia Britannica | date=1 Oct 2024 | url=https://www.britannica.com/topic/mufti#ref290220 | access-date=6 Nov 2024}}</ref> Following the [[dissolution of the Ottoman Empire]] and the establishment of the [[French Mandate of Syria]], the position of the grand mufti continued under local religious leadership.<ref name="a700">{{cite web | last=الخطيب | first=د. معتز | title=الصراع على منصب مفتي سوريا بين النظام والمعارضة | website=الجزيرة نت | date=21 Nov 2021 | url=https://www.aljazeera.net/opinions/2021/11/21/%D8%A7%D9%84%D8%B5%D8%B1%D8%A7%D8%B9-%D8%B9%D9%84%D9%89-%D9%85%D9%86%D8%B5%D8%A8-%D9%85%D9%81%D8%AA%D9%8A-%D8%B3%D9%88%D8%B1%D9%8A%D8%A7-%D8%A8%D9%8A%D9%86-%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%85 | language=ar | access-date=6 Nov 2024}}</ref>
+
+After [[Evacuation Day (Syria)|Syria gained independence]] in 1946, the office was retained under the [[constitution of Syria]]. However, it became more closely regulated by successive secular governments, including the [[Arab Socialist Ba'ath Party – Syria Region|Ba'athist regime]] that came to power following the [[1963 Syrian coup d'état|1963 coup]].<ref name="a700"/> Under [[Ba'athism|Ba'athist rule]], religious institutions in Syria were more closely integrated with the state, and the role of the grand mufti was influenced by policies encouraging alignment between religious authority and [[government interest]]s.<ref name="b003"/>
+
+In the early 1970s, Assad abolished the election process for the position of grand mufti, re-appointing [[Ahmad Kuftaro]] as the grand mufti for life. Kuftaro held the position from 1964 until his death in 2004.<ref name="g441">{{cite web | title=Religious institution in Syria: Al-Assad's old-new target | website=Enab Baladi | date=5 Dec 2021 | url=https://english.enabbaladi.net/archives/2021/12/religious-institution-in-syria-al-assads-old-new-target/ | access-date=6 Nov 2024}}</ref>
+
+=== Dissolution ===
+The decision to abolish the position of grand mufti occurred shortly after Sheikh Ahmad Hassoun, the then-current officeholder, made a statement during the funeral of renowned Aleppo singer [[Sabah Fakhri]]. Hassoun claimed that the [[map of Syria]] is referenced in surah [[At-Tin]] of the Qur'an and asserted that humanity was created in Syria.<ref name="d246">{{cite web | title=An Excommunication in Damascus | website=Carnegie Endowment for International Peace | date=19 Nov 2021 | url=https://carnegieendowment.org/middle-east/diwan/2021/11/an-excommunication-in-damascus?lang=en | access-date=7 Nov 2024}}</ref> He interpreted the Qur'anic verse "{We have indeed created man in the best of moulds}" as referring specifically to "Syrian man," suggesting a spiritual status for Syrians.<ref name="b003">{{cite web | title=The termination of Syria's Grand Mufti position: Has Assad opened the door to secularism? | website=Raseef22 | date=22 Nov 2021 | url=https://raseef22.net/english/article/1085361-the-termination-of-syrias-grand-mufti-poti-position-has-assad-opened-the-door-to | access-date=6 Nov 2024}}</ref> He also associated the surah with [[Syrian refugees]], asserting that those who left the country would face [[divine punishment]]. This interpretation drew significant attention and was widely seen as controversial, generating both religious and public debate regarding his approach to scriptural exegesis and its implications amid Syria's ongoing conflict.<ref name="d246"/>
+
+The changes regarding the grand mufti's position were part of a broader strategy for regime consolidation that began in 2018. The introduction of Law 31 altered the previously held life tenure of the mufti into a three-year term.<ref name="c464">{{cite web | last=Lucas | first=Scott | title=Assad Regime Eliminates Syria's Grand Mufti | website=EA WorldView | date=21 Nov 2021 | url=https://eaworldview.com/2021/11/assad-regime-eliminates-syrias-grand-mufti/ | access-date=5 Nov 2024}}</ref><ref name="o306">{{cite web | last=Aldoughli | first=Rahaf | title=Assad Remakes Syrian Faith to Suit the Regime's Needs | website=New Lines Magazine | date=27 Jun 2022 | url=https://newlinesmag.com/argument/assad-remakes-syrian-faith-to-suit-the-regimes-needs/ | access-date=6 Nov 2024}}</ref>
+
+The decision to abolish the position of grand mufti in Syria is also attributed to multiple factors, including a long-standing [[rivalry]] between Sheikh Ahmad Hassoun, the former grand mufti, and minister of Religious Endowments, [[Mohammed Abdul Sattar]].<ref name="b003"/>
+
+Some observers link the decision to [[financial misconduct]] allegations involving Hassoun, dating back to his time as mufti of [[Aleppo]]. The abolishment attracted a significant shift for Syria, which, for the first time since its independence, lacks a designated role solely responsible for issuing fatwas.<ref name="b003"/> Several groups and critics, including [[Aix-Marseille University]] researcher Thomas Pierret view this as a [[demographic transition]]s in Syria, suggesting a diminishing of Sunni authority<ref name="d827">{{cite journal | last=Pierret | first=Thomas | title=Minister vs. Mufti the struggle over 'moderate Islam' in wartime Syria (2011–2021) | journal=Mediterranean Politics | publisher=Informa UK Limited | date=22 Aug 2024 | issn=1362-9395 | doi=10.1080/13629395.2024.2385780 | doi-access=free | pages=1–27}}</ref> and its influence over [[religious law|religious ruling]]s, personal status laws, and endowment regulations. Instead, the Scholarly Council of Jurisprudence, which along with other state-alleged agencies, now oversees these duties, includes a diverse membership from various religious communities, including Sunni, [[Shi'a]], [[Druze]], [[Alawite]], [[Ismaili]], and [[Christianity|Christian]] representatives.<ref name="b003"/>
+
+The Syrian Islamic Council (SIC) alleged the move as a step toward [[sectarianism]], claiming it benefits the Iranian-backed concept of the [[Guardianship of the Islamic Jurist]]. The SIC also viewed its abolishment as facilitating the inclusion of foreign, pro-Iranian elements within Syria's religious institutions, a move it suggests further distances Syria from its historical Islamic and Arab identity.<ref name="b003"/>
+
+== Appointment and responsibilities ==
+Before the office was abolished in 2021 until it was reestablished in 2025 by the [[Syrian transitional government]], the grand mufti of Syria was appointed by the [[president of Syria]].<ref name="b141">{{cite web | title=In Secular Syria, Top Muslim Cleric Picks Sides In Civil War | website=NPR | date=12 Mar 2013 | url=https://www.npr.org/sections/thetwo-way/2013/03/12/174098975/in-secular-syria-top-muslim-cleric-picks-sides-in-civil-war | access-date=6 Nov 2024}}</ref> Following its subsequent re-establishment by the [[Syrian opposition]] in its controlled areas, it served as the de facto religious authority of Syria.<ref>{{cite web | last=Menmy | first=Dana Taib | author2=The New Arab | last3=Faour | first3=Louay | title=Syrian opposition appoints mufti after Assad abolishes post | publisher=The New Arab | date=21 Nov 2021 | url=https://www.newarab.com/news/syrian-opposition-appoints-mufti-after-assad-abolishes-post | access-date=7 Nov 2024}}</ref>
+
+Although the specific duties and influence of the office varied over time, the grand mufti's general responsibilities include, issuing [[fatwa]]s and providing advisory support. As the highest [[Sunni Muslim|Sunni]] authority in Syria, the grand mufti is also responsible for offering religious guidance to the Sunni Muslim community and participating in promoting [[Islamic studies|Islamic education]] and [[Islamic holidays|observances]], such as [[Ramadan]] and other religious holidays.<ref name="x557"/>
+
+The role of the mufti is not exclusively designated for the Sunni sect; rather, it is entrusted to serve the entire Muslim community. One of the key responsibilities of the mufti is to oversee the affairs of all Islamic sects impartially, ensuring that no discrimination occurs. The appointment to this position involves an electoral process in which Muslim scholars participate.<ref name="awn">{{cite web| url=https://thearabweekly.com/doing-away-mufti-syria |title=Doing away with the Mufti in Syria | website=The Arab Weekly}}</ref>
+
+== Criticism ==
+While the grand mufti's primary role was religious, the office has occasionally been engaged in [[political advocacy]]. In the [[modern history of Syria]], some grand muftis including [[Ahmad Badreddin Hassoun]]<ref name="m834"/> and [[Ahmed Kuftaro]]<ref name="q417">{{cite web | title=Sufism in Syria | website=Religion and Public Life at Harvard Divinity School | url=https://rpl.hds.harvard.edu/faq/sufism-syria | access-date=6 Nov 2024}}</ref> supported government policies, particularly during times of [[Syrian civil war|national crisis]],<ref name="m834">{{cite web | last=Ashiq | first=Peerzada | title=The West puts conditions; the East helps: Syrian Grand Mufti | website=The Hindu | date=3 Oct 2017 | url=https://www.thehindu.com/news/international/the-west-puts-conditions-the-east-helps-syria-grand-mufti-ahmad/article19791850.ece | access-date=5 Nov 2024}}</ref><ref name="m666">{{cite web | last=Hamad | first=Sam | title=By abolishing the Grand Mufti, Assad looks to forge a 'loyal Sunnism' | website=By abolishing the Grand Mufti, Assad looks to forge a ‘loyal Sunnism’ | date=25 Nov 2021 | url=https://www.trtworld.com/opinion/by-abolishing-the-grand-mufti-assad-looks-to-forge-a-loyal-sunnism-52027 | access-date=6 Nov 2024}}</ref> while others such as [[Osama al-Rifai]] opposed them, which has sometimes led to both domestic and international controversy.<ref name="j700">{{cite web | title=Pro-Erdoğan grand mufti of Syria set up a foundation in Turkey to run schools, including a university | website=Nordic Monitor | date=3 Mar 2022 | url=https://nordicmonitor.com/2022/03/pro-erdogan-grand-mufti-of-syria-set-up-a-foundation-in-turkey-to-run-schools-including-university/ | access-date=6 Nov 2024}}</ref> Before the office was dissolved, it has been criticised from opposition groups who viewed the mufti's alignment with the government as compromising religious independence.
+
+Bashar al-Assad's government leveraged the grand mufti's office to gain perceived Sunni religious support amid Syrian civil war and humanitarian crisis.<ref>{{cite web | archive-url =https://web.archive.org/web/20170904133404/https://www.amnestyusa.org/files/human_slaughterhouse.pdf |url=https://www.amnestyusa.org/files/human_slaughterhouse.pdf |title=Human Slaughterhouse |website=Amnesty International USA |archive-date=4 Sep 2017 |access-date=6 Nov 2024}}</ref><ref name="t825">{{cite web | last=Phippen | first=J. Weston | title=Syria's Secret Mass Executions | website=The Atlantic | date=7 Feb 2017 | url=https://www.theatlantic.com/news/archive/2017/02/saydnaya-prison-amnesty-international/515838/ | access-date=6 Nov 2024}}</ref> Sheikh Ahmad Hassoun, during his time as grand mufti, publicly aligned with the Assad regime on various issues, which some critics interpreted as providing religious legitimacy to government actions. Hassoun reportedly approved the [[List of massacres during the Syrian civil war|execution]] of approximately 13,000 political prisoners in [[Saydnaya Prison]] in 2017. While there is no direct evidence confirming Hassoun's role in these executions, his public support of the Assad regime on security and anti-opposition measures has led to perceptions of endorsement by association.<ref name="m666"/><ref name="j273">{{cite web | last=Ullah | first=Areeb | title=Syrian grand mufti 'given power to approve thousands of executions' | website=Middle East Eye | date=7 Feb 2017 | url=https://www.middleeasteye.net/news/syrian-grand-mufti-given-power-approve-thousands-executions | access-date=6 Nov 2024}}</ref>
+
+Prior to the opposition's establishment of the [[grand mufti]] office, the [[religious establishment]] in Syria was historically divided into two entities: the Ministry of Endowments and Religious Affairs (Awqaf) and the office of the grand mufti. Each of these bodies operated within different roles and contexts.<ref name="g441"/>
+
+The Ministry of Endowments primarily focused on local matters, managing religious affairs and overseeing the [[social welfare|welfare of citizens]], including issues related to [[livelihood]]s and [[Islamic holidays|religious observances]]. In contrast, the grand mufti frequently served as a spokesperson for the government, conveying messages to both the domestic population and the international community.<ref name="g441"/>
+
+== List ==
+{{See also|:Category:Grand muftis of Syria}}
+Throughout its history from the [[Arab Kingdom of Syria]] and the [[Syrian Arab Republic]], the post was assumed by the four Sunni Muslim scholars, including a de facto appointment in 2021.
+{{multiple image
+| total_width = 400
+| align       = left
+| direction   = horizontal
+| header      = Syrian Grand Muftis
+| image1      = الشيخ أحمد كفتارو.jpg
+| caption1    = [[Ahmad Kuftaro]]
+| image2      = Ahmad Badreddin Hassoun at the 30th International Islamic Unity Conference in Tehran (01).jpg
+| caption2    = [[Ahmad Badreddin Hassoun]]
+| image3      = صورة شخصية الشيخ أسامة الرفاعي.jpg
+| caption3    = [[Osama al-Rifai]]
+}}
+Following the Syria's [[Occupied Enemy Territory Administration|self-proclaimed independence]], Prince [[Faisal I of Iraq]] was proclaimed king the [[Arab Kingdom of Syria]] and appointed [[Muhammad Atallah al-Kasm]] as the country's first grand mufti. Al-Kasm served in this capacity from 8 March 1920, until his death on 4 August 1938.<ref name="f957">{{cite web | last=موسى | first=محمد خير | title=المفتي الأوّل لسوريا بعد الاستقلال محمّد عطا الله الكسم.. مواجهاتٌ ومبادرات | website=تلفزيون سوريا | date=30 Jan 2022 | url=https://www.syria.tv/%D8%A7%D9%84%D9%85%D9%81%D8%AA%D9%8A-%D8%A7%D9%84%D8%A3%D9%88%D9%91%D9%84-%D9%84%D8%B3%D9%88%D8%B1%D9%8A%D8%A7-%D8%A8%D8%B9%D8%AF-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%82%D9%84%D8%A7%D9%84-%D9%85%D8%AD%D9%85%D9%91%D8%AF-%D8%B9%D8%B7%D8%A7-%D8%A7%D9%84%D9%84%D9%87-%D8%A7%D9%84%D9%83%D8%B3%D9%85-%D9%85%D9%88%D8%A7%D8%AC%D9%87%D8%A7%D8%AA%D9%8C-%D9%88%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A7%D8%AA | language=ar | access-date=7 Nov 2024}}</ref>
+
+The second grand mufti of Syria was [[Ahmad Kuftaro]], who served from 1964 until his death in 2004. He was also the longest-serving grand mufti of the country.<ref name="w281">{{cite web | title=The Office of the Grand Mufti of Syria: A brief history | website=The levant news | date=30 Dec 2015 | url=https://thelevantnews.com/en/article/the-office-of-the-grand-mufti-of-syria-a-brief-history | access-date=6 Nov 2024}}</ref> The third and the last officially appointed grand mufti was [[Ahmad Badreddin Hassoun]], who held the position from 2005 to 2021.<ref name="z792"/>
+
+[[Osama al-Rifai]] currently serves as the grand mufti appointed by the [[Syrian opposition]] in November 2021, following the formal abolition of the office by the [[Syrian government]] earlier that year. This makes him the first [[de facto]] grand mufti appointed outside government control.<ref>{{cite web | title=Pro-Erdoğan grand mufti of Syria set up a foundation in Turkey to run schools, including a university | website=Nordic Monitor | date=3 Mar 2022 | url=https://nordicmonitor.com/2022/03/pro-erdogan-grand-mufti-of-syria-set-up-a-foundation-in-turkey-to-run-schools-including-university/ | access-date=4 Nov 2024}}</ref> After the [[fall of Assad regime]] in December 2024, he was appointed as the official Grand Mufti on 28 March 2025 by President [[Ahmed al-Sharaa]].<ref>{{Cite web |title=عارض عائلة الأسد وعاش في المنفى.. تعرّف على المفتي الجديد لسوريا |url=https://www.aljazeera.net/encyclopedia/2025/3/29/%D8%A7%D9%84%D8%B4%D9%8A%D8%AE-%D8%A3%D8%B3%D8%A7%D9%85%D8%A9-%D8%A7%D9%84%D8%B1%D9%81%D8%A7%D8%B9%D9%8A-%D8%A7%D9%84%D9%85%D9%81%D8%AA%D9%8A-%D8%A7%D9%84%D8%B9%D8%A7%D9%85 |access-date=2025-03-29 |website=الجزيرة نت |language=ar}}</ref>
+{{Col-begin}}
+{{col-2}}
+{{col-end}}
+{|class="wikitable sortable" style="width:100%; text-align:center"
+|-
+! rowspan="2" |#
+! rowspan="2" |Portrait
+! rowspan="2" |Name 
+{{small|{{nowrap|(Birth–Death)}}}}
+! rowspan="2" |Home state
+! colspan="3" |Term of office
+! rowspan="2" |[[President of Syria|President]]/monarchy
+|-
+! Assumed office
+! Left office
+! Time in office
+|-
+! 1
+| N/A
+| '''[[Muhammad Atallah al-Kasm]]'''<br />{{small|(1844–1938)}}
+| [[Damascus]]
+| 8 March 1920
+| 4 August 1938
+| 18 years, 147 days
+| [[Faisal I of Iraq]] (king of the [[Arab Kingdom of Syria]])
+|-
+! 2
+| [[File:الشيخ أحمد كفتارو.jpg|100px]]
+| '''[[Ahmad Kuftaro]]'''<br />{{small|(1915–2004)}}
+| [[Damascus]]
+| 1964
+| 2004
+| {{circa|40 years}}
+| [[Amin al-Hafiz]]<br />[[Nureddin al-Atassi]]<br />[[Hafez al-Assad]]<br />[[Bashar al-Assad]]
+|-
+! 3
+| [[File:Ahmad Badreddin Hassoun at the 30th International Islamic Unity Conference in Tehran (01).jpg|100px]]
+| '''[[Ahmad Badreddin Hassoun]]'''<br />{{small|(born 1949)}}
+| [[Aleppo]]
+| 16 July 2005
+| 15 November 2021
+| 16 years, 122 days
+| [[Bashar al-Assad]]
+|-
+! 4
+| [[File:صورة شخصية الشيخ أسامة الرفاعي.jpg|100px]]
+| '''[[Osama al-Rifai]]'''<br />{{small|(1944{{snd}}present}})
+| [[Damascus]]
+|14 November 2021<br>{{small|(In opposition)}}
+28 March 2025
+|Incumbent
+|{{age in years and days|2021|11|14}}
+| [[Syrian Interim Government]]<br>[[Ahmed al-Sharaa]] (from 2025)
+|}
+
+== References ==
+{{reflist}}
+
+{{notelist}}
+
+[[Category:Grand muftis of Syria]]
+[[Category:Religious leadership roles]]

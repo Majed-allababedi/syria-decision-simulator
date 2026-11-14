@@ -10,7 +10,7 @@
   --orange:#f0904f; --teal:#3fc9c0;
   --r-leg:#e7bf5c; --r-coh:#4ea6e8; --r-sec:#46c97a; --r-eco:#f0904f; --r-srv:#3fc9c0;
   --r-mil:#a98ae8; --r-sov:#7fc96b; --r-dip:#e07ba6; --r-dem:#8fb2e8;
-  --r-press:#e8615f; --r-frag:#ff9a6b;
+  --r-press:#e8615f; --r-frag:#ff9a6b; --r-shr:#c9952f;
   --shadow:0 10px 30px rgba(0,0,0,.45);
   --mono:"IBM Plex Mono","Courier New",monospace;
 }
@@ -27,6 +27,12 @@ body{
 }
 a{color:var(--gold)}
 .hidden{display:none !important}
+/* محور الهوية: محايد — لون خاص ولا يُحسَب ربحاً أو خسارة */
+.g.axis{border-color:#3d4d63;background:linear-gradient(180deg,#182231cc,#121b26cc)}
+.g.axis .gv{color:var(--r-shr)}
+.gd.neu{color:var(--dim2)}
+.axisnote{margin-top:8px;padding:8px 10px;border:1px dashed #3d4d63;border-radius:10px;background:#121b26aa;color:var(--dim);font-size:12.5px}
+
 .wrap{max-width:1240px;margin:0 auto;padding:18px 16px 80px}
 
 /* ---------- شريط علوي ---------- */
@@ -160,6 +166,7 @@ a{color:var(--gold)}
 .eff{font-size:.78rem;padding:2px 9px;border-radius:9px;font-family:var(--mono)}
 .eff.up{background:#12331f;color:#7ce79c}.eff.dn{background:#3a1a1a;color:#f7a0a0}
 .eff.nu{background:#1b2634;color:var(--dim)}
+.eff.ax{background:#2b2416;color:#e5c47a;border:1px dashed #6b5a2e}
 .reality{border:1px dashed #2d4a35;background:#0e1a13;border-radius:12px;padding:12px 14px;margin-top:12px;font-size:.88rem}
 .reality b{color:var(--green)}
 .reality .rt{font-size:.78rem;color:#7ec896;letter-spacing:.4px;margin-bottom:5px;font-weight:700}

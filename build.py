@@ -41,7 +41,7 @@ def load_data():
 
 def validate(data):
     errs = []
-    keys = set("""leg coh sec eco srv mil sov dip dem press frag cash cap""".split())
+    keys = set("""leg coh sec eco srv mil sov dip dem press frag shr cash cap""".split())
     for p in ["r_us", "r_eu", "r_gulf", "r_tr", "r_ru", "r_il", "r_ir", "r_arab",
               "p_sunn", "p_alaw", "p_druze", "p_kurd", "p_christ", "p_trib",
               "t_isis", "t_rem", "t_war"]:

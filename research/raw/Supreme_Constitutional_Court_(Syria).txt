@@ -1,0 +1,81 @@
+{{Short description|Highest legal body for constitutional review in Syria}}
+{{Infobox high court
+| court_name = Supreme Constitutional Court
+| native_name = {{Script/Arabic|المحكمة الدستورية العليا}}
+| image = Emblem of Syria (2025–present).svg
+| imagesize = 80 px
+| caption = [[Emblem of Syria]]
+| established = {{start date and age|df=yes|1973}}<hr>{{start date and age|df=yes|2026}}<br>(current form)
+| location = [[Damascus]], Syria
+| type = Appointment by the [[President of Syria]]
+| authority = [[Constitutional Declaration of the Syrian Arab Republic|Constitutional Declaration]] (2025)
+| positions = 7 members, including the [[List of presidents of the Supreme Constitutional Court (Syria)|court president]]
+| terms = No fixed term
+| chiefjudgetitle = [[List of presidents of the Supreme Constitutional Court (Syria)|President]]
+| chiefjudgename = [[Issam al-Khalif]]
+| termstart = 11 July 2026
+}}
+{{Politics of Syria}}
+
+The '''Supreme Constitutional Court''' ({{langx|ar|المحكمة الدستورية العليا}}, ''Al-Mahkamah al-Dustūrīyah al-‘Ulyā'') is the highest court within the [[judiciary of Syria]].<ref name="newinterimconstition2" /> Composed of seven members, the court has the power to exercise [[constitutional review]] of laws and regulations and to provide opinions on the [[constitutionality]] of draft legislation at the request of the [[President of Syria]].<ref>{{Cite web |date=2026-07-07 |title=President al-Sharaa appoints President of Supreme Constitutional Court |url=https://sana.sy/en/presidency/2328021/ |access-date=2026-07-10 |language=en-US}}</ref> It also provides opinions on the constitutionality of proposed [[legislation]] at the request of the [[Speaker of the People's Assembly of Syria|Speaker of the People’s Assembly]] or the President of Syria, and interprets the provisions of the [[Constitutional Declaration of the Syrian Arab Republic|Constitutional Declaration]] upon request from either authority.<ref name=":1" />
+
+The current members of the Court are [[Issam al-Khalif]], who serves as its president, [[Khairallah Ghanoum]], Muhammad Mustafa Sbeih, Iman Antoine Nouri, [[Ismail al-Khalfan]], [[Rayan Kahilan]], and [[Aref al-Shaal]].<ref name=":2" />
+
+==History==
+
+=== Ba'athist Syria ===
+The Supreme Constitutional Court was established under the [[Syrian Constitution of 1973]] to adjudicate electoral disputes, rule on the constitutionality of a law or decree challenged by the president or People's Council, and to render opinions on the constitutionality of bills, decrees, and regulations when requested to do so by the president; it does not hear appeals.<ref name=":0">{{cite encyclopedia |title=Syria: a country study |publisher=[[Federal Research Division]], [[Library of Congress]] |location=Washington, D.C. |url=https://www.loc.gov/item/87600488/ |date=1988 |editor-last=Collelo |editor-first=Thomas |pages=191–192 |isbn= |oclc=44250830 |postscript=. {{PD-notice}}}}</ref> The High Constitutional Court was, however, prohibited from reviewing the validity of laws approved by popular referendum and submitted by the President of the Republic.<ref name=":0" /> The court consisted of a president and four judges appointed by the president to serve renewable four-year terms.<ref name=":0" /> 
+
+The last person to hold the position of President of the Supreme Constitutional Court under [[Ba'athist Syria]] was [[Mohammad Jihad al-Laham]], who remained in office until the [[fall of the Assad regime]].<ref name=":2">{{Cite web |date=2026-07-08|title=Al-Sharaa Appoints Constitutional Court Head, Members|url=https://english.enabbaladi.net/archives/2026/07/al-sharaa-appoints-constitutional-court-head-members/|access-date=2026-07-09|website=Enab Baladi|language=en-US}}</ref>
+
+=== Post-Ba'athist Syria ===
+Under Article 47 of the [[Constitutional Declaration of the Syrian Arab Republic]], the existing Supreme Constitutional Court 'shall be dissolved, and a new Supreme Constitutional Court shall be established'.<ref name="newinterimconstition2">{{Cite web |date=13 March 2025 |title=Constitutional Declaration of the Syrian Arab Republic |url=https://constitutionnet.org/sites/default/files/2025-03/2025.03.13%20-%20Constitutional%20declaration%20%28English%29.pdf |url-status=live |archive-url=https://web.archive.org/web/20250318030710/https://constitutionnet.org/sites/default/files/2025-03/2025.03.13%20-%20Constitutional%20declaration%20%28English%29.pdf |archive-date=18 March 2025 |access-date=18 March 2025}}</ref>
+
+On 7 July 2026, President [[Ahmed al-Sharaa]] issued a decree appointing [[Issam al-Khalif]] as president of the Supreme Constitutional Court, with six further members being appointed to the court.<ref>{{Cite web |date=2026-07-07 |title=President al-Sharaa appoints President of Supreme Constitutional Court |url=https://sana.sy/en/presidency/2328021/ |access-date=2026-07-08 |language=en-US}}</ref> On 19 July, the court held its inaugural meeting to begin drafting legislation governing its functions and defining its jurisdiction.<ref>{{Cite web |date=2026-07-19 |title=Syria’s Supreme Constitutional Court holds first meeting to discuss draft law |url=https://sana.sy/en/syria/2330598/ |access-date=2026-07-19 |language=en-US}}</ref>
+
+==Composition==
+Section 2 of Article 47 of the [[Constitutional Declaration of the Syrian Arab Republic]] states that the Supreme Court shall consist of seven members appointed by the [[President of Syria|President of the Syrian Arab Republic]], each possessing integrity, competence, and experience, with its functions and authority regulated by law.<ref name="newinterimconstition2" />
+
+As of 7 July 2026, the current members of the Supreme Constitutional Court are [[Issam al-Khalif]], whom serves as its president, [[Khairallah Ghanoum]], Muhammad Mustafa Sbeih, Iman Antoine Nouri, [[Ismail al-Khalfan]], [[Rayan Kahilan]], and [[Aref al-Shaal]].<ref name=":2" /> The members of the court took the constitutional oath before President [[Ahmed al-Sharaa]] at the [[People's Palace (Syria)|People’s Palace]] in Damascus on 11 July and formally assumed their duties.<ref>{{Cite web |date=2026-07-11|title=Before President al-Sharaa, Supreme Constitutional Court president, members sworn in|url=https://sana.sy/en/syria/2328853/|access-date=2026-07-11|language=en-US}}</ref>
+{| class="wikitable sortable"; text-align:center;"
+|-
+! #
+! Name
+! Rank
+! Assumed office
+! Appointed by
+|-
+| 1 ||[[Issam al-Khalif]]||[[List of presidents of the Supreme Constitutional Court (Syria)|President]]|| 11 July 2026 || [[Ahmed al-Sharaa]]
+|-
+| 2 ||[[Aref al-Shaal]]|| Member || 11 July 2026 || Ahmed al-Sharaa
+|-
+| 3 ||Iman Antoine Nour|| Member || 11 July 2026 || Ahmed al-Sharaa
+|-
+| 4 ||[[Ismail al-Khalfan]]|| Member || 11 July 2026 || Ahmed al-Sharaa
+|-
+| 5 || [[Khairallah Ghanoum]]|| Member || 11 July 2026 || Ahmed al-Sharaa
+|-
+| 6 || Muhammad Mustafa Sbeih || Member || 11 July 2026 || Ahmed al-Sharaa
+|-
+| 7 || [[Rayan Kahilan]]|| Member || 11 July 2026 || Ahmed al-Sharaa
+|-
+|}
+
+== Duties ==
+Under Decree No. 149 issued on 7 July 2026, the Supreme Constitutional Court will 'undertake essential tasks until the law regulating its working mechanism and jurisdiction is issued', such as monitoring the constitutionality of laws and regulations according to the [[Constitutional Declaration of the Syrian Arab Republic]], interpreting the Constitutional Declaration at the request of the president or [[Speaker of the People's Assembly of Syria|speaker of the People's Assembly]] and advising the president regarding the constitutionality of laws drafted by the People's Assembly.<ref name=":1">{{Cite web |date=2026-07-07 |title=الرئيس الشرع يصدر مرسوماً بتعيين رئيس وأعضاء المحكمة الدستورية العليا ويحدد مهامها |url=https://sana.sy/presidency/2521537/ |access-date=2026-07-08 |language=ar}}</ref>
+
+==See also==
+*[[Judiciary of Syria]]
+*[[High Judicial Council]]
+*[[Syrian Constitution]]
+*[[Syrian Constitution of 1973]]
+
+==References==
+{{reflist}}
+{{Current members of the Supreme Constitutional Court (Syria)}}
+{{Syria topics}}
+{{Asia topic|Supreme Court of|title=Supreme Courts of Asia|countries_only=yes}}
+
+[[Category:National supreme courts|Syria]]
+[[Category:Judiciary of Syria]]
+[[Category:Government of Syria]]

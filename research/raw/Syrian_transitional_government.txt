@@ -1,0 +1,394 @@
+{{Short description|Provisional government of Syria since 2025}}
+{{About|the government led by Ahmed al-Sharaa|the events of Ahmed al-Sharaa's tenure as president|Presidency of Ahmed al-Sharaa}}
+{{Distinguish|Syrian caretaker government|Syrian Interim Government|Syrian Salvation Government}}
+{{Use dmy dates|date=July 2025}}
+{{Infobox government cabinet
+|cabinet_number = 98th
+|cabinet_type = [[Council of Ministers (Syria)|government]]
+| jurisdiction = the [[Syria|Syrian Arab Republic]]
+| flag = Flag of Syria (2025-).svg
+| incumbent = [[Presidency of Ahmed al-Sharaa|2025–present]]
+| caption = Syrian president [[Ahmed al-Sharaa]], the head of the Syrian transitional government
+| date_formed = {{Start date|2025|03|29|df=y}}
+| date_dissolved = 
+| government_head_title = [[President of Syria|President]]
+| government_head = [[Ahmed al-Sharaa]]
+| government_head_history = [[List of heads of state of Syria|Leader of Syria]] (2024–2025)
+| deputy_government_head_title = [[Vice President of Syria|Vice President]]
+| deputy_government_head = ''Vacant''
+| members_number = 23
+| legislature_status = 
+| legislature_term = [[Transitional People's Assembly of Syria|Transitional People's Assembly]]
+| political_parties = {{Party stripe|Independent politician}}[[Independent politician|Independent]]
+| previous = [[Syrian caretaker government|Caretaker]]
+| successor = 
+| image = Ahmed al-Sharaa, President of Syria, in March 2026.jpg
+}}
+{{Politics of Syria}}
+The '''Syrian transitional government''',{{efn|{{langx|ar|الحكومة الانتقالية السورية|al-Ḥukūmah al-Intiqāliyyah as-Sūriyyah}}}} also known as the '''Ahmed al-Sharaa government''', is the current provisional government of Syria. It was established on 29 March 2025 under President Ahmed al-Sharaa and is set to serve for a five-year transitional period under the [[Constitutional Declaration of the Syrian Arab Republic|Constitutional Declaration]], which establishes a  [[presidential system]]. As president, al-Sharaa has the authority to appoint and dismiss ministers and accept their resignations. The government succeeded the [[Syrian caretaker government]], which was headed by [[Mohammed al-Bashir]] during the period when al-Sharaa served as Syria's de facto leader and held authority over the caretaker government before his appointment as president.<ref name="UN Heads pdf">{{cite web|url=https://www.un.org/dgacm/sites/www.un.org.dgacm/files/Documents_Protocol/hspmfmlist.pdf|title=HEADS OF STATE HEADS OF GOVERNMENT MINISTERS FOR FOREIGN AFFAIRS|publisher=United Nations|access-date=}}</ref>{{Ahmed al-Sharaa series}}
+
+The government was announced by Ahmed al-Sharaa at a ceremony at the [[People's Palace (Syria)|People's Palace]] in [[Damascus]], where the new ministers were sworn in and delivered speeches outlining their agendas. Two new ministries were formed: the [[Ministry of Sports and Youth (Syria)|Ministry of Sports and Youth]] and [[Ministry of Emergency and Disaster Management]]. The position of [[Prime Minister of Syria|Prime Minister]] was abolished. The [[Ministry of Energy (Syria)|Ministry of Energy]] was formed from the mergers of the [[Ministry of Electricity (Syria)|Ministry of Electricity]], the [[Ministry of Oil and Mineral Resources (Syria)|Ministry of Oil and Mineral Resources]] and the [[Ministry of Water Resources (Syria)|Ministry of Water Resources]],<ref>{{Cite web |last=Lister |first=Charles |date=30 March 2025 |title=Assessing Syria's Transitional Government |url=https://www.syriaweekly.com/p/assessing-syrias-transitional-government |access-date=31 March 2025 |website=Syria Weekly ([[Substack]]) |quote=In forming the new transitional government, Ahmed al-Sharaa has folded in Syria's long-standing ministerial positions responsible for electricity, oil and gas into the Minister of Energy's portfolio}}{{subscription required}}</ref><ref>{{cite web |date=29 March 2025 |title=دمج وزارتي الكهرباء والنفط.. الرئيس السوري يُعلن عن إصلاحات شاملة للقطاع |trans-title=Merger of the Ministries of Electricity and Oil.. Syrian president announces comprehensive sector reforms |url=https://alhorianews.com/دمج-وزارتي-الكهرباء-والنفط-الرئيس-الس/ |url-status=live |archive-url=https://archive.today/20250407203013/https://alhorianews.com/دمج-وزارتي-الكهرباء-والنفط-الرئيس-الس/ |archive-date=7 April 2025 |access-date=7 April 2025 |website=Alhoria News |language=ar}}</ref><ref name=":0" /> while the [[Ministry of Economy and Industry (Syria)|Ministry of Economy and Industry]] was formed from the mergers of the [[Ministry of Economy and Foreign Trade]], [[Ministry of Internal Trade and Consumer Protection]] and the [[Ministry of Industry (Syria)|Ministry of Industry]].<ref name=":0">{{Cite web |date=3 April 2025 |title=رئاسة الجمهورية: قرار رئاسي بإعلان التشكيل الوزاري لحكومة الجمهورية العربية السورية |trans-title=Presidency of the Republic: Presidential Decree Announcing the Ministerial Formation of the Government of the Syrian Arab Republic |url=https://www.sana.sy/?p=2204522 |access-date=6 April 2025 |website=[[Syrian Arab News Agency]] |language=ar}}</ref> On 9 May 2026, as part of a partial government reshuffle, al-Sharaa appointed [[Khaled Fawaz Zaarour]] and [[Basel al-Suweydan]] as the Ministers of Information and Agriculture, replacing [[Hamza al-Mustafa]] and [[Amjad Badr]] respectively.<ref name=":3">{{Cite web |date=2026-05-10 |title=President Ahmad al-Sharaa appoints Khaled Fawaz Zaarour minister of information |url=https://sana.sy/en/presidency/2315733/ |access-date=2026-05-16 |language=en-US}}</ref><ref name=":4">{{Cite web |date=2026-05-09 |title=President Ahmad al-Sharaa appoints Basel Hafez al-Suwaidan Minister of Agriculture |url=https://sana.sy/en/presidency/2315736/ |access-date=2026-05-16 |language=en-US}}</ref> On 19 October 2026, as al-Sharaa appointed [[Basel Abdul Hannan]] as the Minister of Industry, Internal Trade and Consumer Protection.<ref>{{cite news |title=مرسوم بتعيين باسل عبد العزيز عبد الحنان وزيراً للصناعة والتجارة الداخلية وحماية المستهلك |trans-title=Decree appointing Basel Abdulaziz Abdul Hannan as Minister of Industry, Internal Trade and Consumer Protection |url=https://sana.sy/presidency/2611323 |access-date=20 October 2026 |agency=[[Syrian Arab News Agency]] |date=19 October 2026 |language=ar}}</ref><ref>{{cite news |title=بعد فصلها عن الاقتصاد.. تعيين باسل عبد الحنان وزيراً للصناعة والتجارة الداخلية |trans-title=After being separated from the Economy.. appointment of Basel Abdel Hannan as Minister of Industry and Internal Trade |url=https://www.syria.tv/بعد-فصلها-عن-الاقتصاد-تعيين-باسل-عبد-الحنان-وزيراً-للصناعة-والتجارة-الداخلية |access-date=20 October 2026 |agency=[[Syria TV]] |date=19 October 2026}}</ref>
+
+==Background==
+The [[2024 Syrian opposition offensives]], codenamed "Deterrence of Aggression", were led by [[Hay'at Tahrir al-Sham]] and supported by allied [[Turkey|Turkish]]-backed groups in the [[Syrian National Army]]. These offensives resulted in the rapid [[Fall of the Assad regime|fall]] of [[Bashar al-Assad]]'s [[Ba'athist Syria|dictatorship]], ending five decades of [[Assad family]] rule that began when [[Hafez al-Assad]] assumed power in 1970 under the [[Ba'ath Party (Syrian-dominated faction)|Ba'ath Party]] following a [[Corrective Movement (Syria)|coup d'état]].<ref>{{Cite web |last1=Gebeily |first1=Maya |last2=Azhari |first2=Timour |date=8 December 2024 |access-date=7 April 2025 |title=Assad gets asylum in Russia, rebels sweep through Syria |url=https://www.reuters.com/world/middle-east/syria-rebels-celebrate-captured-homs-set-sights-damascus-2024-12-07/ |url-access=registration |url-status=live |archive-url=https://archive.today/20241218174033/https://www.reuters.com/world/middle-east/syria-rebels-celebrate-captured-homs-set-sights-damascus-2024-12-07/ |archive-date=18 December 2024 |website=[[Reuters]]}}</ref>
+
+After the fall of the Assad regime, Bashar al-Assad's ninth prime minister, [[Mohammad Ghazi al-Jalali]], remained in his post in a caretaker capacity with the support of the opposition and [[Ahmed al-Sharaa]] until the formation of the [[Syrian caretaker government|caretaker government]], which was led by [[Mohammed al-Bashir]].<ref>{{cite web |date=8 December 2024 |title=الجولاني: المؤسسات العامة ستبقى تحت إشراف رئيس الوزراء السابق |trans-title=Al-Julani: Public institutions will remain under the supervision of the former Prime Minister |url=https://aawsat.com/العالم-العربي/المشرق-العربي/5089360-الجولاني-المؤسسات-العامة-ستبقى-تحت-إشراف-رئيس-الوزراء-السابق |website=[[Asharq Al-Awsat]] |language=ar |access-date=1 April 2025 |archive-date=16 December 2024 |archive-url=https://web.archive.org/web/20241216235920/https://aawsat.com/العالم-العربي/المشرق-العربي/5089360-الجولاني-المؤسسات-العامة-ستبقى-تحت-إشراف-رئيس-الوزراء-السابق |url-status=live }}</ref><ref>{{cite web |title=Mohammed al-Bashir appointed as Syria's prime minister after Assad's fall |url=https://ilkha.com/english/world/mohammed-al-bashir-appointed-as-syria-s-prime-minister-after-assad-s-fall-431618 |website=Ilke News Agency |date=9 December 2024 |access-date=1 April 2025 |archive-date=11 December 2024 |archive-url=https://web.archive.org/web/20241211193842/https://ilkha.com/english/world/mohammed-al-bashir-appointed-as-syria-s-prime-minister-after-assad-s-fall-431618 |url-status=live}}</ref> On 12 February 2025, two major organizations of the former [[Syrian opposition (2011–2024)|Syrian opposition]], the [[National Coalition of Syrian Revolutionary and Opposition Forces|Syrian National Coalition]] and the [[Syrian Negotiation Commission]], announced their allegiance to the caretaker government.<ref>{{cite news |url=https://syrianobserver.com/syrian-actors/syrian-negotiating-committee-and-coalition-prepare-for-dissolution-in-meeting-with-president-al-sharaa.html |title= Syrian Negotiating Committee and National Coalition prepare for dissolution in meeting with president al-Sharaa |date=13 February 2025|website=The Syrian Observer|accessdate=13 February 2025}}</ref> On 11 March 2025, al-Sharaa signed an [[Syrian peace process#SDF peace deal|agreement]] with [[Mazloum Abdi]], the commander of the [[Syrian Democratic Forces]] (SDF), to incorporate SDF-controlled institutions into the state, establish border crossings, and pledge to fight the remnants of the Assad regime.<ref>{{Cite web |date=11 March 2025 |title=Syria signs deal to merge SDF into state institutions |url=https://www.middleeastmonitor.com/20250311-syria-signs-deal-to-merge-sdf-into-state-institutions/ |access-date=13 March 2025 |website=[[Middle East Monitor]]}}</ref> The deadline for the merger was set for the end of 2025.<ref>{{Cite web |title=Syrian Government and SDF Reach Landmark Agreement on Kurdish Rights and Security |url=https://npasyria.com/en/123033/ |date=10 March 2025 |access-date=10 March 2025 |website=North Press Agency |language=en}}</ref>
+
+The government implemented the [[Constitutional Declaration of the Syrian Arab Republic]], a [[provisional constitution]] ratified by al-Sharaa on 13 March 2025, establishing the [[basic law]] of Syria for a five-year transition period from 2025 to 2030.<ref>{{Cite news |title=Syrian leader signs constitution that puts the country under an Islamist group's rule for 5 years |url=https://edition.cnn.com/2025/03/13/middleeast/syria-constitution-ap-intl/index.html |date=14 March 2025 |access-date=14 March 2025 |publisher=[[CNN International]] |language=en}}</ref> The Constitutional Declaration sets a [[presidential system]] with the executive power at the hands of the president who appoints the ministers,<ref>{{cite web |date=14 March 2025 |title=Syria's new constitution gives sweeping powers, ignores minority rights |url=https://www.rfi.fr/en/middle-east/20250314-syria-s-new-constitution-gives-sweeping-powers-ignores-minority-rights |accessdate=15 March 2025 |publisher=[[Radio France Internationale]]}}</ref> without the position of [[Prime Minister of Syria|prime minister]].<ref>{{cite web |date=12 March 2025 |title=Syria's Constitutional Draft Set for Release as Fact-Finding Committee Begins Investigations |url=https://www.watanserb.com/en/2025/03/12/syrias-constitutional-draft-set-for-release-as-fact-finding-committee-begins-investigations/ |accessdate=16 March 2025 |publisher=[[Watan (newspaper)|Watan Serb]]}}</ref>
+
+==Formation==
+[[File:Syrian President decrees 9 29-03-2025.pdf|thumb|Presidential Decree No. 9 of 2025, forming the transitional government]]
+The government was announced by Syrian president [[Ahmed al-Sharaa]] at a ceremony at the [[Presidential Palace, Damascus|Presidential Palace]] in [[Damascus]],<ref>{{Cite web |date=30 March 2025 |title=President al-Sharaa announces formation of the New Government: We are witnessing the birth of a new phase in our national process |url=https://www.sana.sy/en/?p=350809 |access-date=29 March 2025 |website=[[Syrian Arab News Agency]]}}</ref> in which the new ministers were sworn in and delivered speeches outlining their agendas.<ref>{{Cite web |date=29 March 2025 |title=وزراء الحكومة السورية يقدمون خططهم ويؤدون القسم الدستوري |trans-title=Syrian government ministers present their plans and take the constitutional oath |url=https://www.syria.tv/وزراء-الحكومة-السورية-يقدمون-خططهم-ويؤدون-القسم-الدستوري |access-date=29 March 2025 |website=[[Syria TV (Fadaat Media)|Syria TV]] |language=ar}}</ref> Two new ministries were formed: the [[Ministry of Sports and Youth (Syria)|Ministry of Sports and Youth]] and [[Ministry of Emergency and Disaster Management]].<ref>{{Cite web |title=نص الإعلان الدستوري لسوريا 2025 |trans-title=Text of the Constitutional Declaration of Syria 2025 |url=https://www.aljazeera.net/encyclopedia/2025/3/14/نص-الإعلان-الدستوري-لسوريا-2025 |date=14 March 2025 |access-date=29 March 2025 |website=[[Al Jazeera Arabic]] |language=ar |archive-url=https://web.archive.org/web/20250314135843/https://www.aljazeera.net/encyclopedia/2025/3/14/نص-الإعلان-الدستوري-لسوريا-2025 |archive-date=14 March 2025 |url-status=live}}</ref> The post of prime minister was abolished.<ref name=":2">{{Cite web |title=Syrian president unveils transitional government |url=https://www.aljazeera.com/news/2025/3/30/syrian-president-unveils-transitional-government |date=30 March 2025 |access-date=30 March 2025 |website=[[Al Jazeera English]] |language=en}}</ref>
+
+Four of the new ministers belonged to minority ethnic groups or religions: [[Yaarub Bader]], an [[Alawites|Alawite]]; [[Amjad Badr]], a [[Druze]]; [[Hind Kabawat]], a [[Christians|Christian]]; and [[Mohammad Abdul Rahman Tarkou]], a [[Kurds in Syria|Kurd]].<ref name=":2"/> The government also included figures from different groups of the former [[Syrian opposition (2011–2024)|Syrian opposition]]: during the [[Syrian civil war|civil war]], [[Mohammed Abu al-Khair Shukri]] was a member of the [[National Coalition of Syrian Revolutionary and Opposition Forces|Syrian National Coalition]], [[Raed al-Saleh]] was director of the [[White Helmets (Syrian civil war)|White Helmets]] and Hind Kabawat served as deputy head of the [[Syrian Negotiation Commission]] in Geneva.<ref>{{cite web |title=Syrian Ambassador to UAE defects |url=https://gulfnews.com/world/mena/syrian-ambassador-to-uae-defects-1.1053545 |website=[[Gulf News]] |date=15 September 2018 |access-date=7 April 2025}}</ref> The new government was described by some observers as technocratic, with "ministers chosen according to their competences" by President al-Sharaa.<ref>{{cite web|url=https://www.dw.com/en/is-syrias-new-technocratic-cabinet-as-inclusive-as-it-could-be/a-72100412|title=How inclusive is Syria's new technocratic cabinet?|first=Cathrin|last=Schaer|publisher=DW|date=31 March 2025|accessdate=19 May 2025}}</ref> 
+
+Al-Sharaa also retained [[Asaad al-Shaibani]] as [[Ministry of Foreign Affairs and Expatriates (Syria)|Minister of Foreign Affairs and Expatriates]] and [[Murhaf Abu Qasra]] as [[Ministry of Defense (Syria)|Minister of Defense]].<ref>{{Cite web |date=30 March 2025 |title=President al-Sharaa announces formation of the New Government: We are witnessing the birth of a new phase in our national process |url=https://www.sana.sy/en/?p=350809 |url-status=live |archive-url=https://web.archive.org/web/20250330132130/https://www.sana.sy/en/?p=350809 |archive-date=30 March 2025 |access-date=2 April 2025 |publisher=[[Syrian Arab News Agency]]}}</ref>
+
+== Policies ==
+
+===Possible reforms===
+[[President of Syria|Syrian president]] [[Ahmed al-Sharaa]] stated that the new government will reform the energy sector for sustainability and reliable electricity, support farmers to ensure food production, revive the industry, protect national products, attract investment, stabilize the economy, strengthen the [[Syrian pound]], and prevent financial manipulation.<ref name=":1" />
+
+On 16 April, 2025, Syria's minister of the interior, [[Anas Khattab]], announced that government forces had successfully thwarted an attempted coup by officers loyal to the old regime and that the government would create mechanisms to identify those responsible.<ref name="npasyria">{{Cite web |last=Roj |first=Kardo |date=16 April 2025 |title=Syrian Authorities Foil Alleged Coup Plot by Former Regime Officers |url=https://npasyria.com/en/124538/ |access-date=18 April 2025 |website=NPA Syria}}</ref><ref>{{Cite web |title=Coup plot by former regime officers foiled- Syrian interior minister |url=https://jordandaily.net/syrian-interior-minister-says-coup-plot-by-former-regime-officers-foiled/ |access-date=18 April 2025 |website=Jordan Daily}}</ref><ref>{{Cite web |title=Syrian Interior Minister says it thwarted coup attempt |url=https://akipress.com/news:828154:Syrian_Interior_Minister_says_it_thwarted_coup_attempt/ |access-date=18 April 2025 |website=[[AKIpress News Agency]]}}</ref> The announcement came as part of an increased network of collaboration between the new various security apparatus, from police to military to intelligence.<ref>{{Cite web |date=17 April 2025 |title=Syria thwarts coup plot by former regime officers |url=https://www.middleeastmonitor.com/20250417-syria-thwarts-coup-plot-by-former-regime-officers/ |access-date=18 April 2025 |website=[[Middle East Monitor]]}}</ref> According to Khattab, security forces had been tipped off to the plot, and were able to launch an operation to disrupt it before it could be executed, although exact details of who specifically was involved are scarce.<ref name="npasyria" />
+
+===Domestic policies===
+In January 2026, al-Sharaa declared a ceasefire between government forces and the [[Syrian Democratic Forces]]. He also recognised [[Kurdish language|Kurdish]] as one of Syria's national languages and announced the restoration of citizenship to [[Kurds in Syria|Kurdish Syrians]]. That same month, interior minister [[Anas Khattab]] ordered implementation of the citizenship measure, including for [[Kurds]] registered as stateless. The ministry set 5 February as the deadline for the implementation. The measure also directed the state to protect Kurdish culture and language in Syria, and to support Kurdish-language instruction in public and private schools in Kurdish-majority areas.<ref name=graimm>{{cite web | title=Syria grants immediate citizenship to Kurds in wake of gains against SDF | website=Al Jazeera | date=2026-01-29 | url=https://www.aljazeera.com/news/2026/1/29/syria-grants-immediate-citizenship-to-kurds-in-wake-of-gains-against-sdf | access-date=2026-07-04}}</ref>
+
+=== Foreign affairs ===
+{{See also|List of international presidential trips made by Ahmed al-Sharaa}}
+On 10 April 2025, South Korean Foreign Minister [[Cho Tae-yul]] visited [[Damascus]] and met with Syrian Foreign Minister [[Asaad al-Shaibani]]. During the meeting, both sides signed a formal agreement to establish [[South Korea–Syria relations|diplomatic relations]], which included plans to open embassies and exchange [[diplomatic mission]]s.<ref name="yna">{{Cite web |date=11 April 2025 |title=S. Korea establishes diplomatic ties with Syria in foreign policy milestone |url=https://en.yna.co.kr/view/AEN20250410010100315 |url-status=live |archive-url=https://archive.today/20250411171613/https://m-en.yna.co.kr/view/AEN20250410010100315 |archive-date=11 April 2025 |access-date=11 April 2025 |website=[[Yonhap News Agency]]}}</ref><ref>{{Cite web |date=10 April 2025 |title=Syria, South Korea sign agreement to establish diplomatic relations |url=https://sana.sy/en/?p=351844 |access-date=10 April 2025 |website=[[Syrian Arab News Agency]] |language=en-US}}</ref> The agreement made Syria the last United Nations member state, outside of North Korea, to establish diplomatic relations with South Korea.<ref name="arabnews">{{Cite web |date=10 April 2025 |title=Syria, South Korea establish diplomatic ties, open embassies |url=https://www.arabnews.com/node/2596586 |access-date=10 April 2025 |website=[[Arab News]] |language=en-US}}</ref>
+
+On 18 April, Palestinian President [[Mahmoud Abbas]] met with al-Sharaa in Damascus, his first visit to Syria since 2009.<ref>{{Cite web |date=18 April 2025 |title=Palestinian president meets Syrian leader in Damascus |url=https://24newshd.tv/18-Apr-2025/palestinian-president-meets-syrian-leader-in-damascus |access-date=23 May 2025 |website=24 News HD |language=en}}</ref> They discussed strengthening bilateral ties and regional developments, including [[Gaza War|Gaza]] and the [[two-state solution]], and agreed to form joint committees for cooperation.<ref>{{cite web |date=18 April 2025 |title=President Abbas meets with Syrian counterpart in Damascus, discusses developments |url=https://english.wafa.ps/Pages/Details/156575 |archive-url=https://web.archive.org/web/20250418174415/https://english.wafa.ps/Pages/Details/156575 |archive-date=18 April 2025 |publisher=WAFA}}</ref>
+
+On 7 May 2025, Syrian president [[Ahmed al-Sharaa]] met with President [[Emmanuel Macron]] in France. It was his first official visit to a [[Western world|Western]] country since becoming president.<ref>{{Cite web |title=Syrian President Sharaa arrives in Paris, his first visit to Europe since taking office |url=https://www.aa.com.tr/en/middle-east/syrian-president-sharaa-arrives-in-paris-his-first-visit-to-europe-since-taking-office/3559977 |access-date=10 May 2025 |website=www.aa.com.tr}}</ref><ref>{{Cite web |date=6 May 2025 |title=Macron to host Syria's al-Sharaa in new leader's first European visit |url=https://www.france24.com/en/europe/20250506-macron-to-host-syria-s-al-sharaa-in-new-president-s-first-visit-to-europe |access-date=7 May 2025 |website=France 24 |language=en}}</ref> On 14 May,  he [[2025 visit by Donald Trump to the Middle East|met]] with U.S. president [[Donald Trump]] in Saudi Arabia, marking the first meeting between American and Syrian heads of state since [[Bill Clinton]] and [[Hafez al-Assad]] convened in Geneva in 2000.<ref>{{Cite web |last1=Miller |first1=Zeke |last2=Gambrell |first2=Jon |last3=Madhani |first3=Aameer |date=14 May 2025 |title=Trump meets with Syria's interim president, a first between the nations' leaders in 25 years |url=https://apnews.com/article/trump-syria-saudi-arabia-sharaa-assad-sanctions-bb208f25cfedecd6446fd1626012c0fb |access-date=14 May 2025 |website=[[AP News]]}}</ref> Since then, a number of Western governments have lifted the [[International sanctions against Syria|sanctions on Syria]], most notably the United States and the United Kingdom.<ref>{{Cite news |last1=Viser |first1=Matt |last2=Birnbaum |first2=Michael |date=13 May 2025 |title=Trump pulls sanctions on Syria, extends olive branch to Iran |url=https://www.washingtonpost.com/politics/2025/05/13/trump-iran-syria-middle-east/ |access-date=13 May 2025 |newspaper=The Washington Post |language=en-US |issn=0190-8286}}</ref><ref>{{Cite web |date=24 April 2025 |title=UK lifts sanctions on Syrian defence ministry |url=https://www.bbc.com/news/articles/c2ewv7y32r1o |access-date=13 May 2025 |website=BBC News |language=en-GB}}</ref>
+
+On 15 May, al-Shaibani held a meeting with U.S. Secretary of State [[Marco Rubio]] in Antalya, Turkey.<ref>{{cite news |date=15 May 2025 |title=Turkish, Syrian foreign ministers, US secretary of state hold trilateral meeting in Türkiye |url=https://www.aa.com.tr/en/europe/turkish-syrian-foreign-ministers-us-secretary-of-state-hold-trilateral-meeting-in-turkiye/3569609 |url-status=live |archive-url=https://archive.today/20250515181723/https://www.aa.com.tr/en/europe/turkish-syrian-foreign-ministers-us-secretary-of-state-hold-trilateral-meeting-in-turkiye/3569609 |archive-date=15 May 2025 |access-date=15 May 2025 |website=[[Anadolu Agency]]}}</ref> The meeting took place two days after Trump announced his decision to lift the [[International sanctions against Syria|sanctions on Syria]] and initiate normalization of [[Syria–United States relations|bilateral relations]].<ref>{{cite news |author1=Yousef Saba |author2=Gram Slattery |author3=Pesha Magid |author4=Nafisa Eltahir |date=13 May 2025 |title=Trump says US to lift Syria sanctions, secures $600 billion Saudi deal |url=https://www.reuters.com/world/trump-starts-gulf-visit-seeking-big-economic-deals-2025-05-13/ |url-status=live |archive-url=https://archive.today/20250514154524/https://www.reuters.com/world/trump-starts-gulf-visit-seeking-big-economic-deals-2025-05-13/ |archive-date=14 May 2025 |access-date=15 May 2025 |website=[[Reuters]]}}</ref> On 23 May, the Trump administration lifted a wide range of sanctions on Syria.<ref>{{Cite news |last=Vinall |first=Frances |date=24 May 2025 |title=Trump administration lifts broad sanctions against Syria |url=https://www.washingtonpost.com/world/2025/05/24/sanctions-syria-lifted-trump-rubio/ |access-date=25 May 2025 |newspaper=[[The Washington Post]]}}</ref>  On 30 June, Trump signed an executive order lifting sanctions imposed by the United States against Syria except those linked to the [[Assad family]] and their associates and related institutions.<ref>{{Cite web |title=Trump signs an executive order ending US sanctions on Syria |url=https://apnews.com/article/syria-sanctions-trump-treasury-state-2ed65c895905e2e7bc385098a6ab1301 |date=1 July 2025 |access-date=1 July 2025 |website=[[AP News]] }}</ref>
+
+On 9 January 2026, during a historic visit to Damascus, [[European Commission]] President [[Ursula von der Leyen]] met with President al-Sharaa and announced a substantial financial assistance package of approximately €620 million to be disbursed in 2026 and 2027.<ref>{{cite news |last1=De La Feld |first1=Simone |title=Syria, von der Leyen: “Worrying escalation.” 620 million over two years promised to Damascus |url=https://www.eunews.it/en/2026/01/09/syria-von-der-leyen-worrying-escalation-620-million-over-two-years-promised-to-damascus/ |work=Eunews |date=9 January 2026}}</ref> This visit marked a significant shift in [[Syria–European Union relations|EU-Syria relations]] following the fall of the Ba'athist-led regime in late 2024. During her stay, von der Leyen described the ongoing [[Aleppo clashes (2025–2026)|clashes in Aleppo]] between the Syrian government and the [[Kurds in Syria|Kurdish]]-led SDF as "worrying".<ref>{{cite news |last1=Basem |first1=Sarhan |title=EU Commission President Ursula Von der Leyen pledges support during Syria visit |url=https://brusselsmorning.com/eu-commission-president-ursula-von-der-leyen-pledges-support-during-syria-visit/89898/ |work=Brussels Morning |date=9 January 2026}}</ref>
+
+Later that month in Moscow, al-Sharaa and Russian president [[Vladimir Putin]] discussed Syria's future and Russia's military presence in the country, as Russia sought to maintain ties with the transitional government after the fall of Bashar al-Assad.<ref name=graimm/>
+
+==Members==
+{{Cabinet table start}}
+{{Cabinet table minister
+|title=[[Ministry of Interior (Syria)|Minister of Interior]]
+|minister1=[[Anas Khattab]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Defense (Syria)|Minister of Defence]]
+|minister1=[[Murhaf Abu Qasra]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Foreign Affairs and Expatriates (Syria)|Minister of Foreign Affairs and Expatriates]]
+|minister1=[[Asaad al-Shaibani]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Justice (Syria)|Minister of Justice]]
+|minister1=[[Mazhar al-Wais]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Endowments (Syria)|Minister of Endowments]]
+|minister1=[[Mohammed Abu al-Khair Shukri]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Higher Education and Scientific Research (Syria)|Minister of Higher Education and Scientific Research]]
+|minister1=[[Marwan al-Halabi]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Social Affairs and Labor (Syria)|Minister of Social Affairs and Labor]]
+|minister1=[[Hind Kabawat]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Energy (Syria)|Minister of Energy]]
+|minister1=[[Mohammed al-Bashir]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Finance (Syria)|Minister of Finance]]
+|minister1=[[Mohammed Yisr Barnieh]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Economy and Industry (Syria)|Minister of Economy]]
+|minister1=[[Mohammad Nidal al-Shaar]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Health (Syria)|Minister of Health]]
+|minister1=[[Musaab Nazzal al-Ali]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Local Administration and Environment|Minister of Local Administration and Environment]]
+|minister1=[[Mohammed Anjrani]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Emergency and Disaster Management|Minister of Emergency and Disaster Management]]
+|minister1=[[Raed al-Saleh]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Communications and Information Technology (Syria)|Minister of Communications and Information Technology]]
+|minister1=[[Abdul Salam Haykal]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Agriculture (Syria)|Minister of Agriculture]]
+|minister1=[[Amjad Badr]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend={{End date|2026|05|09|df=y}}
+|minister1_ref=<ref name=":1"/>
+|minister2=[[Basel al-Suweydan]]
+|minister2_ref=<ref>{{Cite web |date=2026-05-09 |title=President al-Sharaa appoints governors of Quneitra, Homs, Latakia and Deir Ezzor |url=https://sana.sy/en/presidency/2315742/ |access-date=2026-05-10 |language=en-US}}</ref>
+|minister2_party=Independent politician
+|minister2_termstart={{Start date|2026|05|09|df=y}}
+|minister2_termend=
+}}
+{{Cabinet table minister
+|title=[[Ministry of Education (Syria)|Minister of Education]]
+|minister1=[[Mohammad Abdul Rahman Tarkou]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Public Works and Housing (Syria)|Minister of Public Works and Housing]]
+|minister1=[[Mustafa Abdul Razzaq]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Culture (Syria)|Minister of Culture]]
+|minister1=[[Mohammed Yassin Saleh]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Sports and Youth (Syria)|Minister of Sports and Youth]]
+|minister1=[[Mohammad Sameh Hamedh]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Tourism (Syria)|Minister of Tourism]]
+|minister1=[[Mazen al-Salhani]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Administrative Development|Minister of Administrative Development]]
+|minister1=[[Mohammad Skaf]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Transport (Syria)|Minister of Transport]]
+|minister1=[[Yaarub Bader]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend=
+|minister1_ref=<ref name=":1"/>
+}}
+{{Cabinet table minister
+|title=[[Ministry of Information (Syria)|Minister of Information]]
+|minister1=[[Hamza al-Mustafa]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2025|03|29|df=y}}
+|minister1_termend={{End date|2026|05|09|df=y}}
+|minister1_ref=<ref name=":1"/>
+|minister2=[[Khaled Fawaz Zaarour]]
+|minister2_ref=<ref>{{Cite web |date=2026-05-10 |title=President Ahmad al-Sharaa appoints Khaled Fawaz Zaarour minister of information |url=https://sana.sy/en/presidency/2315733/ |access-date=2026-05-10 |language=en-US}}</ref>
+|minister2_party=Independent politician
+|minister2_termstart={{Start date|2026|05|09|df=y}}
+|minister2_termend=
+}}
+{{Cabinet table minister
+|title= [[Ministry of Internal Trade and Consumer Protection|Ministry of Industry, Internal Trade and Consumer Protection]]
+|minister1=[[Basel Abdul Hannan]]
+|minister1_party=Independent politician
+|minister1_termstart={{Start date|2026|10|18|df=y}}
+|minister1_termend=
+|minister1_ref=<ref>{{cite news |title=مرسوم بتعيين باسل عبد العزيز عبد الحنان وزيراً للصناعة والتجارة الداخلية وحماية المستهلك |trans-title=Decree appointing Basel Abdulaziz Abdul Hannan as Minister of Industry, Internal Trade and Consumer Protection |url=https://sana.sy/presidency/2611323 |access-date=20 October 2026 |agency=[[Syrian Arab News Agency]] |date=19 October 2026 |language=ar}}</ref><ref>{{cite news |title=بعد فصلها عن الاقتصاد.. تعيين باسل عبد الحنان وزيراً للصناعة والتجارة الداخلية |trans-title=After being separated from the Economy.. appointment of Basel Abdel Hannan as Minister of Industry and Internal Trade |url=https://www.syria.tv/بعد-فصلها-عن-الاقتصاد-تعيين-باسل-عبد-الحنان-وزيراً-للصناعة-والتجارة-الداخلية |access-date=20 October 2026 |agency=[[Syria TV]] |date=19 October 2026}}</ref>
+}}
+{{Cabinet table end}}
+=== Advisors ===
+On 5 April 2025, Ahmed al-Sharaa appointed his brother [[Maher al-Sharaa]] as [[Secretary-General to the Presidency (Syria)|Secretary-General to the Presidency]], succeeding [[Abdul Rahman Salama]].<ref>{{cite news |title=ماهر الشرع يتسلّم الأمانة العامة لرئاسة الجمهورية السورية|trans-title=Maher al-Sharaa assumes the General Secretariat of the Syrian Presidency|url=https://www.syria.tv/ماهر-الشرع-يتسلّم-الأمانة-العامة-لرئاسة-الجمهورية-السورية|website=[[Syria TV (Fadaat Media)|Syria TV]]|date=6 April 2025|access-date=6 April 2025|lang=ar|url-status=live}}</ref> The position of Secretary-General was reportedly regarded as a high-ranking post within the Syrian state. According to reports, the appointment was seen as [[Nepotism|nepotistic]].<ref>{{cite news |url=https://www.newarab.com/news/ahmed-al-sharaas-brother-gets-senior-role-syria-government|title=Syrian President Ahmed al-Sharaa's brother gets senior role in government|website=[[The New Arab]]|date=6 April 2025|access-date=17 April 2025|url-status=live}}</ref> On 9 May 2026, he was replaced by former Homs Governor [[Abdul Rahman al-Aama]] as Secretary-General. Al-Aama was appointed through a presidential decree issued by Ahmed al-Sharaa.<ref>{{Cite web |date=9 May 2026|title=President al-Sharaa appoints Abdulrahman al-A’ma secretary-general of the presidency|url=https://sana.sy/en/syria/2315730/}}</ref><ref>{{Cite web |last=i24NEWS|date=8 May 2026|title=Al-Sharaa removed 2 brothers from top positions in reshuffle aimed at 'rebuilding trust with Syrians,' source close to president tells i24NEWS|url=https://www.i24news.tv/en/news/middle-east/levant-turkey/artc-al-sharaa-removed-2-brothers-from-top-positions-in-reshuffle-aimed-at-rebuilding-trust-with-syrians-source-close-to-president-tells-i24news|access-date=9 May 2026|website=i24NEWS|language=en}}</ref> Abdul Rahim Attoun, who served as the head of the HTS sharia council, was appointed head of the Advisory Office for Religious Affairs at the Presidency of the Republic.<ref>{{cite web |title=سوريا: من هو عبد الرحيم عطون؟ — رئيس المكتب الاستشاري للشؤون الدينية في رئاسة الجمهورية (منذ أيار/مايو 2025)؛ عضو مجلس الإفتاء الأعلى |url=https://whorulessyria.org/ar/people/عبد-الرحيم-عطون/ |website=من يحكم سوريا؟ |language=ar |date=4 October 2026}}</ref>
+It is reported that [[Ahmad Muaffaq Zaidan]] is the media advisor to President al-Sharaa.<ref name=":1">{{Cite web |date=6 September 2025|title=Syria, the Muslim Brotherhood and Al-Sharaa's manoeuvring|url=https://www.middleeastmonitor.com/20250906-syria-the-muslim-brotherhood-and-al-sharaas-manoeuvring/|access-date=13 November 2025|website=Middle East Monitor}}</ref><ref name=":24">{{Cite web |last=|date=12 September 2025|title=End of an Era? Calls to Dissolve Syrian Muslim Brotherhood|url=https://levant24.com/news/national/2025/09/end-of-an-era-calls-to-dissolve-syrian-muslim-brotherhood/|access-date=13 November 2025|website=levant24|language=}}</ref> [[Ali Keda]] was appointed as the Assistant Secretary-General of the Presidency on 26 May 2025.<ref>{{cite news |url=https://www.enabbaladi.net/756228/علي-كده-في-أول-ظهور-رسمي-أمين-عام-الرئاسة|title=علي كده في أول ظهور رسمي.. معاون أمين عام الرئاسة|publisher=Enab Baladi|date=26 May 2025|access-date=29 October 2025|language=ar}}</ref><ref>{{cite news |url=https://www.newarab.com/news/ahmed-al-sharaas-brother-gets-senior-role-syria-government|title=Ahmed al-Sharaa's brother 'gets senior role in Syria government'|publisher=The New Arab|date=6 April 2025|access-date=29 October 2025}}</ref> 
+
+On 27 August 2026, al-Sharaa appointed Mazloum Abdi, the former commander-in-chief of the [[Syrian Democratic Forces]], as Adviser to the Presidency of the Republic.<ref>{{Cite web |date=28 August 2026|title=President al-Sharaa appoints Mazloum Abdi as adviser|url=https://sana.sy/en/presidency/2338898/|access-date=27 August 2026|language=en-US}}</ref> On 18 October 2026, al-Sharaa appointed Omar Samer al-Halabi as Adviser for Economic Affairs to the Presidency of the Republic, alongside as a member of the Supreme Council for Economic Development and as chairman of the board of directors of the Sovereign Fund.<ref>{{Cite web |date=2026-10-18 |title=مرسوم بتعيين عمر سامر الحلبي مستشاراً للشؤون ‏الاقتصادية لدى رئاسة الجمهورية  |url=https://sana.sy/presidency/2610221/ |access-date=2026-10-19 |language=ar}}</ref>
+{| class="wikitable sortable"
+|+
+!Portfolio
+!Name
+! Took office
+! Left office
+|-
+| [[Secretary-General to the Presidency (Syria)|Secretary-General to the Presidency]]
+| [[Abdul Rahman al-Aama]]
+| 9 May 2026
+| ''Incumbent''
+|-
+| Assistant Secretary-General to the Presidency for the Cabinet Affairs
+| [[Ali Keda]]
+| 26 May 2025
+|''Incumbent''
+|-
+| Head of the Advisory Office for Religious Affairs at the Presidency of the Republic
+| Abdel Rahim Attoun
+| 18 May 2025
+| ''Incumbent''
+|-
+| Adviser to the Presidency for the Media Affairs
+| [[Ahmad Muaffaq Zaidan]]
+| 22 August 2025
+| ''Incumbent''
+|-
+| Adviser to the Presidency of the Republic
+| [[Mazloum Abdi]]
+| 27 August 2026
+| ''Incumbent''
+|-
+|Adviser for Economic Affairs to the Presidency of the Republic
+|Omar Samer al-Halabi
+|18 October 2026
+|''Incumbent''
+|}
+
+==Commissions==
+=== Justice ===
+On 17 May 2025, al-Sharaa signed [[Presidential decree|Presidential Decrees]] No. 19 and No. 20, appointing [[Abdulbaset Abdullatif]] and [[Mohammad Reda Jalkhi]] as heads of the commission.{{cfn|reason=which commission?|date=June 2026}} They were given 30 days to form a working team and draft the internal regulations required for the commission's operation, leading to the establishment of the [[National Commission for the Missing (Syria)|National Commissions for the Missing]] and [[National Commission for Transitional Justice (Syria)|Transitional Justice]].<ref name="Decree4">{{cite news |date=17 May 2025 |title=رئاسة الجمهورية: مرسوم رئاسي بتشكيل الهيئة الوطنية للمفقودين |trans-title=Presidency of the Republic: Presidential decree establishing the National Commission for the Missing |url=https://www.sana.sy/?p=2219862 |url-status=live |archive-url=https://archive.today/20250517204658/https://www.sana.sy/?p=2219862 |archive-date=17 May 2025 |access-date=17 May 2025 |website=[[Syrian Arab News Agency]] |language=ar}}</ref><ref name="Decree3">{{cite news |date=17 May 2025 |title=رئاسة الجمهورية: المرسوم الرئاسي رقم (20) القاضي بتشكيل الهيئة الوطنية للعدالة الانتقالية |trans-title=Presidency of the Republic: Presidential Decree No. 20 establishing the National Commission for Transitional Justice |url=https://www.sana.sy/?p=2219864 |url-status=live |archive-url=https://archive.today/20250517213457/https://www.sana.sy/?p=2219864 |archive-date=17 May 2025 |access-date=17 May 2025 |website=[[Syrian Arab News Agency]] |language=ar}}</ref>
+
+==Reactions==
+=== Domestic ===
+The [[Democratic Autonomous Administration of North and East Syria]] has since said it will not adhere to the decisions of the newly-formed government, alleging that its composition allowed a single faction to maintain control and did not represent the diversity of Syria.<ref>{{Cite web |title=Rojava says won't implement decisions of new 'exclusionary' government in Syria |url=https://www.rudaw.net/english/middleeast/syria/300320253 |date=30 March 2025 |access-date=30 March 2025 |website=[[Rudaw Media Network|Rudaw]]}}</ref>
+
+Sheikh [[Hammoud al-Hinnawi]], a prominent [[Druze in Syria|Druze]] community leader, welcomed the formation of the new Syrian government, commending the conciseness and conduct of the ministers' speeches.<ref>{{Cite web |date=1 April 2025 |title=الشيخ الحناوي يبارك تشكيل الحكومة السورية الجديدة ويشيد ببرامج الوزراء |trans-title=Sheikh al-Hinnawi congratulates the formation of the new Syrian government and praises the ministers' programs |language=ar |url=https://www.syria.tv/الشيخ-الحناوي-يبارك-تشكيل-الحكومة-السورية-الجديدة-ويشيد-ببرامج-الوزراء |access-date=6 April 2025 |website=[[Syria TV (Fadaat Media)|Syria TV]]}}</ref>
+
+=== International ===
+[[File:Foreign Secretary David Lammy visits Saudi Arabia (54261873821).jpg|thumb|Syrian Foreign Minister [[Asaad al-Shaibani]] (right) with UK Foreign Secretary [[David Lammy]] in Riyadh, Saudi Arabia, 12 January 2025]]
+[[File:President Costa meets interim President of Syria II.jpg|thumb|President of the European Council, [[António Costa]] (left), with Syrian President [[Ahmed al-Sharaa]] at the Emergency Summit of the [[Arab League|League of Arab States]] on Gaza, 3 March 2025]]
+[[File:Pedro Sánchez asistió a la Cumbre COP30 (11).jpg|thumb|Spanish Prime Minister [[Pedro Sánchez]] and Syrian President al-Sharaa during the [[2025 United Nations Climate Change Conference|COP30]] summit in Brazil, 7 November 2025]]
+
+==== Governments ====
+* {{Flag|Saudi Arabia}}: The Saudi Ministry of Foreign Affairs congratulated the establishment of the new government and affirmed its aim to cooperate and work with the transitional government "in a manner that embodies the fraternal and historical relations between the two countries and strengthens relations in all fields".<ref>{{Cite web |date=30 March 2025 |title=Saudi Arabia welcomes the formation of the new government in Syria |url=https://english.alarabiya.net/News/saudi-arabia/2025/03/30/saudi-arabia-welcomes-formation-of-new-government-in-syria |access-date=30 March 2025 |website=[[Al Arabiya English]]}}</ref>
+* {{Flag|Jordan}}: Jordanian Ministry of Foreign Affairs and Expatriates welcomed the announcement of the new Syrian government, and Ministry Spokesperson Sufyan Qudah said that Jordan intends to deepen cooperation with the new government.<ref>{{Cite web |date=30 March 2025 |title=Jordan Welcomes New Syrian Government's Formation Announcement |url=https://en.ammonnews.net/article/80325 |access-date=5 April 2025 |website=[[Ammon News]] |language=en}}</ref>
+* {{Flag|Turkey}}: The Turkish Ministry of Foreign Affairs welcomed the formation of the new Syrian government, saying that this "stresses the Syrian administration's commitment to achieving a comprehensive Syrian-led political transition process". The ministry also said that Turkey intends to continue to support the Syrian political process and also called for lifting sanctions unconditionally.<ref>{{Cite web |date=5 April 2025 |title=Turkey Welcomes the new Syrian government formation |url=https://sana.sy/en/?p=350827 |access-date=5 April 2025 |website=[[Syrian Arab News Agency]]}}</ref>
+* {{Flag|Qatar}}: Qatar's Ministry of Foreign Affairs welcomed the announcement made by the Syrian president of the formation of the new government, adding that Qatar intends to strengthen relations between the two countries and emphasizing Qatar's support for the new government to "achieve the aspirations of the fraternal Syrian people for stability, development, and prosperity".<ref>{{Cite web |date=30 March 2025 |title=Qatar Welcomes Announcement of New Syrian Government Formation |url=https://qna.org.qa/en/news/news-details?id=qatar-welcomes-announcement-of-new-syrian-government-formation&date=30/03/2025 |access-date=5 April 2025 |website=[[Qatar News Agency]] |language=en}}</ref>
+* {{Flag|Kuwait}}: Kuwait's Ministry of Foreign Affairs expressed Kuwait's welcome of the formation of the new Syrian government, wishing "success in meeting Syrians' aspirations in security, safety, and prosperity".<ref>{{Cite web |date=30 March 2025 |title=Kuwait welcomes the formation of Syria's new gov. |url=https://www.kuna.net.kw/ArticleDetails.aspx?id=3224403&language=en |access-date=5 April 2025 |website=[[Kuwait News Agency]] |language=en}}</ref>
+* {{Flag|United Arab Emirates}}: The UAE's Ministry of Foreign Affairs welcomed the announcement of the formation of the new Syrian government.<ref>{{Cite web |date=30 March 2025 |title=UAE welcomes new Syrian government, expresses support for stability and prosperity |url=https://www.khaleejtimes.com/uae/uae-welcomes-formation-of-new-government-in-syria |access-date=5 April 2025 |website=[[Khaleej Times]] |language=en}}</ref> Additionally, UAE officials such as president [[Mohamed bin Zayed Al Nahyan|Sheikh Mohamed bin Zayed]], prime minister and ruler of Dubai [[Mohammed bin Rashid Al Maktoum|Sheikh Mohammed bin Rashid]], and vice president [[Mansour bin Zayed Al Nahyan|Sheikh Mansour bin Zayed]] congratulated the Syrian president on the formation of a new government.<ref>{{Cite web |date=30 March 2025 |title=President Sheikh Mohamed congratulates Syria leader on formation of new government |url=https://www.thenationalnews.com/news/uae/2025/03/30/president-sheikh-mohamed-congratulates-syria-leader-on-formation-of-new-government/ |access-date=4 April 2025 |website=[[The National (Abu Dhabi)|The National]] |language=en}}</ref>
+* {{Flag|Germany}}: German Special Envoy to Syria Stefan Schnecke announced that Germany welcomes the announcement of a new government in Syria.<ref>{{Cite web |date=30 March 2025 |title=Germany welcomes the appointment of the new government in Syria |url=https://sana.sy/en/?p=350830 |access-date=5 April 2025 |website=[[Syrian Arab News Agency]]}}</ref> [[Federal Foreign Office|German Foreign Office]] spokesperson Kathrin Deschauer later said in a press conference that the formation of the new government was a step in the right direction for future, inclusive political reform.<ref>{{Cite web |date=2 April 2025 |title=Erklärungen des Auswärtigen Amts in der Regierungspressekonferenz vom 02.04.2025 |trans-title=Statements by the Federal Foreign Office at the government press conference on 2.4.2025 |url=https://www.auswaertiges-amt.de/de/newsroom/regierungspressekonferenz-2711342 |access-date=6 April 2025 |website=[[Federal Foreign Office|Auswärtiges Amt]] |language=de}}</ref>
+* {{Flag|United Kingdom}}: British Parliamentary Under-Secretary of State (Middle East, Afghanistan and Pakistan) [[Hamish Falconer]] announced that the UK welcomes the formation of the new Syrian government.<ref>{{Cite web |date=30 March 2025 |title=Britain welcomes the formation of the new Syrian government |url=https://sana.sy/en/?p=350844 |access-date=5 April 2025 |website=[[Syrian Arab News Agency]]}}</ref>
+* {{Flag|France}}: France's Ministry for Europe and Foreign Affairs said that France welcomes the formation of a new government in Syria, stating France's support for a "peaceful and inclusive political transition which guarantees the protection of Syria's pluralism and the rights of all Syrians".<ref>{{Cite web |date=30 March 2025 |title=Syria – Announcement of a new government (30 March 2025) |url=https://www.diplomatie.gouv.fr/en/country-files/syria/news/2025/article/syria-announcement-of-a-new-government-30-03-25 |access-date=5 April 2025 |website=[[Ministry for Europe and Foreign Affairs (France)|Ministère de l'Europe et des Affaires étrangères]] |language=en}}</ref>
+* {{Flag|Norway}}: Norwegian Minister of Foreign Affairs [[Espen Barth Eide]] said that Norway welcomes the formation of a new Syrian government, stressing that "inclusive governance is essential for Syria's future, development, and prosperity".<ref>{{Cite web |date=30 March 2025 |title=Norway looks forward to cooperating with the new Syrian government |url=https://sana.sy/en/?p=350834 |access-date=5 April 2025 |website=[[Syrian Arab News Agency]]}}</ref>
+* {{Flag|Palestine}}: Palestinian president [[Mahmoud Abbas]] congratulated the Syrian president on the announcement of the formation of a new Syrian government.<ref>{{Cite web |date=31 March 2025 |title=Palestinian President congratulates President al-Shara on new Syrian government |url=https://sana.sy/en/?p=350868 |access-date=5 April 2025 |website=[[Syrian Arab News Agency]]}}</ref>
+* {{Flag|Poland}}: The Polish Embassy in Syria said that Poland welcomed the formation of the new government.<ref>{{Cite web |date=31 March 2025 |title=Poland welcomes the formation of the new Syrian government |url=https://sana.sy/en/?p=350873 |access-date=5 April 2025 |website=[[Syrian Arab News Agency]]}}</ref>
+* {{Flag|Spain}}: Spain's Ministry of Foreign Affairs welcomed the announcement of the new Syrian government, seeing it as "a step forward toward a peaceful Syria that guarantees unity and territorial integrity of the country".<ref>{{Cite web |date=31 March 2025 |title=Spain welcomes formation of new Syrian government |url=https://sana.sy/en/?p=350917 |access-date=5 April 2025 |website=[[Syrian Arab News Agency]]}}</ref>
+* {{Flag|Italy}}: The Italian Ministry of Foreign Affairs welcomed the formation of the new Syrian government, adding that Italy is ready to contribute towards reconstruction and support an inclusive political process.<ref>{{Cite web |date=31 March 2025 |title=Italy welcomes announcement of formation of new Syrian government |url=https://sana.sy/en/?p=350968 |access-date=5 April 2025 |website=[[Syrian Arab News Agency]]}}</ref>
+* {{Flag|United States}}: U.S. State Department Spokeswoman [[Tammy Bruce]] considered the formation of the new Syrian government a positive step but stated that sanctions would not be eased until progress was made on key priorities, including counterterrorism.<ref>{{cite web |title=الخارجية الأمريكية: تشكيل حكومة سورية جديدة خطوة إيجابية لكنها لن تخفف العقوبات |trans-title=US State Department: Formation of new Syrian government a positive step, but will not ease sanctions |language=ar |url=https://www.almasryalyoum.com/news/details/3413539 |website=[[Al-Masry Al-Youm]] |date=31 March 2025 |access-date=7 April 2025 |archive-url=https://archive.today/20250407215926/https://www.almasryalyoum.com/news/details/3413539 |archive-date=7 April 2025 |url-status=live}}</ref>
+* {{Flag|Iraq}}: Iraqi Prime Minister [[Mohammed Shia' Al Sudani]], during a phone call with Syrian president al-Sharaa to discuss recent developments in the region, congratulated the Syrian people on the formation of the new government and reaffirmed Iraq's commitment to respecting Syrian political developments.<ref>{{Cite web |date=1 April 2025 |title=Iraq and Syria to strengthen ties pledge security cooperation |url=https://shafaq.com/en/Iraq/Iraq-and-Syria-to-strengthen-ties-pledge-security-cooperation |access-date=5 April 2025 |website=Shafaq News |language=en}}</ref>
+* {{Flag|Ukraine}}: The Ministry of Foreign Affairs of Ukraine welcomed the formation of the new transitional Syrian government, interpreting this as "another important stage on the way to building a peaceful and democratic country". The Ministry also expressed Ukraine's support for Syrian territorial integrity and sovereignty.<ref>{{Cite web |date=2 April 2025 |title=The Ministry of Foreign Affairs of Ukraine congratulated Syria on the formation of a new transitional government |url=https://unn.ua/en/news/the-ministry-of-foreign-affairs-of-ukraine-congratulated-syria-on-the-formation-of-a-new-transitional-government |access-date=5 April 2025 |website=Ukrainian National News |language=en}}</ref>
+* {{Flag|Malaysia}}: Malaysian Prime Minister [[Anwar Ibrahim]] made a phone call to Syrian President al-Sharaa to congratulate him on the formation of the new Syrian government, adding that Malaysia plans on enhancing bilateral (particularly economic) ties with Syria, and expressed his wishes for "further prosperity, stability, and prosperity for the Syrian people".<ref>{{Cite web |date=6 April 2025 |title=President al-Sharaa receives phone call from Malaysian Prime Minister, during which he offers congratulations on formation of the new government |url=https://sana.sy/en/?p=351428 |access-date=6 April 2025 |website=[[Syrian Arab News Agency]]}}</ref>
+* {{Flag|South Korea}}: Foreign Minister [[Cho Tae-yul]] met with President Ahmed al-Sharaa and extended his congratulations on the successful launch of the new government formed through inclusive representation following the end of the Assad regime.<ref>{{Cite web |date=10 April 2025 |title=Establishment of Diplomatic Relations between Republic of Korea and Syrian Arab Republic |url=https://www.mofa.go.kr/eng/brd/m_5676/view.do?seq=322782 |access-date=10 April 2025 |website=[[Ministry of Foreign Affairs (South Korea)|The Ministry of Foreign Affairs of South Korea]]}}</ref>
+
+==== Organizations ====
+* {{Flag|European Union}}: [[High Representative of the Union for Foreign Affairs and Security Policy|High Representative]] [[Kaja Kallas]], [[Union for the Mediterranean|Commissioner]] [[Dubravka Šuica]], and [[European Commissioner for Crisis Management|Commissioner]] [[Hadja Lahbib]] issued a joint statement welcoming the formation of the new Syrian transitional government, stating the EU's readiness to support a Syrian-led political process, engage with the new government, and respect for Syrian territorial unity, sovereignty, and integrity.<ref>{{Cite web |date=30 March 2025 |title=Statement by High Representative/Vice-President Kallas, Commissioner Šuica and Commissioner Lahbib on the formation of the new transitional government in Syria |url=https://ec.europa.eu/commission/presscorner/detail/es/statement_25_934 |access-date=5 April 2025 |website=[[European Commission]] |language=en}}</ref>
+* {{Flag|Organization of Islamic Cooperation}}: The OIC's Secretary General [[Hissein Brahim Taha]] congratulated the Syrian government and people on the formation of the new Syrian government.<ref>{{Cite web |date=1 April 2025 |title=OIC Welcomes Formation of Syria's New Government |url=https://english.aawsat.com/gulf/5127690-oic-welcomes-formation-syria's-new-government |access-date=5 April 2025 |website=[[Asharq Al-Awsat]] |language=en}}</ref>
+* {{Flag|United Nations}}: UN spokesperson [[Stéphane Dujarric]] said that UN Special Envoy for Syria [[Geir Pedersen]] "encourages the ongoing efforts of Syrian authorities toward a credible, inclusive, and sustainable transition in terms of governance, and also in terms of the next transitional steps".<ref>{{Cite web |date=2 April 2025 |title=UN welcomes formation of new expanded government in Syria |url=https://sana.sy/en/?p=351032 |access-date=5 April 2025 |website=[[Syrian Arab News Agency]]}}</ref> The official United Nations list of heads of state and government of member states was updated in July 2025 to list Ahmed al-Sharaa as "President of the Syrian Arab Republic"<ref name="UN Heads pdf" />
+* [[Organisation for the Prohibition of Chemical Weapons]]: Director general [[Fernando Arias]] sent a congratulatory message to Syrian president al-Sharaa on the formation of the new Syrian government.<ref>{{Cite web |date=5 April 2025 |title=President al-Sharaa receives cable of congratulation from OPCW Director on the formation of new Syrian government |url=https://sana.sy/en/?p=351314 |access-date=5 April 2025 |website=[[Syrian Arab News Agency]]}}</ref>
+
+==See also==
+{{Portal|Politics|Middle East}}
+* [[Elections in Syria]]
+* [[Government of Syria]]
+* [[List of massacres in Syria#Syrian transitional government|List of massacres during the Syrian transitional government]]
+* [[Syrian civil war]]
+* [[United Nations Security Council Resolution 2254]]
+* [[Foreign relations of Syria]]
+
+==Notes==
+{{notelist}}
+
+==References==
+{{Reflist}}
+
+==External links==
+* {{Cite episode |title=Syria After Assad |url=https://www.pbs.org/wgbh/frontline/documentary/syria-after-assad/ |series=Frontline |series-link=Frontline (American TV program) |network=[[PBS]] |station=[[WGBH-TV|WGBH]] |date=1 July 2025 |season=43 |number=19 |access-date=4 July 2025}}
+
+{{Ahmed al-Sharaa}}
+{{Syrian transitional government cabinet}}
+{{Syrian cabinets}}
+{{Syrian civil war}}
+{{Syria topics}}
+
+[[Category:2020s in Syrian politics]]
+[[Category:2025 establishments in Syria]]
+[[Category:Aftermath of the fall of the Assad regime]]
+[[Category:Cabinets established in 2025]]
+[[Category:Current governments in Asia]]
+[[Category:Governments of Syria|Transitional government]]
+[[Category:Provisional governments]]
+[[Category:Presidency of Ahmed al-Sharaa]]
+[[Category:Ahmed al-Sharaa]]
+[[Category:Islamism in Syria]]
