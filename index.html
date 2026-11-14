@@ -844,6 +844,7 @@ var UI = (function () {
       '<span class="chip cat">' + esc(ev.cat || "عام") + "</span>" +
       '<span class="chip ' + riskCls + '">خطورة: ' + esc(ev.risk || "متوسطة") + "</span>" +
       (ev.shock ? '<span class="chip shock">⚡ صدمة غير متوقعة</span>' : "") +
+      (SY.START_MONTH && S.month >= 24 ? '<span class="chip">مسار متوقع — لم يحدث بعد (تاريخ الجلسة: نوفمبر 2026)</span>' : "") +
       (ev.real ? '<span class="chip">موثّق تاريخياً</span>' : "") +
       "</div><h2>" + esc(ev.title) + "</h2>" +
       '<div class="brief">' + ev.brief + "</div>" +
