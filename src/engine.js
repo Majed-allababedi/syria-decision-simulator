@@ -92,6 +92,7 @@ var SY = (function () {
       cabinet: [],
       doctrine: null,
       flags: {},
+      shrHigh: 48,   // أعلى مستوى بلغه محور الشريعة (لسُلّم التراجع)
       used: {},
       queue: [],        // أحداث مجدولة: {id, at}
       delay: [],        // آثار مؤجلة: {at, eff, txt, from}
@@ -160,9 +161,14 @@ var SY = (function () {
     (S.cabinet || []).forEach(function (c) { if (c.cat && opt.cat && c.cat === opt.cat) cabinetMod += (c.v || 0); });
     if (S.doctrine && opt.cat && S.doctrine.bonusCat === opt.cat) cabinetMod += 6;
     var p = base + adj + cabinetMod;
-    // مستوى الصعوبة يضغط الاحتمالات المتوسطة
-    p = 50 + (p - 50) * S.difficulty;
-    return clamp(Math.round(p), 5, 96);
+    // عقوبات الحالة الحرجة: إفلاس، احتقان حرج، نفاد رصيد سياسي
+    if (S.res.cash < -2) p -= 4;
+    if (S.st.frag > 75) p -= Math.min(6, (S.st.frag - 75) * 0.24);
+    if (S.res.cap < 15) p -= 4;
+    // الصعوبة غير متماثلة: السهل يرفع كل الاحتمالات، القاسي يخفضها (بلا قلب للاتجاه)
+    if (S.diff === "easy") p += (100 - p) * 0.14;
+    else if (S.diff === "hard") p -= p * 0.16;
+    return clamp(Math.round(p), 14, 94);
   }
 
   /* ---------- 7) اختيار حدث الشهر ---------- */
@@ -176,35 +182,46 @@ var SY = (function () {
       var c = data.byId[due[i]];
       if (c && !S.used[c.id] && condOK(S, c.when)) ev = c;
     }
-    // (ب) أحداث الشهر المؤهلة حسب الأولوية
+    // (ب) أحداث الشهر المؤهلة: أولوية + ضغط استحقاق (المهلة ترفع الوزن)
     if (!ev) {
       var cands = [];
       data.events.forEach(function (e) {
         if (S.used[e.id]) return;
         if (e.month > S.month) return;
-        if (e.ttl && S.month > e.month + e.ttl) return;      // انتهت صلاحية
+        if (e.ttl && S.month > e.month + e.ttl) return;                // انتهت صلاحية
         if (e.shock) return;
         if (condOK(S, e.when)) cands.push(e);
       });
+      cands.forEach(function (e) { e._urg = urgency(S, e) + S.rng() * 4; });
       cands.sort(function (a, b) {
-        var d = (b.pri || 0) - (a.pri || 0);
+        var d = (b._urg * 6 + (b.pri || 0) * 1.5) - (a._urg * 6 + (a.pri || 0) * 1.5);
         if (d) return d;
         return (a.month - b.month);
       });
       ev = cands[0] || null;
     }
-    // (ج) صدمة عشوائية
+    // (ج) صدمة عشوائية — مقيّدة بنافذتها الزمنية هي أيضاً
     if (!ev || S.rng() < shockChance(S)) {
       var shocks = data.events.filter(function (e) {
-        return e.shock && !S.used[e.id] && condOK(S, e.when);
+        if (!e.shock || S.used[e.id]) return false;
+        var win = Math.max(1, e.ttl || 1);
+        if (S.month < e.month - win || S.month > e.month + win) return false;
+        return condOK(S, e.when);
       });
       if (shocks.length) ev = shocks[Math.floor(S.rng() * shocks.length)];
     }
     return ev;
   }
+  // ضغط الاستحقاق: كلما اقترب موعد انتهاء صلاحية الحدث ارتفع وزنه ليصل 12 نقطة.
+  function urgency(S, e) {
+    var ttl = e.ttl || 1;
+    var left = (e.month + ttl) - S.month;              // أشهر متبقية قبل السقوط
+    var p = clamp((ttl - left + 1) / (ttl + 1), 0, 1); // 0 ← جديد … 1 ← آخر شهر
+    return 12 * p * p;
+  }
   function shockChance(S) {
-    var f = 0.30 + (S.thr.isis - 40) * 0.004 + (S.thr.rem - 40) * 0.003 + (S.st.frag - 50) * 0.004 - (S.st.sec - 50) * 0.003;
-    return clamp(f, 0.12, 0.62);
+    var f = 0.22 + (S.thr.isis - 40) * 0.004 + (S.thr.rem - 40) * 0.003 + (S.st.frag - 50) * 0.004 - (S.st.sec - 50) * 0.003;
+    return clamp(f, 0.10, 0.50);
   }
 
   /* ---------- 8) انجراف شهري تلقائي (ديناميكا النظام) ---------- */
@@ -251,7 +268,26 @@ var SY = (function () {
     if (st.shr < 32) { d("t_war", 0.22); d("p_sunn", -0.12); d("frag", 0.10); }
     if (st.shr > 72) { d("p_alaw", -0.22); d("p_christ", -0.18); d("p_druze", -0.12); d("r_eu", -0.10); }
     if (st.shr >= 45 && st.shr <= 62 && st.dem > 45) { d("coh", 0.10); d("r_gulf", 0.06); }
+    // ===== عدوى المكونات: إهمال مكوّن أقلّي يُعاقَب شهرياً =====
+    var bleed = 0;
+    ["alaw", "druze", "kurd", "christ"].forEach(function (c) {
+      var v = S.pop[c];
+      if (v < 20) bleed += (20 - v) / 20;               // 0 … 1 لكل مكوّن خارج العقد
+    });
+    if (bleed) { d("coh", -0.6 * bleed); d("frag", +0.5 * bleed); d("t_war", +0.4 * bleed); }
     return out;
+  }
+  // سُلّم الشريعة: عتبات مقفلة — التراجع بعد عبور عتبة يكلف انشقاقاً
+  var LADDER = [{ at: 35, cap: -6, frag: 5 }, { at: 60, cap: -12, frag: 10 }, { at: 80, cap: -18, frag: 16 }];
+  function ladderCost(S, prevShr) {
+    var back = 0;
+    LADDER.forEach(function (t, i) { if (S.shrHigh >= t.at && S.st.shr < t.at - 8) back = Math.max(back, i + 1); });
+    if (!back) return null;
+    var key = "ladder_back" + back;
+    if (S.flags[key]) return null;
+    S.flags[key] = 1;
+    var t = LADDER[back - 1];
+    return { cap: t.cap, frag: t.frag, t_war: 4, txt: "التراجع عن استحقاق تشريعي سبق إقراره: المقاتلون يعدّونه نكثاً، والمتشددون يعدّونه ضعفاً." };
   }
 
   /* ---------- 9) حالات الانهيار ---------- */
@@ -263,9 +299,9 @@ var SY = (function () {
     if (st.mil < 8 && st.press > 82) return { id: "X_deterrence", t: "سقوط الردع", d: "بلا جيش وبلا ضغط منخفض: الجنوب يُبتلع، ودمشق تتفاوض تحت النار على كل شيء." };
     if (S.res.cash < -3 && st.eco < 20) return { id: "X_bankrupt", t: "إفلاس الدولة", d: "رواتب معطلة، ليرة تنهار، مستشفيات تقفل. الانهيار القادم اجتماعي لا عسكري." };
     if (st.coh < 15 && (S.pop.alaw < 12 || S.pop.druze < 12 || S.pop.kurd < 12)) return { id: "X_balkan", t: "تفكك فعلي", d: "مكونات خرجت من العقد الوطني، وخطوط تماس داخلية دائمة: ثلاث سوريات لا دولة واحدة." };
-    if (st.frag > 95 && st.sec < 35 && (S.thr.war > 58 || S.thr.isis > 66)) return { id: "X_chaos", t: "فوضى عامة", d: "اقتتال في ثلاث مناطق في شهر واحد، واغتيالات بالجملة، والجيش منشغل بنفسه." };
-    if (st.shr > 88 && S.pop.alaw < 20 && st.coh < 35) return { id: "X_theo", t: "الهوية قبل العقد", d: "تشريعات سريعة بلا عقد وطني: مكونات حليفة انسحبت من الدولة، وحاضنة المقاتلين وحدها في الشارع." };
-    if (st.shr < 14 && S.thr.war > 72 && st.leg < 45) return { id: "X_breach", t: "تمرد الحاضنة", d: "جيل المقاتلين الذين بيعوا على «كتاب الله» خرج على الدولة: خلايا، اعتصامات مسلحة، وخطباء يصفون القصر بالمرتدّ." };
+    if (S.month > 6 && st.frag > 94 && st.sec < 28 && (S.thr.war > 72 || S.thr.isis > 76)) return { id: "X_chaos", t: "فوضى عامة", d: "اقتتال في ثلاث مناطق في شهر واحد، واغتيالات بالجملة، والجيش منشغل بنفسه." };
+    if (st.shr > 74 && S.pop.alaw < 22 && st.coh < 38) return { id: "X_theo", t: "الهوية قبل العقد", d: "تشريعات سريعة بلا عقد وطني: مكونات حليفة انسحبت من الدولة، وحاضنة المقاتلين وحدها في الشارع." };
+    if (st.shr < 26 && S.thr.war > 68 && st.leg < 48) return { id: "X_breach", t: "تمرد الحاضنة", d: "جيل المقاتلين الذين بيعوا على «كتاب الله» خرج على الدولة: خلايا، اعتصامات مسلحة، وخطباء يصفون القصر بالمرتدّ." };
     return null;
   }
 
@@ -273,9 +309,10 @@ var SY = (function () {
   function resolve(S, ev, opt) {
     var res = { txt: "", eff: {}, roll: null, tier: "ok" };
     var cost = opt.cost || {};
-    // كلفة فورية
-    if (cost.cash && S.res.cash + cost.cash < 0) { /* مسموح بالعجز المحدود */ }
+    // كلفة فورية — وإن نفد الرصيد السياسي يمر القرار «بمرسوم» بثمن أعلى
+    var deficit = (cost.cap && S.res.cap + cost.cap < 0) ? -(S.res.cap + cost.cap) : 0;
     applyEff(S, cost);
+    if (deficit > 0) applyEff(S, { frag: +(deficit * 0.7).toFixed(1), dem: -Math.round(deficit * 0.4), leg: -Math.round(deficit * 0.2) });
 
     var p = chance(S, opt);
     var tier = "ok";
@@ -291,6 +328,7 @@ var SY = (function () {
     var eff = o ? o.eff : opt.eff;
     res.txt = o ? o.txt : (opt.txt || "تم تنفيذ القرار.");
     res.eff = eff || {};
+    res.decree = deficit;
     res.flags = (o && o.flags ? o.flags : []).concat(opt.flags || []);
     applyEff(S, eff);
     addFlags(S, res.flags);
@@ -325,6 +363,10 @@ var SY = (function () {
     // انجراف
     var dr = drift(S);
     applyEff(S, dr);
+    // سُلّم الشريعة: كلفة التراجع عن عتبة سبق عبورها
+    var lb = ladderCost(S, S.shrHigh);
+    if (lb) { applyEff(S, { cap: lb.cap, frag: lb.frag, t_war: lb.t_war }); msgs.push({ t: "نكث تشريعي", x: lb.txt }); }
+    if (S.st.shr > S.shrHigh) S.shrHigh = S.st.shr;
     // لقطات للمنحنى
     S.line.push({
       m: S.month, leg: S.st.leg, coh: S.st.coh, eco: S.st.eco, mil: S.st.mil,
@@ -350,12 +392,23 @@ var SY = (function () {
       compAvg: Math.round(compAvg)
     };
   }
+  function specificity(w) {
+    if (!w) return 0;
+    var n = 0;
+    ["flagAll", "flagAny", "flagNone"].forEach(function (k) { if (w[k]) n += w[k].length; });
+    if (w.min) n += Object.keys(w.min).length;
+    if (w.max) n += Object.keys(w.max).length;
+    if (w.monthMin) n++; if (w.monthMax) n++;
+    return n;
+  }
   function ending(S, endings) {
-    var st = S.st, sc = score(S);
-    var f = S.flags, best = null;
+    var sc = score(S), best = null, bestScore = -1e9;
     for (var i = 0; i < endings.length; i++) {
       var e = endings[i];
-      if (condOK(S, e.when)) { best = e; break; }
+      if (!condOK(S, e.when)) continue;
+      // الأشروطُ الأدقّ تسبق الأوسع، والنهاية الافتراضية (بلا شروط) تبقى أخيرة
+      var sp = specificity(e.when) * 10 - i;
+      if (sp > bestScore) { bestScore = sp; best = e; }
     }
     return { end: best, score: sc };
   }

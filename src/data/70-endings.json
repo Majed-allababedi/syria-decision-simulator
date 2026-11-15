@@ -9,10 +9,10 @@
     "min": {
      "leg": 72,
      "coh": 66,
-     "sec": 62,
+     "sec": 58,
      "eco": 58,
-     "dem": 62,
-     "srv": 52
+     "dem": 58,
+     "srv": 48
     },
     "max": {
      "frag": 32,
@@ -60,7 +60,7 @@
      "sharia_council_state"
     ],
     "min": {
-     "shr": 66,
+     "shr": 55,
      "leg": 45
     },
     "max": {
@@ -101,7 +101,7 @@
    "when": {
     "min": {
      "sec": 66,
-     "mil": 58
+     "mil": 52
     },
     "max": {
      "coh": 52,
@@ -190,7 +190,7 @@
    "when": {
     "min": {
      "r_gulf": 74,
-     "cash": 20
+     "cash": 12
     },
     "max": {
      "sov": 48

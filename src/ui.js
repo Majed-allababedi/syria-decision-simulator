@@ -65,7 +65,7 @@ var UI = (function () {
     var evCount = D.events.length, hist = D.events.filter(function (e) { return !e.shock; }).length;
     var html = '<div class="hero">' +
       '<h1>محاكي قرار سوريا<span style="color:#fff;font-weight:300"> — من التحرير إلى 2027</span></h1>' +
-      '<div class="tag">ثمانية وعشرون شهراً، ' + evCount + ' حدثاً مبنية على وقائع موثّقة حتى نوفمبر 2026. أنت من يمسك القلم في دمشق.</div>' +
+      '<div class="tag">سبعة وثلاثون شهراً، ' + evCount + ' حدثاً مبنية على وقائع موثّقة حتى نوفمبر 2026. أنت من يمسك القلم في دمشق.</div>' +
       '<div class="flagline"><span class="chip">8 ديسمبر 2024 → ديسمبر 2027</span>' +
       '<span class="chip cat">' + hist + ' حدثاً تاريخياً</span>' +
       '<span class="chip shock">' + (evCount - hist) + ' صدمة محتملة</span>' +
@@ -133,7 +133,7 @@ var UI = (function () {
     var dcv = document.querySelector('input[name=doc]:checked');
     var doc = DOCTRINES.filter(function (x) { return x.id === dcv.value; })[0];
     S.doctrine = doc; SY.applyEff(S, doc.eff); SY.addFlags(S, ["doc_" + doc.id]);
-    S.line.push({ m: 0, leg: S.st.leg, coh: S.st.coh, eco: S.st.eco, mil: S.st.mil, sov: S.st.sov, dip: S.st.dip, sec: S.st.sec, dem: S.st.dem, srv: S.st.srv, press: S.st.press, frag: S.st.frag, cash: S.res.cash });
+    S.line.push({ m: 0, leg: S.st.leg, coh: S.st.coh, eco: S.st.eco, mil: S.st.mil, sov: S.st.sov, dip: S.st.dip, sec: S.st.sec, dem: S.st.dem, srv: S.st.srv, press: S.st.press, frag: S.st.frag, shr: S.st.shr, cash: S.res.cash });
     nextMonth(true);
   }
   function resume() {
@@ -145,8 +145,17 @@ var UI = (function () {
         var s = seed >>> 0;
         return function () { s += 0x6D2B79F5; s >>>= 0; var t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
       })(S.seed + S.month * 977);
-      showPlay(null);
+      showPlay();
     } catch (e) { alert("تعذّر استئناف الجولة."); }
+  }
+  function showPlay() {
+    var ev = SY.pickEvent(S, D);
+    if (!ev) return nextMonth(false);
+    S.used[ev.id] = 1; S.seen.push(ev.id);
+    lastEv = ev; lastRes = null;
+    view = "play";
+    render([]);
+    save();
   }
   function save() {
     if (!S) return;
@@ -218,6 +227,7 @@ var UI = (function () {
       (ev.shock ? '<span class="chip shock">⚡ صدمة غير متوقعة</span>' : "") +
       (SY.START_MONTH && S.month >= 24 ? '<span class="chip">مسار متوقع — لم يحدث بعد (تاريخ الجلسة: نوفمبر 2026)</span>' : "") +
       (ev.real ? '<span class="chip">موثّق تاريخياً</span>' : "") +
+      (ev.verified === "needs-second-source" ? '<span class="chip shock">مصدر واحد — يحتاج تأكيداً</span>' : "") +
       "</div><h2>" + esc(ev.title) + "</h2>" +
       '<div class="brief">' + ev.brief + "</div>" +
       (ev.facts && ev.facts.length ? '<ul class="facts">' + ev.facts.map(function (f) { return "<li>" + f + "</li>"; }).join("") + "</ul>" : "") +
@@ -243,6 +253,7 @@ var UI = (function () {
       var tcls = "t-" + (r.tier === "ok" ? "ok" : r.tier === "mid" ? "mid" : "bad");
       var head = r.roll ? '<div class="ot">' + (r.tier === "ok" ? "✓ نجح القرار" : r.tier === "mid" ? "◐ نجح جزئياً" : "✗ انقلب القرار") + ' <span class="tiny">(' + r.roll.p + "% متوقع · الرمية " + r.roll.r + ")</span></div>" : '<div class="ot">نُفّذ القرار</div>';
       h += '<div class="card"><h2>النتيجة</h2><div class="outcome ' + tcls + '">' + head + "<div>" + r.txt + '</div><div class="effs">' + effPills(r.eff) + "</div></div>" +
+        (lastRes.decree ? '<div class="reality"><div class="rt">مرسوم اضطراري</div>رصيدك السياسي لم يكن يكفي هذا القرار فمرَّ بمرسوم: ارتفع الاحتقان وتآكلت الشرعية المؤسساتية بمقدار العجز (' + lastRes.decree + ').</div>' : "") +
         (lastEv.real ? '<div class="reality"><div class="rt">الواقع — ما جرى فعلاً</div>' + lastEv.real + "</div>" : "") +
         '<div class="nextrow"><div class="tiny">' + pendingHint() + '</div><button class="btn" id="nextBtn">الشهر التالي ←</button></div></div>';
     }
@@ -340,9 +351,17 @@ var UI = (function () {
       sweidawar: "حرب السويداء", resist: "مقاومة جنوبية", isrdeal: "اتفاق مع إسرائيل", mega: "ميجا مشاريع",
       necam: "حسم الشمال الشرقي", nepol: "تفاوض شرقي", newar: "حرب شرقية", kurdfull: "حزمة كردية كاملة",
       aleppoop: "عملية حلب", tuclose: "تحالف مع أنقرة", tulimit: "تحجيم أنقرة", pcindirect: "برلمان غير مباشر",
-      doc_security: "عقيدة أمنية", doc_bread: "عقيدة معيشة", doc_consensus: "عقيدة توافق", doc_sovereign: "عقيدة سيادة"
+      doc_security: "عقيدة أمنية", doc_bread: "عقيدة معيشة", doc_consensus: "عقيدة توافق", doc_sovereign: "عقيدة سيادة",
+      doc_sharia: "عقيدة المرجعية أولاً", fiqh_code: "تقنين الفقه", sharia_criminal: "تطبيق الحدود",
+      personal_status_reform: "إصلاح قانون الأسر", deferred_family_law: "تأجيل قانون الأسر",
+      fighters_pledge: "وعد المقاتلين قائم", jihadi_revolt: "تمرد الحاضنة الجهادية",
+      sharia_council_state: "مأسسة المرجعية الدينية", awqaf_purged: "ضبط مؤسسة الأوقاف",
+      minority_pact: "عقد المكونات", salafist_split: "انشقاق السلفيين", justice_void: "فراغ عدلي",
+      sweida_statelet: "سويداء شبه مستقلّة", kurd_open: "جبهة كردية مفتوحة", coast_open: "جبهة ساحلية",
+      warlord_badiya: "أمراء بادية", indefinite_transition: "انتظار مفتوح", transition_done: "انتقال منجز"
     };
-    return m[x] || x;
+    if (m[x]) return m[x];
+    return x.replace(/_/g, " ");
   }
   function panelArchive() {
     if (!S.log.length) return '<div class="card tight"><span class="tiny">لم تتخذ قراراً بعد.</span></div>';
@@ -480,6 +499,10 @@ var UI = (function () {
   /* ============================ إقلاع ============================ */
   function boot(data) {
     D = data;
+    var RISK = { "مرتفع": 1, "متوسط": 1, "منخفض": 1 };
+    (D.events || []).forEach(function (e) {
+      if (!RISK[e.risk]) e.risk = (String(e.risk || "").indexOf("عال") === 0) ? "مرتفع" : "متوسط";
+    });
     document.addEventListener("keydown", function (e) {
       if (view === "play" && !lastRes) {
         var k = e.key;
