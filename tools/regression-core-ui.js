@@ -271,4 +271,19 @@ test('help cannot rebase a live run onto another tab save',()=>{
   click('helpBtn');click('returnRun');click('saveBtn');
   assert.strictEqual(store.syria_sim_v3_save,foreign);
 });
+test('state panel limits every metric to one decimal without changing save',()=>{
+  delete store.syria_sim_v3_save;vm.runInContext('UI.boot(data)',sandbox);click('go');
+  const saved=JSON.parse(store.syria_sim_v3_save);
+  Object.keys(saved.state.rel).forEach(k=>saved.state.rel[k]=22.499999999999993);
+  Object.keys(saved.state.pop).forEach(k=>saved.state.pop[k]=12.899999999999997);
+  Object.keys(saved.state.thr).forEach(k=>saved.state.thr[k]=25.399999999999995);
+  const bytes=JSON.stringify(saved);store.syria_sim_v3_save=bytes;
+  vm.runInContext('UI.boot(data)',sandbox);click('resume');
+  classes.tab.find(x=>x.getAttribute('data-tab')==='state').onclick();
+  const values=Array.from(appEl.innerHTML.matchAll(/class="val">([^<]+)</g),m=>m[1]);
+  assert.strictEqual(values.length,Object.keys(saved.state.rel).length+Object.keys(saved.state.pop).length+Object.keys(saved.state.thr).length);
+  assert(values.every(v=>/^\d+(?:\.\d)?$/.test(v)),values.join(','));
+  assert(values.includes('22.5')&&values.includes('12.9')&&values.includes('25.4'));
+  assert.strictEqual(store.syria_sim_v3_save,bytes);
+});
 if(failures) process.exitCode=1;

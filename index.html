@@ -994,15 +994,15 @@ var UI = (function () {
     var f = Object.keys(S.flags).filter(function (k) { return S.flags[k] > 0; });
     var h = '<div class="card tight"><h3 style="margin-top:0">العلاقات الخارجية</h3><div class="rows">' +
       Object.keys(SY.REL).map(function (k) {
-        return '<div class="row"><span class="rn">' + SY.REL[k] + '</span>' + bar(S.rel[k], "") + '<span class="val">' + esc(S.rel[k]) + "</span></div>";
+        return '<div class="row"><span class="rn">' + SY.REL[k] + '</span>' + bar(S.rel[k], "") + '<span class="val">' + esc(num(S.rel[k])) + "</span></div>";
       }).join("") + "</div>" +
       "<h3>ثقة المكونات</h3><div class='rows'>" +
       Object.keys(SY.POP).map(function (k) {
-        return '<div class="row"><span class="rn">' + SY.POP[k] + "</span>" + bar(S.pop[k], "pop") + '<span class="val">' + esc(S.pop[k]) + "</span></div>";
+        return '<div class="row"><span class="rn">' + SY.POP[k] + "</span>" + bar(S.pop[k], "pop") + '<span class="val">' + esc(num(S.pop[k])) + "</span></div>";
       }).join("") + "</div>" +
       "<h3>بؤر التهديد</h3><div class='rows'>" +
       Object.keys(SY.THR).map(function (k) {
-        return '<div class="row"><span class="rn">' + SY.THR[k] + "</span>" + bar(S.thr[k], "thr") + '<span class="val">' + esc(S.thr[k]) + "</span></div>";
+        return '<div class="row"><span class="rn">' + SY.THR[k] + "</span>" + bar(S.thr[k], "thr") + '<span class="val">' + esc(num(S.thr[k])) + "</span></div>";
       }).join("") + "</div>" +
       '<h3>مسارات فتحتها قراراتك</h3><div>' + (f.length ? f.map(function (x) { return '<span class="tag" style="margin:2px">' + esc(flagName(x)) + "</span>"; }).join(" ") : '<span class="tiny">لا شيء بعد</span>') + "</div></div>";
     return h;
