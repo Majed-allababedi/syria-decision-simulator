@@ -172,4 +172,21 @@ test('final decision uses real collapse without advancing',()=>{
   assert.strictEqual(end.state.month,36); assert(appEl.innerHTML.includes('نهاية مبكرة'));
   vm.runInContext('SY.collapse=function(){return null}',sandbox);
 });
+test('إرسال الخيارات والنهاية مرة واحدة وسحب الموافقة',()=>{
+  delete store.syria_sim_v3_save;
+  let consent=false;const sent=[];
+  sandbox.window.answerStats={enabled:()=>consent,consent:v=>{consent=v},choice:(id,i)=>{if(consent)sent.push(['choice',id,i])},end:id=>{if(consent)sent.push(['end',id])}};
+  sandbox.data.endings[0].id='test-ending';
+  vm.runInContext('UI.boot(data)',sandbox);click('go');option();assert.strictEqual(sent.length,0);
+  vm.runInContext('UI.boot(data)',sandbox);byId.statsConsent.checked=true;byId.statsConsent.onchange();click('resume');assert.strictEqual(sent.length,0);
+  click('nextBtn');const choose=classes.opt[0].onclick;choose({});choose({});assert.strictEqual(sent.length,1);
+  click('withdrawStats');click('nextBtn');option();assert.strictEqual(sent.length,1);
+  const saved=JSON.parse(store.syria_sim_v3_save);saved.state.month=36;store.syria_sim_v3_save=JSON.stringify(saved);
+  vm.runInContext('UI.boot(data)',sandbox);byId.statsConsent.checked=true;byId.statsConsent.onchange();click('resume');
+  const finish=byId.nextBtn.onclick;finish({});finish({});
+  assert.strictEqual(sent.filter(x=>x[0]==='end').length,1,'لا تتكرر النهاية');
+  click('withdrawStats');assert.strictEqual(consent,false,'يمكن السحب من شاشة النهاية');
+  vm.runInContext('UI.boot(data)',sandbox);click('resume');assert.strictEqual(sent.filter(x=>x[0]==='end').length,1);
+  delete sandbox.window.answerStats;
+});
 if(failures) process.exitCode=1;

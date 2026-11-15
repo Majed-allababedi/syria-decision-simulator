@@ -4,7 +4,7 @@
 build.py — يجمع المحرك + البيانات + الواجهة في ملف index.html واحد يعمل دون إنترنت.
 الاستخدام:  python3 build.py
 """
-import base64, json, io, os, sys
+import base64, json, io, os, sys, re
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(ROOT, "src")
@@ -211,7 +211,7 @@ var SY_DATA = __DATA__;
 __UI__
 </script>
 __FONT_LICENSE__
-<footer style="padding:18px;text-align:center;color:#b7d3ce;font-size:13px">خصوصيتك: تستخدم النسخة المنشورة إحصاءات زيارات عبر GoatCounter دون ملفات تعريف ارتباط؛ لا نرسل قراراتك أو حفظك. <a href="https://www.goatcounter.com/help/privacy" style="color:inherit" target="_blank" rel="noopener noreferrer">سياسة الخصوصية</a></footer>
+<footer style="padding:18px;text-align:center;color:#b7d3ce;font-size:13px">خصوصيتك: تستخدم النسخة المنشورة إحصاءات زيارات عبر GoatCounter دون ملفات تعريف ارتباط؛ لا تُرسل القرارات إلا بموافقتك الاختيارية للنشر المجمّع، ولا يُرسل الحفظ. <a href="stats.html" style="color:inherit">الإحصاءات العامة</a> · <a href="https://www.goatcounter.com/help/privacy" style="color:inherit" target="_blank" rel="noopener noreferrer">سياسة الخصوصية</a></footer>
 <script>
 __ANALYTICS__
 </script>
@@ -243,6 +243,16 @@ def main(argv=None):
             .replace("__DATA__", json.dumps(data, ensure_ascii=False)))
     with io.open(OUT, "w", encoding="utf-8") as f:
         f.write(html)
+    early = re.findall(r'id: "(X_[^"]+)", t: "([^"]+)"', read(os.path.join(SRC, "engine.js")))
+    stats_data = {"events": [{"id": e["id"], "title": e["title"], "options": [o["t"] for o in e["options"]]} for e in data["events"]],
+                  "endings": [{"id": e["id"], "title": e["title"]} for e in data["endings"]] + [{"id": i, "title": t} for i, t in early]}
+    stats_html = (read(os.path.join(SRC, "stats.html"))
+                  .replace("__CSS__", embed_fonts(read(os.path.join(SRC, "css", "style.css"))))
+                  .replace("__FONT_LICENSE__", font_license())
+                  .replace("__STATS_JS__", read(os.path.join(SRC, "stats.js")))
+                  .replace("__STATS_DATA__", json.dumps(stats_data, ensure_ascii=False).replace("</", "<\\/")))
+    with io.open(os.path.join(ROOT, "stats.html"), "w", encoding="utf-8") as f:
+        f.write(stats_html)
     nev = len(data["events"])
     nshock = len([e for e in data["events"] if e.get("shock")])
     print("✓ index.html  ·  %d حدثاً (%d صدمة)  ·  %d نهاية  ·  %d خبراً شهرياً  ·  %.1f ك.ب" %

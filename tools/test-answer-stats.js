@@ -1,0 +1,51 @@
+"use strict";
+const fs = require('fs'), vm = require('vm'), assert = require('assert');
+const source = fs.readFileSync('src/analytics.js', 'utf8');
+const scripts = [], window = {}, document = {referrer:'', createElement:()=>({setAttribute(){}}), head:{appendChild(s){scripts.push(s)}}};
+vm.runInNewContext(source, {window, document, navigator:{}, location:new URL('https://majed-allababedi.github.io/syria-decision-simulator/'), URL});
+assert.ok(window.answerStats, 'consent-aware event collector exists');
+assert.strictEqual(window.goatcounter.no_onload,true,'منع الإرسال قبل تنقية عنوان الصفحة');
+window.goatcounter.get_data=vars=>({q:'?private=1',r:'https://example.org/private',e:!!(vars&&vars.event)});
+let sent=[];
+window.answerStats.choice('e',0);
+window.goatcounter.count=x=>{if(x&&x.event)sent.push(x)};
+window.answerStats.flush();
+assert.equal(sent.length,0,'default denies');
+window.answerStats.consent(true); window.answerStats.choice('e',0);
+assert.equal(sent.length,1); assert.equal(sent[0].path,'answer-e-0'); assert.equal(sent[0].no_session,true);
+window.answerStats.consent(false); window.answerStats.choice('e',1); assert.equal(sent.length,1);
+delete window.goatcounter.count;
+window.answerStats.consent(true); window.answerStats.choice('e',2);
+window.answerStats.consent(false); window.goatcounter.count=x=>{if(x&&x.event)sent.push(x)}; scripts[0].onload();
+assert.equal(window.goatcounter.get_data({}).q,'');
+assert.equal(window.goatcounter.get_data({event:true}).r,'');
+assert.equal(sent.length,1,'withdraw clears delayed queue');
+delete window.goatcounter.count; window.answerStats.consent(true); window.answerStats.end('X_chaos');
+window.goatcounter.count=x=>{if(x&&x.event)sent.push(x)}; scripts[0].onload();
+assert.equal(sent[1].path,'ending-X_chaos');
+window.goatcounter.count=()=>{throw Error('blocked')}; assert.doesNotThrow(()=>window.answerStats.choice('e',0));
+assert.ok(fs.readFileSync('index.html','utf8').includes('id="statsConsent"'));
+assert.ok(fs.readFileSync('stats.html','utf8').includes('"id": "X_chaos"'));
+
+async function pageTest() {
+  const els={}; function el(){return {textContent:'', children:[], setAttribute(k,v){this[k]=v}, appendChild(x){this.children.push(x)}, value:'0'};}
+  for (const id of ['question','results','ends']) els[id]=el();
+  const pending=[];
+  const fetch=url=>new Promise((resolve,reject)=>pending.push({url,resolve,reject}));
+  const DATA={events:[{id:'A',title:'a',options:['a','b']},{id:'B',title:'b',options:['c','d']}],endings:[]};
+  vm.runInNewContext(fs.readFileSync('src/stats.js','utf8'),{document:{getElementById:id=>els[id],createElement:el},DATA,fetch,Number,Promise});
+  const response=(status,count,unique=count)=>({ok:status===200,status,json:async()=>({count,count_unique:unique})});
+  els.question.value='1'; els.question.onchange();
+  pending[2].resolve(response(200,'1,000')); pending[3].resolve(response(404,'0'));
+  await new Promise(r=>setTimeout(r,0));
+  assert.ok(els.results.children.some(x=>x.textContent.includes('100.0%')));
+  const count=els.results.children.length;
+  pending[0].resolve(response(200,'1')); pending[1].resolve(response(200,'1'));
+  await new Promise(r=>setTimeout(r,0)); assert.equal(els.results.children.length,count,'old response ignored');
+  els.question.onchange(); pending[4].resolve(response(200,'1,2')); pending[5].resolve(response(200,'1'));
+  await new Promise(r=>setTimeout(r,0)); assert.ok(els.results.textContent.includes('غير متاحة'));
+  els.question.onchange(); pending[6].resolve(response(403,'0')); pending[7].resolve(response(200,'1'));
+  await new Promise(r=>setTimeout(r,0)); assert.ok(els.results.textContent.includes('غير متاحة'));
+  console.log('answer statistics consent, counter, race and build checks passed');
+}
+pageTest().catch(e=>{console.error(e); process.exitCode=1});

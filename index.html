@@ -602,6 +602,9 @@ var UI = (function () {
   var sideOpen = !(window.matchMedia && window.matchMedia("(max-width: 900px)").matches);
   var LS = "syria_sim_v3_save", LEGACY_LS = "syria_sim_v2_save";
   var saveBlocked = false;
+  function stats(method) {
+    try { var a = window.answerStats; if (a && typeof a[method] === "function") return a[method].apply(a, Array.prototype.slice.call(arguments, 1)); } catch (e) { /* لا تعطل الإحصاءات اللعبة. */ }
+  }
 
   var ADVISERS = [
     { id: "tech",  t: "مصرفي تقنوقراطي",  d: "إضافة 6 نقاط مئوية إلى فرصة نجاح القرارات الاقتصادية", cat: "اقتصادي", v: 6 },
@@ -690,6 +693,7 @@ var UI = (function () {
       '<div class="pick"><h4>عقيدة الحكم</h4>' +
       DOCTRINES.map(function (d) { return '<label><input type="radio" name="doc" value="' + d.id + '"> ' + esc(d.t) + '<span class="pd">' + esc(d.d) + "</span></label>"; }).join("") +
       "</div></div>" +
+      '<p><label><input type="checkbox" id="statsConsent"' + (stats("enabled") ? ' checked' : '') + '> أوافق اختيارياً على إرسال كل اختيار ونهاية إلى GoatCounter ونشر أعدادها المجمّعة للعامة، بما في ذلك الخيارات السياسية والدينية الحساسة. يمكن اللعب والاستئناف دون موافقة، وسحبها أثناء اللعب؛ لا تُرسل الاختيارات السابقة للموافقة. <a href="stats.html">الإحصاءات العامة</a></label></p>' +
       '<div class="nextrow"><div class="tiny">بذرة عشوائية للنتائج: <span class="hl" id="seedlab">' + (Math.floor(Math.random() * 99999) + 1) + "</span> — يمكن استئناف الجولة لاحقاً.</div>" +
       "<div>" + (saved ? '<button class="btn ghost" id="resume">استئناف جولة محفوظة</button> ' : "") +
       '<button class="btn" id="go">ابدأ — 8 ديسمبر 2024</button></div></div></div>';
@@ -698,6 +702,7 @@ var UI = (function () {
     html += helpCard();
     document.getElementById("app").innerHTML = '<div class="wrap">' + html + "</div>";
     document.getElementById("go").onclick = start;
+    var consentBox = document.getElementById("statsConsent"); if (consentBox) consentBox.onchange = function () { stats("consent", consentBox.checked); };
     var r = document.getElementById("resume"); if (r) r.onclick = resume;
   }
 
@@ -801,11 +806,11 @@ var UI = (function () {
     var notes = [];
     while (true) {
     if (!first) {
-      if (S.month >= SY.MONTHS_TOTAL - 1) { S.over = SY.collapse(S); return showEnd(); }
+      if (S.month >= SY.MONTHS_TOTAL - 1) { S.over = SY.collapse(S); return finish(); }
       var a = SY.advance(S);
       notes = a.msgs || [];
       var col = SY.collapse(S);
-      if (col) { S.over = col; return showEnd(); }
+      if (col) { S.over = col; return finish(); }
     }
     var ev = SY.pickEvent(S, D);
     if (!ev) {
@@ -839,6 +844,7 @@ var UI = (function () {
       '<button class="btn ghost sm" id="saveBtn">حفظ</button>' +
       '<button class="btn ghost sm" id="reportBtn">تقرير قراراتي</button>' +
       '<button class="btn ghost sm" id="helpBtn">مساعدة</button>' +
+      (stats("enabled") ? '<button class="btn ghost sm" id="withdrawStats">سحب موافقة الإحصاءات</button>' : '') +
       '<button class="btn danger sm" id="restartBtn">جولة جديدة</button>' +
       "</div></div></div></div>";
 
@@ -1048,10 +1054,12 @@ var UI = (function () {
     if (o.cost && o.cost.cap && S.res.cap + o.cost.cap < 0 && !confirm("رصيدك السياسي لا يكفي لهذا القرار. تريد المضي رغم ذلك؟")) return;
     lastRes = SY.resolve(S, lastEv, o);
     view = "result";
+    stats("choice", lastEv.id, i);
     render([]);
     save();
   }
   function bind() {
+    var withdraw = document.getElementById("withdrawStats"); if (withdraw) withdraw.onclick = function () { stats("consent", false); render([]); };
     var toggle = document.getElementById("sideToggle");
     if (toggle) toggle.onclick = function () {
       sideOpen = !sideOpen;
@@ -1105,6 +1113,11 @@ var UI = (function () {
   }
 
   /* ============================ النهاية ============================ */
+  function finish() {
+    var end = S.over || SY.ending(S, D.endings).end;
+    if (end) stats("end", end.id);
+    showEnd();
+  }
   function showEnd() {
     view = "end";
     save();
@@ -1122,7 +1135,8 @@ var UI = (function () {
       "<div><b>" + esc(S.st.press) + "</b><span>الضغط الإسرائيلي</span></div>" +
       "<div><b>" + Math.round(sc.compAvg) + "</b><span>ثقة المكونات</span></div></div>" +
       '<div class="reality" style="max-width:820px;margin:0 auto"><div class="rt">خط المرجع</div>' + realNote + "</div>" +
-      '<div style="margin-top:16px"><button class="btn" id="again">جولة جديدة</button> <button class="btn ghost" id="dl">تحميل تقرير قراراتي</button></div></div>';
+      '<div style="margin-top:16px"><button class="btn" id="again">جولة جديدة</button> <button class="btn ghost" id="dl">تحميل تقرير قراراتي</button>' +
+      (stats("enabled") ? ' <button class="btn ghost" id="withdrawStats">سحب موافقة الإحصاءات</button>' : '') + '</div></div>';
 
     h += '<div class="two"><div class="card"><h2>لوحة الحالة النهائية</h2>' +
       Object.keys(SY.STATS).map(function (k) { return '<div class="kv"><span>' + nameOf(k) + "</span><b>" + esc(S.st[k]) + "</b></div>"; }).join("") +
@@ -1142,6 +1156,7 @@ var UI = (function () {
     document.getElementById("app").innerHTML = h;
     document.getElementById("again").onclick = function () { if (!saveBlocked) localStorage.removeItem(LS); showStart(); };
     document.getElementById("dl").onclick = downloadReport;
+    var withdraw = document.getElementById("withdrawStats"); if (withdraw) withdraw.onclick = function () { stats("consent", false); showEnd(); };
     drawChart();
     window.scrollTo(0, 0);
   }
@@ -1265,9 +1280,9 @@ DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 </script>
-<footer style="padding:18px;text-align:center;color:#b7d3ce;font-size:13px">خصوصيتك: تستخدم النسخة المنشورة إحصاءات زيارات عبر GoatCounter دون ملفات تعريف ارتباط؛ لا نرسل قراراتك أو حفظك. <a href="https://www.goatcounter.com/help/privacy" style="color:inherit" target="_blank" rel="noopener noreferrer">سياسة الخصوصية</a></footer>
+<footer style="padding:18px;text-align:center;color:#b7d3ce;font-size:13px">خصوصيتك: تستخدم النسخة المنشورة إحصاءات زيارات عبر GoatCounter دون ملفات تعريف ارتباط؛ لا تُرسل القرارات إلا بموافقتك الاختيارية للنشر المجمّع، ولا يُرسل الحفظ. <a href="stats.html" style="color:inherit">الإحصاءات العامة</a> · <a href="https://www.goatcounter.com/help/privacy" style="color:inherit" target="_blank" rel="noopener noreferrer">سياسة الخصوصية</a></footer>
 <script>
-/* إحصاءات مجمّعة للموقع المنشور فقط؛ لا تُرسل حالة اللعبة أو قراراتها. */
+/* إحصاءات الموقع؛ إرسال الاختيارات والنهايات يتطلب موافقة مستقلة، ولا يُرسل الحفظ. */
 (function () {
   'use strict';
   if (location.protocol !== 'https:' || location.hostname !== 'majed-allababedi.github.io' ||
@@ -1275,8 +1290,38 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
   var referrer = '';
   try { if (document.referrer) referrer = new URL(document.referrer).origin; } catch (e) { /* مرجع غير صالح: لا يُرسل. */ }
-  window.goatcounter = { path: '/syria-decision-simulator/', referrer: referrer };
+  window.goatcounter = { path: '/syria-decision-simulator/', referrer: referrer, no_onload: true };
+  var allowed = false, queue = [];
+  function flush() {
+    if (!allowed || !window.goatcounter || typeof window.goatcounter.count !== 'function') return;
+    while (queue.length && allowed) {
+      var path = queue.shift();
+      try { window.goatcounter.count({ path: path, title: path, event: true, no_session: true, referrer: '' }); } catch (e) { /* الإحصاءات لا توقف اللعب. */ }
+    }
+  }
+  function record(path) {
+    if (!allowed) return;
+    if (queue.length < 50) queue.push(path);
+    flush();
+  }
+  window.answerStats = {
+    consent: function (value) { allowed = value === true; if (!allowed) queue = []; else flush(); },
+    enabled: function () { return allowed; },
+    choice: function (id, index) { record('answer-' + id + '-' + index); },
+    end: function (id) { record('ending-' + id); },
+    flush: flush
+  };
   var script = document.createElement('script');
+  script.onload = function () {
+    try {
+      var original = window.goatcounter.get_data;
+      if (typeof original === 'function') window.goatcounter.get_data = function (vars) {
+        var data = original(vars); data.q = ''; if (vars && vars.event) data.r = ''; return data;
+      };
+      window.goatcounter.count();
+      flush();
+    } catch (e) { queue = []; }
+  };
   script.async = true;
   script.src = 'https://gc.zgo.at/count.js';
   script.setAttribute('data-goatcounter', 'https://majed.goatcounter.com/count');
