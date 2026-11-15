@@ -56,13 +56,15 @@ var SY = (function () {
   function clamp(v, a, b) { return v < a ? a : (v > b ? b : v); }
   function rngFactory(seed) {
     var s = seed >>> 0;
-    return function () {
+    function next() {
       s += 0x6D2B79F5; s >>>= 0;
       var t = s;
       t = Math.imul(t ^ (t >>> 15), t | 1);
       t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
       return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-    };
+    }
+    next.snapshot = function () { return s; };
+    return next;
   }
   function monthLabel(i) {
     var idx = START_MONTH.m - 1 + i;
@@ -449,16 +451,26 @@ var SY = (function () {
     initialState: initialState, applyEff: applyEff, addFlags: addFlags, has: has,
     condOK: condOK, getVal: getVal, chance: chance, pickEvent: pickEvent,
     drift: drift, collapse: collapse, resolve: resolve, advance: advance,
-    score: score, ending: ending, shockChance: shockChance
+    score: score, ending: ending, shockChance: shockChance,
+    rngSnapshot: function (S) { return S.rng.snapshot(); },
+    rngRestore: function (S, snapshot) {
+      if (!Number.isInteger(snapshot) || snapshot < 0 || snapshot > 4294967295) throw new Error("حالة العشوائية غير صالحة");
+      S.rng = rngFactory(snapshot);
+    }
   };
 
   /* ---------- 14) لاعب آلي (للاختبار والموازنة) ---------- */
-  // mode: "random" | "greedy" (يختار الخيار الأعلى مكسباً مرجحاً)
+  // stopAt حد حصري؛ الأشهر 0 إلى stopAt-1 تُلعب، والحد الافتراضي 37.
   function autoRun(S, data, mode, stopAt) {
     var guard = 0;
-    while (S.month < (stopAt || MONTHS_TOTAL - 1) && !S.over && guard++ < 400) {
+    var limit = stopAt == null ? MONTHS_TOTAL : Math.min(stopAt, MONTHS_TOTAL);
+    while (S.month < limit && !S.over && guard++ < 400) {
       var ev = pickEvent(S, data);
-      if (!ev) { advance(S); continue; }
+      if (!ev) {
+        if (S.month === MONTHS_TOTAL - 1) break;
+        advance(S); var emptyCollapse = collapse(S); if (emptyCollapse) S.over = emptyCollapse;
+        continue;
+      }
       S.used[ev.id] = 1;
       S.seen.push(ev.id);
       var opts = ev.options;
@@ -488,9 +500,10 @@ var SY = (function () {
         });
       }
       resolve(S, ev, opts[oi]);
+      if (S.month === MONTHS_TOTAL - 1) { S.over = collapse(S); break; }
+      advance(S);
       var c = collapse(S);
       if (c) { S.over = c; break; }
-      advance(S);
     }
     if (!S.over) S.over = null;
     return S;

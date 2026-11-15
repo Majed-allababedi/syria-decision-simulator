@@ -2,8 +2,13 @@
 /* tools/smoke.js — اختبار تشغيل الواجهة بلا متصفح: DOM وهمي يحلّل innerHTML ويشغّل اللعبة حتى النهاية */
 "use strict";
 const fs=require("fs"),path=require("path"),vm=require("vm");
-const h=fs.readFileSync(path.join(__dirname,"..","index.html"),"utf8");
-const parts=[...h.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m=>m[1]);
+const parts=["engine.js","ui.js"].map(f=>fs.readFileSync(path.join(__dirname,"..","src",f),"utf8"));
+const data={events:[],endings:[],news:[]};
+for(const f of fs.readdirSync(path.join(__dirname,"..","src","data")).filter(f=>f.endsWith(".json"))){
+  const o=JSON.parse(fs.readFileSync(path.join(__dirname,"..","src","data",f),"utf8"));
+  for(const k of ["events","endings","news"]) data[k].push(...(o[k]||[]));
+}
+data.byId=Object.fromEntries(data.events.map(e=>[e.id,e]));
 
 const byId={}, classes={}, inputs={};
 const ctxProxy=new Proxy({},{get:(t,k)=>{
@@ -28,7 +33,7 @@ function mkEl(tag,attrs){
   let _html="";
   Object.defineProperty(el,"innerHTML",{
     get(){return _html},
-    set(v){ _html=String(v); parseInto(el,_html); }
+    set(v){ _html=String(v); if(el===appEl) parseInto(el,_html); }
   });
   return el;
 }
@@ -65,7 +70,7 @@ function parseInto(root,html){
 const appEl=mkEl("div"); byId["app"]=appEl;
 const body=mkEl("body");
 const document={
-  getElementById(id){ if(!byId[id]) byId[id]=mkEl("div"); return byId[id]; },
+  getElementById(id){ return byId[id]||null; },
   createElement:t=>mkEl(t), createDocumentFragment:()=>mkEl("div"),
   querySelector(sel){
     const m=/name=(\w+)\]?:checked/.exec(sel);
@@ -83,41 +88,41 @@ const document={
 const store={};
 const localStorage={getItem:k=>store[k]||null,setItem:(k,v)=>{store[k]=String(v)},removeItem:k=>{delete store[k]}};
 const keys=[];
+let report=null;
 const sandbox={console,Math,JSON,Date,Object,Array,String,Number,Boolean,RegExp,Error,parseInt,parseFloat,isNaN,
   setTimeout:(f)=>{try{f()}catch(e){}}, clearTimeout(){}, setInterval:()=>0, clearInterval(){},
   document, localStorage,
   window:{localStorage,addEventListener(t,f){(document._h=document._h||{})[t]=(document._h[t]||[]).concat(f)},scrollTo(){},matchMedia:()=>({matches:false,addListener(){}}),devicePixelRatio:1,document},
+  Blob:class {constructor(parts){report=parts.join("")}},URL:{createObjectURL:()=>"blob:test"},
   confirm:()=>true, alert:(m)=>{console.log("   [تنبيه الواجهة] "+m)}, navigator:{userAgent:"node"}};
 sandbox.window.document=document;
 vm.createContext(sandbox);
-parts.forEach((p,i)=>vm.runInContext(p,sandbox,{filename:"block"+i}));
-console.log("✓ الحزم الثلاث تُحمَّل بلا أخطاء تشغيل");
+parts.forEach((p,i)=>vm.runInContext(p,sandbox,{filename:"source"+i}));
+console.log("✓ ملفات المصدر تُحمَّل بلا أخطاء تشغيل (لم يُختبر index.html)");
 document.addEventListener=()=>{};
+sandbox.SY_DATA=data;
 vm.runInContext("UI.boot(SY_DATA)",sandbox,{filename:"boot"});
 console.log("✓ شاشة البداية تُرسم ("+(appEl.innerHTML||"").length+" محرفاً)");
 
 // بدء جولة (زر #go) ثم لعب 40 شهراً باختيار أول خيار متاح
 function click(id){ const el=byId[id]; if(!el||!el.onclick) return false; el.onclick({}); return true; }
 click("go");
-console.log("فحص خارج السياق:", document.querySelectorAll("input[name=adv]:checked").length, JSON.stringify((inputs.adv||[]).map(e=>[e.value,e.checked])));
-console.log("فحص داخل السياق:", vm.runInContext("JSON.stringify(document.querySelectorAll('input[name=adv]:checked').map(function(i){return [i.value, String(i.value) in {}];}))",sandbox));
-console.log("مجموعات الإدخال:", Object.keys(inputs).map(k=>k+":"+inputs[k].length+"(checked="+(inputs[k]||[]).filter(e=>e.checked).length+")").join(" "));
-for (let k=0;k<6 && !(classes["opt"]||[]).length;k++){ if(!click("go")) break; }
 if(!(classes["opt"]||[]).length){ console.log("✗ لم تصل إلى شاشة اللعب؛ الأصناف:", Object.keys(classes).join(",")); process.exit(1); }
 console.log("✓ شاشة اللعب: حدث أولاً =", /<h2>([^<]{0,70})/.exec(appEl.innerHTML)[1], "| خيارات:", (classes["opt"]||[]).length);
-let turns=0, log=[];
+const initial=JSON.parse(store.syria_sim_v3_save);
+vm.runInContext("UI.boot(SY_DATA)",sandbox); if(!click("resume")) throw Error("resume missing");
+if(JSON.parse(store.syria_sim_v3_save).eventId!==initial.eventId) throw Error("resume changed event");
+let turns=0, ended=false;
 for(let i=0;i<40;i++){
   const html=appEl.innerHTML||"";
   const opts=classes["opt"]||[];
   if(opts.length){ const o=opts[Math.floor(Math.random()*opts.length)]; if(o.onclick){o.onclick({}); turns++;} }
-  else if(html.includes("النهاية")||html.includes("نهاية مبكرة")){ console.log("✓ بلغت شاشة النهاية بعد "+turns+" قراراً"); break; }
+  else if(byId.dl){ ended=true; break; }
   if(!click("nextBtn")) {
-    const end=(appEl.innerHTML||"");
-    if(end.includes("جولة جديدة")){ console.log("✓ نهاية الجولة معروضة (أزرار إعادة/تقرير مربوطة): "+(click("dl")?"تقرير قابل للتحميل":"")+(click("again")?"وزر الإعادة يعمل":"")); break; }
+    if(byId.dl){ ended=true; break; }
   }
 }
-console.log("✓ محاكاة "+turns+" قراراً داخل الواجهة بلا استثناءات");
-// حفظ/استئناف
-if(click("saveBtn")) console.log("✓ زر الحفظ يعمل (localStorage)");
-const rep=vm.runInContext("typeof reportText",sandbox);
+if(!ended || !click("dl") || !report || !report.includes("تقرير القيادة")) throw Error("ending/report missing");
+vm.runInContext("UI.boot(SY_DATA)",sandbox); if(!click("resume") || !byId.dl) throw Error("ending resume missing");
+console.log("✓ استئناف الحدث والنهاية والتقرير بعد "+turns+" قراراً");
 

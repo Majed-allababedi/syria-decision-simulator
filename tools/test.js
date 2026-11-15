@@ -71,9 +71,11 @@ function run(data, mode, seed) {
 function main() {
   const N = parseInt(process.argv[2] || "300", 10);
   const mode = process.argv[3] || "both";
+  if (!Number.isInteger(N) || N < 1 || !["random", "greedy", "both"].includes(mode)) { console.error("عدد الجولات أو الوضع غير صالح"); process.exitCode = 1; return; }
   const data = loadData();
   console.log("الأحداث: " + data.events.length + " | نهايات: " + data.endings.length + " | أخبار: " + data.news.length);
   const s = structural(data);
+  if (s.problems.length) process.exitCode = 1;
   if (s.problems.length) { console.log("\n⚠ مشاكل بنيوية (" + s.problems.length + "):"); s.problems.slice(0, 40).forEach(p => console.log("   - " + p)); }
   else console.log("✓ الفحص البنيوي سليم");
   console.log("تغطية الأحداث لكل شهر (تراكمي نافذة): " + s.cover.join(","));
@@ -83,6 +85,7 @@ function main() {
     const rs = [];
     for (let i = 0; i < N; i++) rs.push(run(data, mo, i * 7919 + 13));
     const bad = rs.filter(r => r.errs.length);
+    if (bad.length) process.exitCode = 1;
     const months = rs.map(r => r.month);
     const scores = rs.map(r => r.score);
     const ends = {};
