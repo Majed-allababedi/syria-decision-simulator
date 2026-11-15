@@ -694,7 +694,7 @@ var UI = (function () {
       '<div class="pick"><h4>عقيدة الحكم</h4>' +
       DOCTRINES.map(function (d) { return '<label><input type="radio" name="doc" value="' + d.id + '"> ' + esc(d.t) + '<span class="pd">' + esc(d.d) + "</span></label>"; }).join("") +
       "</div></div>" +
-      '<p><label><input type="checkbox" id="statsConsent"' + (stats("enabled") ? ' checked' : '') + '> الموافقه على مشاركه نتائجي</label></p>' +
+      '<p><label><input type="checkbox" id="statsConsent"' + (stats("enabled") ? ' checked' : '') + '> الموافقة على مشاركة نتائجي</label></p>' +
       '<div class="nextrow"><div class="tiny">بذرة عشوائية للنتائج: <span class="hl" id="seedlab">' + (Math.floor(Math.random() * 99999) + 1) + "</span> — يمكن استئناف الجولة لاحقاً.</div>" +
       "<div>" + (saved ? '<button class="btn ghost" id="resume">استئناف جولة محفوظة</button> ' : "") +
       '<button class="btn" id="go">ابدأ — 8 ديسمبر 2024</button></div></div></div>';
