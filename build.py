@@ -74,6 +74,19 @@ def validate(data):
             for d in (o.get("delay") or []):
                 if "in" not in d:
                     errs.append("%s: delay بلا in" % e.get("id"))
+            pr = o.get("promise")
+            if pr:
+                for f in ("metric", "target", "in"):
+                    if f not in pr:
+                        errs.append("%s: promise بلا %s" % (e.get("id"), f))
+                if pr.get("metric") not in keys:
+                    errs.append("%s: promise.metric مجهول: %s" % (e.get("id"), pr.get("metric")))
+                if not isinstance(pr.get("target"), (int, float)) or not (1 <= pr.get("in", 0) <= 18):
+                    errs.append("%s: promise في غير المدى (target/in)" % e.get("id"))
+                for sub in (pr.get("reward") or {}, pr.get("penalty") or {}):
+                    for k in sub:
+                        if k not in keys:
+                            errs.append("%s: promise مفتاح أثر مجهول: %s" % (e.get("id"), k))
             for u in (o.get("unlocks") or []):
                 seen_ids.add((e["id"], u))
     all_ids = set(e["id"] for e in data["events"])

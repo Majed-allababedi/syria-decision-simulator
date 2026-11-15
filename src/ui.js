@@ -273,9 +273,14 @@ var UI = (function () {
   function pendingHint() {
     var n = S.delay.filter(function (d) { return d.at <= S.month + 4; }).length;
     var q = S.queue.length;
+    var pr = S.promises || [];
     var bits = [];
     if (n) bits.push("‏" + n + " أثراً متأجلاً سيظهر خلال 4 أشهر");
     if (q) bits.push("‏" + q + " حدثاً مفتوحاً بقرارك");
+    pr.forEach(function (x) {
+      bits.push("وعد: " + nameOf(x.metric) + " ≥ " + x.target + " في " + SY.monthLabel(x.due) +
+                " (" + Math.round(SY.getVal(S, x.metric)) + " الآن)");
+    });
     if (S.st.press > 70) bits.push("⚠ الضغط الإسرائيلي يستنزف السيادة والاقتصاد شهرياً");
     if (S.thr.isis > 65) bits.push("⚠ نشاط داعش مرتفع");
     if (S.res.cap < 25) bits.push("⚠ رصيدك السياسي شبه نفد");

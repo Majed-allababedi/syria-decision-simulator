@@ -95,6 +95,7 @@ var SY = (function () {
       shrHigh: 48,   // أعلى مستوى بلغه محور الشريعة (لسُلّم التراجع)
       used: {},
       queue: [],        // أحداث مجدولة: {id, at}
+      promises: [],   // وعود سياسية: {label, metric, target, due, reward, penalty}
       delay: [],        // آثار مؤجلة: {at, eff, txt, from}
       log: [],          // سجل القرارات
       line: [],         // لقطات المؤشرات لرسم المنحنى
@@ -110,7 +111,13 @@ var SY = (function () {
     if (!eff) return;
     for (var k in eff) {
       var v = eff[k];
-      if (k in S.st) S.st[k] = clamp(S.st[k] + v, 0, 100);
+      if (k in S.st) {
+        // الطرفان اللزجان: الدفعة الأخيرة إلى 100 أصعب، والانحدار ما دون 20 أصعب
+        var vv = v;
+        if ((v > 0 && S.st[k] > 70) || (v < 0 && S.st[k] < 30)) vv = v * 0.55;
+        if ((v > 0 && S.st[k] > 85) || (v < 0 && S.st[k] < 15)) vv = v * 0.30;
+        S.st[k] = clamp(S.st[k] + vv, 0, 100);
+      }
       else if (k in S.res) {
         if (k === "cash") S.res.cash = Math.max(-5, +(S.res.cash + v).toFixed(2));
         else S.res.cap = clamp(S.res.cap + v, 0, 100);
@@ -254,6 +261,8 @@ var SY = (function () {
     d("leg", (st.srv - 45) * 0.012 + (st.eco - 45) * 0.012 - (st.frag - 50) * 0.01);
     // هجرة الكفاءات ورساميل عند ارتفاع الاحتقان
     d("cash", st.frag > 65 ? -0.10 : (st.eco > 45 ? 0.20 : 0.08));
+    // الاهتمام الخارجي يبرد: الرصيد الدبلوماسي يتآكل إن لم يُجدَّد بالحضور والاتفاقات
+    d("dip", -0.28 + (st.sov - 50) * 0.004 + (st.dip < 40 ? 0.12 : 0));
     // ===== محور تحكيم الشريعة: سوق ضغط ذو اتجاهين =====
     var shrPress = (52 - st.shr) * 0.012;   // انجذاب طبيعي إلى «صيغة الوسط» الدستورية
     if (has(S, "fighters_pledge")) shrPress += 0.35;          // بيعة/وعد للمقاتلين قائم
@@ -299,7 +308,7 @@ var SY = (function () {
     if (st.mil < 8 && st.press > 82) return { id: "X_deterrence", t: "سقوط الردع", d: "بلا جيش وبلا ضغط منخفض: الجنوب يُبتلع، ودمشق تتفاوض تحت النار على كل شيء." };
     if (S.res.cash < -3 && st.eco < 20) return { id: "X_bankrupt", t: "إفلاس الدولة", d: "رواتب معطلة، ليرة تنهار، مستشفيات تقفل. الانهيار القادم اجتماعي لا عسكري." };
     if (st.coh < 15 && (S.pop.alaw < 12 || S.pop.druze < 12 || S.pop.kurd < 12)) return { id: "X_balkan", t: "تفكك فعلي", d: "مكونات خرجت من العقد الوطني، وخطوط تماس داخلية دائمة: ثلاث سوريات لا دولة واحدة." };
-    if (S.month > 6 && st.frag > 94 && st.sec < 28 && (S.thr.war > 72 || S.thr.isis > 76)) return { id: "X_chaos", t: "فوضى عامة", d: "اقتتال في ثلاث مناطق في شهر واحد، واغتيالات بالجملة، والجيش منشغل بنفسه." };
+    if (S.month > 5 && st.frag > 92 && st.sec < 30 && (S.thr.war > 68 || S.thr.isis > 73)) return { id: "X_chaos", t: "فوضى عامة", d: "اقتتال في ثلاث مناطق في شهر واحد، واغتيالات بالجملة، والجيش منشغل بنفسه." };
     if (st.shr > 74 && S.pop.alaw < 22 && st.coh < 38) return { id: "X_theo", t: "الهوية قبل العقد", d: "تشريعات سريعة بلا عقد وطني: مكونات حليفة انسحبت من الدولة، وحاضنة المقاتلين وحدها في الشارع." };
     if (st.shr < 26 && S.thr.war > 68 && st.leg < 48) return { id: "X_breach", t: "تمرد الحاضنة", d: "جيل المقاتلين الذين بيعوا على «كتاب الله» خرج على الدولة: خلايا، اعتصامات مسلحة، وخطباء يصفون القصر بالمرتدّ." };
     return null;
@@ -340,6 +349,14 @@ var SY = (function () {
     (opt.unlocks || []).forEach(function (id) {
       S.queue.push({ id: id, at: S.month + (opt.unlockIn || 1) });
     });
+    // وعد سياسي: يُختبر عند موعدَه فإن تحقق كوفئ، وإن نقض دُفع الثمن
+    if (opt.promise) {
+      var pr = opt.promise;
+      S.promises.push({
+        label: pr.label || ("وعد في " + ev.title), metric: pr.metric, target: pr.target,
+        due: S.month + (pr.in || 6), reward: pr.reward || {}, penalty: pr.penalty || {}, made: S.month
+      });
+    }
     S.log.push({
       month: monthLabel(S.month), dateIdx: S.month, cat: ev.cat, ev: ev.title,
       opt: opt.t, tier: p === null ? null : tier, p: p, eff: res.eff, txt: res.txt
@@ -358,6 +375,18 @@ var SY = (function () {
     S.delay.forEach(function (d) { if (d.at <= S.month) due.push(d); else keep.push(d); });
     S.delay = keep;
     due.forEach(function (d) { applyEff(S, d.eff); addFlags(S, d.flags); if (d.txt) msgs.push({ t: "أثر متأخر", x: d.txt }); });
+    // استحقاق الوعود السياسية
+    var pDue = [], pKeep = [];
+    S.promises.forEach(function (x) { if (x.due <= S.month) pDue.push(x); else pKeep.push(x); });
+    S.promises = pKeep;
+    pDue.forEach(function (x) {
+      var now = getVal(S, x.metric);
+      var ok = now >= x.target;
+      applyEff(S, ok ? x.reward : x.penalty);
+      addFlags(S, ok ? ["promise_kept"] : ["promise_broken"]);
+      msgs.push({ t: ok ? "وعد أُنجز" : "وعد نكث", x: x.label + " — " + (ok ? "تحقق (" + Math.round(now) + " ≥ " + x.target + ")"
+                            : "لم يتحقق (" + Math.round(now) + " < " + x.target + ")؛ دُفع الثمن سياسياً.") });
+    });
     // دعم مانحين مستحق في هذا الشهر (مرونة مالية لا قرار سياسي)
     if (SUPPORT[S.month]) { S.res.cash = Math.round((S.res.cash + SUPPORT[S.month]) * 100) / 100; msgs.push({ t: "تمويل خارجي", x: "حزمة دعم/اتفاقيات تضيف " + SUPPORT[S.month] + " مليار $ للخزينة (مرتبطة بمسار رفع العقوبات)." }); }
     // انجراف
@@ -406,8 +435,8 @@ var SY = (function () {
     for (var i = 0; i < endings.length; i++) {
       var e = endings[i];
       if (!condOK(S, e.when)) continue;
-      // الأشروطُ الأدقّ تسبق الأوسع، والنهاية الافتراضية (بلا شروط) تبقى أخيرة
-      var sp = specificity(e.when) * 10 - i;
+      // طبقة النهاية (خاصة/عامة/افتراضية) ثم دقّة شروطها، فالترتيب في الملف
+      var sp = (e.tier || 1) * 1000 + specificity(e.when) * 10 - i;
       if (sp > bestScore) { bestScore = sp; best = e; }
     }
     return { end: best, score: sc };
@@ -444,7 +473,7 @@ var SY = (function () {
             var v = 0;
             for (var k in eff) {
               var neg = (k === "press" || k === "frag" || k.indexOf("t_") === 0);
-              var wgt = (k in STATS ? 1 : k in AXIS ? 0 : k === "cash" ? 3 : k === "cap" ? 0.6 : (k.indexOf("r_") === 0 ? 0.4 : k.indexOf("p_") === 0 ? 0.9 : neg ? -0.9 : 0.8));
+              var wgt = (k in STATS ? 1 : k in AXIS ? 0.4 : k === "cash" ? 3 : k === "cap" ? 0.6 : (k.indexOf("r_") === 0 ? 0.4 : k.indexOf("p_") === 0 ? 0.9 : 0.9));
               v += eff[k] * wgt * (neg ? -1 : 1);
             }
             return v;
