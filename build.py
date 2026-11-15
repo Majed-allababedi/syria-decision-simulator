@@ -211,6 +211,10 @@ var SY_DATA = __DATA__;
 __UI__
 </script>
 __FONT_LICENSE__
+<footer style="padding:18px;text-align:center;color:#b7d3ce;font-size:13px">خصوصيتك: تستخدم النسخة المنشورة إحصاءات زيارات عبر GoatCounter دون ملفات تعريف ارتباط؛ لا نرسل قراراتك أو حفظك. <a href="https://www.goatcounter.com/help/privacy" style="color:inherit" target="_blank" rel="noopener noreferrer">سياسة الخصوصية</a></footer>
+<script>
+__ANALYTICS__
+</script>
 </body>
 </html>
 """
@@ -234,6 +238,7 @@ def main(argv=None):
             .replace("__CSS__", embed_fonts(read(os.path.join(SRC, "css", "style.css"))))
             .replace("__ENGINE__", read(os.path.join(SRC, "engine.js")))
             .replace("__UI__", read(os.path.join(SRC, "ui.js")))
+            .replace("__ANALYTICS__", read(os.path.join(SRC, "analytics.js")))
             .replace("__FONT_LICENSE__", font_license())
             .replace("__DATA__", json.dumps(data, ensure_ascii=False)))
     with io.open(OUT, "w", encoding="utf-8") as f:
