@@ -623,6 +623,7 @@ var UI = (function () {
   ];
 
   /* ---------- أدوات عرض ---------- */
+  function num(x) { return typeof x === "number" ? String(Number(x.toFixed(1))) : x; }
   function esc(x) { return String(x == null ? "" : x).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;"); }
   function rich(x) { return esc(x).replace(/&lt;(\/?)(b|strong|em|br)\s*\/?&gt;/gi, "<$1$2>"); }
   function difficultyName(x) { return x === "easy" ? "سهل" : x === "hard" ? "قاسٍ" : "متوازن"; }
@@ -651,7 +652,7 @@ var UI = (function () {
       var neg = isNeg(k);
       var good = neg ? v < 0 : v > 0;
       var cls = SY.AXIS[k] ? "ax" : (v === 0 ? "nu" : good ? "up" : "dn");
-      var val = k === "cash" ? (v > 0 ? "+" : "") + v + " مليار$" : (v > 0 ? "+" : "") + v;
+      var val = (v > 0 ? "+" : "") + num(v) + (k === "cash" ? " مليار$" : "");
       return '<span class="eff ' + cls + '">' + esc(nameOf(k)) + " " + esc(val) + "</span>";
     }).join("");
   }
@@ -882,9 +883,9 @@ var UI = (function () {
     } else {
       var r = lastRes;
       var tcls = "t-" + (r.tier === "ok" ? "ok" : r.tier === "mid" ? "mid" : "bad");
-      var head = r.roll ? '<div class="ot">' + (r.tier === "ok" ? "✓ نجح القرار" : r.tier === "mid" ? "◐ نجح جزئياً" : "✗ انقلب القرار") + ' <span class="tiny">(' + esc(r.roll.p) + "% متوقع · الرمية " + esc(r.roll.r) + ")</span></div>" : '<div class="ot">نُفّذ القرار</div>';
+      var head = r.roll ? '<div class="ot">' + (r.tier === "ok" ? "✓ نجح القرار" : r.tier === "mid" ? "◐ نجح جزئياً" : "✗ انقلب القرار") + ' <span class="tiny">(' + esc(num(r.roll.p)) + "% متوقع · الرمية " + esc(num(r.roll.r)) + ")</span></div>" : '<div class="ot">نُفّذ القرار</div>';
       h += '<div class="card"><h2>النتيجة</h2><div class="outcome ' + tcls + '">' + head + "<div>" + rich(r.txt) + '</div><div class="effs">' + effPills(r.eff) + "</div></div>" +
-        (lastRes.decree ? '<div class="reality"><div class="rt">مرسوم اضطراري</div>رصيدك السياسي لم يكن يكفي هذا القرار فمرَّ بمرسوم: ارتفع الاحتقان وتآكلت الشرعية المؤسساتية بمقدار العجز (' + esc(lastRes.decree) + ').</div>' : "") +
+        (lastRes.decree ? '<div class="reality"><div class="rt">مرسوم اضطراري</div>رصيدك السياسي لم يكن يكفي هذا القرار فمرَّ بمرسوم: ارتفع الاحتقان وتآكلت الشرعية المؤسساتية بمقدار العجز (' + esc(num(lastRes.decree)) + ').</div>' : "") +
         (lastEv.real ? '<div class="reality"><div class="rt">السياق المرجعي — ليس نتيجة قرارك</div>' + rich(lastEv.real) + "</div>" : "") +
         '<div class="nextrow"><div class="tiny">' + pendingHint() + '</div><button class="btn" id="nextBtn">' + (S.month === SY.MONTHS_TOTAL - 1 ? 'عرض حصيلة الجولة' : 'الشهر التالي') + '</button></div></div>';
     }
@@ -1011,7 +1012,7 @@ var UI = (function () {
   function panelArchive() {
     if (!S.log.length) return '<div class="card tight"><span class="tiny">لم تتخذ قراراً بعد.</span></div>';
     var items = S.log.slice().reverse().map(function (l) {
-      var tg = l.tier ? '<span class="tiertag ' + esc(l.tier) + '">' + (l.tier === "ok" ? "نجح" : l.tier === "mid" ? "جزئي" : "انقلب") + " " + esc(l.p) + "%</span>" : "";
+      var tg = l.tier ? '<span class="tiertag ' + esc(l.tier) + '">' + (l.tier === "ok" ? "نجح" : l.tier === "mid" ? "جزئي" : "انقلب") + " " + esc(num(l.p)) + "%</span>" : "";
       return '<div class="li"><div class="lh"><span>' + esc(l.month) + " · " + esc(l.cat || "") + "</span>" + tg + "</div>" +
         '<div class="lt">' + esc(l.ev) + '</div><div class="lo">← ' + esc(l.opt) + '</div><div class="lx">' + esc(l.txt) + '</div><div class="effs">' + effPills(l.eff) + "</div></div>";
     }).join("");
@@ -1088,17 +1089,17 @@ var UI = (function () {
     L.push("العقيدة: " + (S.doctrine ? S.doctrine.t : "-") + "   المستشارون: " + S.cabinet.map(function (a) { return a.t; }).join("، "));
     L.push("");
     L.push("=== المحصلة ===");
-    L.push("التقدير: " + sc.grade + "  (" + sc.final + "/100)");
-    Object.keys(SY.STATS).forEach(function (k) { L.push(nameOf(k) + ": " + S.st[k]); });
-    Object.keys(SY.NEG).forEach(function (k) { L.push(nameOf(k) + ": " + S.st[k]); });
-    Object.keys(SY.AXIS).forEach(function (k) { L.push(nameOf(k) + ": " + S.st[k] + " (محور محايد)"); });
-    L.push("الخزينة: " + S.res.cash + " مليار $   الرصيد السياسي: " + Math.round(S.res.cap));
+    L.push("التقدير: " + sc.grade + "  (" + num(sc.final) + "/100)");
+    Object.keys(SY.STATS).forEach(function (k) { L.push(nameOf(k) + ": " + num(S.st[k])); });
+    Object.keys(SY.NEG).forEach(function (k) { L.push(nameOf(k) + ": " + num(S.st[k])); });
+    Object.keys(SY.AXIS).forEach(function (k) { L.push(nameOf(k) + ": " + num(S.st[k]) + " (محور محايد)"); });
+    L.push("الخزينة: " + num(S.res.cash) + " مليار $   الرصيد السياسي: " + Math.round(S.res.cap));
     L.push("");
     L.push("=== القرارات (" + S.log.length + ") ===");
     S.log.forEach(function (l, i) {
       L.push("\n" + (i + 1) + ") [" + l.month + "] " + l.ev + "  (" + (l.cat || "") + ")");
-      L.push("   القرار: " + l.opt + (l.tier ? "  — نتيجة: " + (l.tier === "ok" ? "نجح" : l.tier === "mid" ? "جزئي" : "انقلب") + " (فرصة " + l.p + "%)" : ""));
-      L.push("   الأثر: " + Object.keys(l.eff || {}).map(function (k) { return nameOf(k) + " " + (l.eff[k] > 0 ? "+" : "") + l.eff[k]; }).join(" | "));
+      L.push("   القرار: " + l.opt + (l.tier ? "  — نتيجة: " + (l.tier === "ok" ? "نجح" : l.tier === "mid" ? "جزئي" : "انقلب") + " (فرصة " + num(l.p) + "%)" : ""));
+      L.push("   الأثر: " + Object.keys(l.eff || {}).map(function (k) { return nameOf(k) + " " + (l.eff[k] > 0 ? "+" : "") + num(l.eff[k]); }).join(" | "));
       L.push("   ما جرى: " + l.txt);
     });
     if (S.over && S.over.id && S.over.id.indexOf("X_") === 0) { L.push("\n=== نهاية مبكرة ==="); L.push(S.over.t + " — " + S.over.d); }
@@ -1130,19 +1131,19 @@ var UI = (function () {
       '<div class="big">' + esc(e.title) + "</div>" +
       '<p style="max-width:820px;margin:0 auto">' + rich(e.desc) + "</p>" +
       '<div class="scorebox"><div><b>' + sc.grade + "</b><span>التقدير</span></div>" +
-      "<div><b>" + sc.final + "</b><span>النتيجة من 100</span></div>" +
-      "<div><b>" + sc.avg + "</b><span>متوسط المؤشرات</span></div>" +
-      "<div><b>" + esc(S.st.press) + "</b><span>الضغط الإسرائيلي</span></div>" +
+      "<div><b>" + num(sc.final) + "</b><span>النتيجة من 100</span></div>" +
+      "<div><b>" + num(sc.avg) + "</b><span>متوسط المؤشرات</span></div>" +
+      "<div><b>" + esc(num(S.st.press)) + "</b><span>الضغط الإسرائيلي</span></div>" +
       "<div><b>" + Math.round(sc.compAvg) + "</b><span>ثقة المكونات</span></div></div>" +
       '<div class="reality" style="max-width:820px;margin:0 auto"><div class="rt">خط المرجع</div>' + realNote + "</div>" +
       '<div style="margin-top:16px"><button class="btn" id="again">جولة جديدة</button> <button class="btn ghost" id="dl">تحميل تقرير قراراتي</button>' +
       (stats("enabled") ? ' <button class="btn ghost" id="withdrawStats">سحب موافقة الإحصاءات</button>' : '') + '</div></div>';
 
     h += '<div class="two"><div class="card"><h2>لوحة الحالة النهائية</h2>' +
-      Object.keys(SY.STATS).map(function (k) { return '<div class="kv"><span>' + nameOf(k) + "</span><b>" + esc(S.st[k]) + "</b></div>"; }).join("") +
-      Object.keys(SY.NEG).map(function (k) { return '<div class="kv"><span>' + nameOf(k) + "</span><b>" + esc(S.st[k]) + "</b></div>"; }).join("") +
-      Object.keys(SY.AXIS).map(function (k) { return '<div class="kv"><span>' + nameOf(k) + "</span><b>" + esc(S.st[k]) + "</b></div>"; }).join("") +
-      '<div class="kv"><span>الخزينة</span><b>' + esc(S.res.cash) + " مليار $</b></div>" +
+      Object.keys(SY.STATS).map(function (k) { return '<div class="kv"><span>' + nameOf(k) + "</span><b>" + esc(num(S.st[k])) + "</b></div>"; }).join("") +
+      Object.keys(SY.NEG).map(function (k) { return '<div class="kv"><span>' + nameOf(k) + "</span><b>" + esc(num(S.st[k])) + "</b></div>"; }).join("") +
+      Object.keys(SY.AXIS).map(function (k) { return '<div class="kv"><span>' + nameOf(k) + "</span><b>" + esc(num(S.st[k])) + "</b></div>"; }).join("") +
+      '<div class="kv"><span>الخزينة</span><b>' + esc(num(S.res.cash)) + " مليار $</b></div>" +
       '<div class="kv"><span>ما فتحته من مسارات</span><b>' + Object.keys(S.flags).filter(function (x) { return S.flags[x] > 0; }).length + "</b></div></div>" +
       '<div class="card"><h2>تطور المؤشرات عبر 37 شهراً</h2><canvas id="chart"></canvas><div class="legend" id="legend"></div>' +
       '<div class="tiny" style="margin-top:8px">الزمن يتقدم من اليمين إلى اليسار. الخط الأحمر = الضغط الإسرائيلي.</div></div></div>';

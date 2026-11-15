@@ -189,4 +189,20 @@ test('إرسال الخيارات والنهاية مرة واحدة وسحب ا
   vm.runInContext('UI.boot(data)',sandbox);click('resume');assert.strictEqual(sent.filter(x=>x[0]==='end').length,1);
   delete sandbox.window.answerStats;
 });
+test('النتائج تعرض منزلة عشرية واحدة دون تعديل الحفظ',()=>{
+  delete store.syria_sim_v3_save;vm.runInContext('UI.boot(data)',sandbox);click('go');option();
+  const saved=JSON.parse(store.syria_sim_v3_save);
+  saved.result.eff={leg:1.23456789,cash:-0.3456789};saved.state.st.press=12.3456789;saved.state.res.cash=2.3456789;
+  store.syria_sim_v3_save=JSON.stringify(saved);
+  vm.runInContext('UI.boot(data)',sandbox);click('resume');
+  assert.ok(!appEl.innerHTML.includes('1.23456789'));
+  assert.ok(appEl.innerHTML.includes('+1.2'));
+  assert.ok(appEl.innerHTML.includes('-0.3'));
+  assert.strictEqual(JSON.parse(store.syria_sim_v3_save).state.st.press,12.3456789);
+  saved.phase='end';store.syria_sim_v3_save=JSON.stringify(saved);
+  vm.runInContext('UI.boot(data)',sandbox);click('resume');
+  assert.ok(appEl.innerHTML.includes('12.3'));
+  assert.ok(!appEl.innerHTML.includes('12.3456789'));
+  click('dl');assert.ok(!downloaded.includes('12.3456789'));assert.ok(!downloaded.includes('2.3456789'));
+});
 if(failures) process.exitCode=1;
