@@ -24,7 +24,9 @@ assert(html.includes('hero-subtitle'),'عنوان فرعي عربي مستقل')
 assert(!html.includes('حدثاً تاريخياً'),'عدم وصف السيناريوهات كلها بأنها تاريخية');
 assert(!html.includes('Enter'),'تعريب اسم مفتاح المتابعة');
 assert(html.includes('افتراضات'),'بيان أن نتائج اللعبة افتراضات وليست وقائع');
-assert(html.includes('<svg') && html.includes('لا يمثّل الحدود'),'الرسم توضيحي وموسوم');
+assert(html.includes('<svg') && html.includes('aria-label="رسم تخطيطي'),'الرسم يحتفظ بوصف الوصول');
+assert(!html.includes('يعمل دون إنترنت'),'حذف شارة العمل دون إنترنت');
+assert(!html.includes('رسم توضيحي تخطيطي، لا يمثّل الحدود أو مناطق السيطرة'),'حذف التعليق أسفل الرسم');
 assert(html.includes('name="diff"') && html.includes('name="adv"') && html.includes('name="doc"'),'خيارات الإعداد محفوظة');
 assert(html.includes('IBM Plex') === false,'لا إعلانات تقنية في شاشة اللاعب');
 const ui=fs.readFileSync(path.join(root,'src/ui.js'),'utf8');
