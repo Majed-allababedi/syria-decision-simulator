@@ -1,0 +1,4 @@
+# Local audit evidence and Python bytecode are not publication artifacts.
+/audit/
+__pycache__/
+*.py[cod]

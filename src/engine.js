@@ -179,17 +179,29 @@ var SY = (function () {
     else if (S.diff === "hard") p -= p * 0.16;
     return clamp(Math.round(p), 14, 94);
   }
+  function applyCost(S, opt) {
+    var cost = opt.cost || {};
+    var deficit = (cost.cap && S.res.cap + cost.cap < 0) ? -(S.res.cap + cost.cap) : 0;
+    applyEff(S, cost);
+    if (deficit > 0) applyEff(S, { frag: +(deficit * 0.7).toFixed(1), dem: -Math.round(deficit * 0.4), leg: -Math.round(deficit * 0.2) });
+    return deficit;
+  }
+  function previewChance(S, opt) {
+    var copy = Object.assign({}, S);
+    ["st", "res", "rel", "pop", "thr"].forEach(function (k) { copy[k] = Object.assign({}, S[k]); });
+    applyCost(copy, opt);
+    return chance(copy, opt);
+  }
 
   /* ---------- 7) اختيار حدث الشهر ---------- */
   function pickEvent(S, data) {
     // (أ) أحداث مجدولة مستحقة
-    var due = [], keep = [];
-    S.queue.forEach(function (q) { if (q.at <= S.month) due.push(q.id); else keep.push(q); });
-    S.queue = keep;
-    var ev = null;
+    S.queue = S.queue.filter(function (q) { return data.byId[q.id] && !S.used[q.id]; });
+    var due = S.queue.filter(function (q) { return q.at <= S.month; });
+    var ev = null, selected = null;
     for (var i = 0; i < due.length && !ev; i++) {
-      var c = data.byId[due[i]];
-      if (c && !S.used[c.id] && condOK(S, c.when)) ev = c;
+      var c = data.byId[due[i].id];
+      if (condOK(S, c.when)) { ev = c; selected = due[i]; }
     }
     // (ب) أحداث الشهر المؤهلة: أولوية + ضغط استحقاق (المهلة ترفع الوزن)
     if (!ev) {
@@ -219,6 +231,7 @@ var SY = (function () {
       });
       if (shocks.length) ev = shocks[Math.floor(S.rng() * shocks.length)];
     }
+    if (selected && ev && ev.id === selected.id) S.queue.splice(S.queue.indexOf(selected), 1);
     return ev;
   }
   // ضغط الاستحقاق: كلما اقترب موعد انتهاء صلاحية الحدث ارتفع وزنه ليصل 12 نقطة.
@@ -319,11 +332,8 @@ var SY = (function () {
   /* ---------- 10) تنفيذ القرار ---------- */
   function resolve(S, ev, opt) {
     var res = { txt: "", eff: {}, roll: null, tier: "ok" };
-    var cost = opt.cost || {};
     // كلفة فورية — وإن نفد الرصيد السياسي يمر القرار «بمرسوم» بثمن أعلى
-    var deficit = (cost.cap && S.res.cap + cost.cap < 0) ? -(S.res.cap + cost.cap) : 0;
-    applyEff(S, cost);
-    if (deficit > 0) applyEff(S, { frag: +(deficit * 0.7).toFixed(1), dem: -Math.round(deficit * 0.4), leg: -Math.round(deficit * 0.2) });
+    var deficit = applyCost(S, opt);
 
     var p = chance(S, opt);
     var tier = "ok";
@@ -449,7 +459,7 @@ var SY = (function () {
     STATS: STATS, NEG: NEG, AXIS: AXIS, RES: RES, REL: REL, POP: POP, THR: THR,
     MONTHS_TOTAL: MONTHS_TOTAL, monthLabel: monthLabel, clamp: clamp,
     initialState: initialState, applyEff: applyEff, addFlags: addFlags, has: has,
-    condOK: condOK, getVal: getVal, chance: chance, pickEvent: pickEvent,
+    condOK: condOK, getVal: getVal, chance: chance, previewChance: previewChance, pickEvent: pickEvent,
     drift: drift, collapse: collapse, resolve: resolve, advance: advance,
     score: score, ending: ending, shockChance: shockChance,
     rngSnapshot: function (S) { return S.rng.snapshot(); },
@@ -467,7 +477,7 @@ var SY = (function () {
     while (S.month < limit && !S.over && guard++ < 400) {
       var ev = pickEvent(S, data);
       if (!ev) {
-        if (S.month === MONTHS_TOTAL - 1) break;
+        if (S.month === MONTHS_TOTAL - 1) { S.over = collapse(S); break; }
         advance(S); var emptyCollapse = collapse(S); if (emptyCollapse) S.over = emptyCollapse;
         continue;
       }

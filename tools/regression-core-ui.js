@@ -6,7 +6,9 @@ const fs=require("fs"),path=require("path"),vm=require("vm");
 
 
 const byId={}, classes={}, inputs={};
+const points=[];
 const ctxProxy=new Proxy({},{get:(t,k)=>{
+  if(k==='lineTo') return (x,y)=>points.push([x,y]);
   if(k==="canvas")return {};
   if(k==="measureText")return()=>({width:10});
   if(k==="createLinearGradient")return()=>({addColorStop(){}});
@@ -23,7 +25,7 @@ function mkEl(tag,attrs){
     addEventListener(){}, querySelector(){return mkEl("div")}, querySelectorAll(){return []},
     getContext(){return ctxProxy}, getBoundingClientRect(){return {width:600,height:200,top:0}},
     setAttribute(k,v){a[k]=v;}, getAttribute(k){return k in a?String(a[k]):null;},
-    focus(){},scrollIntoView(){},closest(){return null}};
+    focus(){document.activeElement=el},scrollIntoView(){},closest(){return null}};
   el.onclick=null;
   let _html="";
   Object.defineProperty(el,"innerHTML",{
@@ -81,8 +83,8 @@ const document={
   body, documentElement:mkEl("html"), title:""
 };
 const store={};
-let storageFails=false;
-const localStorage={getItem:k=>store[k]||null,setItem:(k,v)=>{if(storageFails) throw Error('quota'); store[k]=String(v)},removeItem:k=>{delete store[k]}};
+let storageFails=false, removalFails=false, readsFail=false, confirmAnswer=true, writes=0;
+const localStorage={getItem:k=>{if(readsFail) throw Error('blocked');return store[k]??null},setItem:(k,v)=>{if(storageFails) throw Error('quota'); writes++; store[k]=String(v)},removeItem:k=>{if(removalFails) throw Error('blocked');delete store[k]}};
 const keys=[];
 let downloaded = null; const alerts=[];
 const sandbox={console,Math,JSON,Date,Object,Array,String,Number,Boolean,RegExp,Error,parseInt,parseFloat,isNaN,
@@ -90,7 +92,7 @@ const sandbox={console,Math,JSON,Date,Object,Array,String,Number,Boolean,RegExp,
   document, localStorage,
   window:{localStorage,addEventListener(t,f){(document._h=document._h||{})[t]=(document._h[t]||[]).concat(f)},scrollTo(){},matchMedia:()=>({matches:false,addListener(){}}),devicePixelRatio:1,document},
   Blob: class { constructor(parts){downloaded=parts.join('');} }, URL:{createObjectURL:()=> 'blob:test'},
-  confirm:()=>true, alert:(m)=>{alerts.push(m)}, navigator:{userAgent:"node"}};
+  confirm:()=>confirmAnswer, alert:(m)=>{alerts.push(m)}, navigator:{userAgent:"node"}};
 sandbox.window.document=document;
 const assert=require('assert');
 vm.createContext(sandbox);
@@ -169,7 +171,7 @@ test('final decision uses real collapse without advancing',()=>{
   store.syria_sim_v3_save=JSON.stringify(saved); vm.runInContext('SY.collapse=realCollapse; UI.boot(data)',sandbox);
   click('resume'); option(); click('nextBtn');
   const end=JSON.parse(store.syria_sim_v3_save); assert.strictEqual(end.state.over.id,'X_legitimacy');
-  assert.strictEqual(end.state.month,36); assert(appEl.innerHTML.includes('نهاية مبكرة'));
+  assert.strictEqual(end.state.month,36); assert(appEl.innerHTML.includes('انهيار —')); assert(!appEl.innerHTML.includes('نهاية مبكرة'));
   vm.runInContext('SY.collapse=function(){return null}',sandbox);
 });
 test('إرسال الخيارات والنهاية مرة واحدة وسحب الموافقة',()=>{
@@ -204,5 +206,69 @@ test('النتائج تعرض منزلة عشرية واحدة دون تعديل
   assert.ok(appEl.innerHTML.includes('12.3'));
   assert.ok(!appEl.innerHTML.includes('12.3456789'));
   click('dl');assert.ok(!downloaded.includes('12.3456789'));assert.ok(!downloaded.includes('2.3456789'));
+});
+test('start cancellation keeps saved run',()=>{
+  delete store.syria_sim_v3_save; vm.runInContext('UI.boot(data)',sandbox); click('go');
+  const before=store.syria_sim_v3_save; click('helpBtn'); confirmAnswer=false; click('go'); confirmAnswer=true;
+  assert.strictEqual(store.syria_sim_v3_save,before); assert(byId.resume); click('resume'); assert.strictEqual(store.syria_sim_v3_save,before);
+});
+test('external replacement is not overwritten or removed',()=>{
+  const foreign=store.syria_sim_v3_save+' '; store.syria_sim_v3_save=foreign; click('saveBtn'); assert.strictEqual(store.syria_sim_v3_save,foreign);
+  click('restartBtn'); assert.strictEqual(store.syria_sim_v3_save,foreign);
+});
+test('remove failure is caught',()=>{
+  vm.runInContext('UI.boot(data)',sandbox); click('resume'); removalFails=true;
+  try { assert.doesNotThrow(()=>click('restartBtn')); } finally { removalFails=false; }
+});
+test('end resume does not write',()=>{
+  const s=JSON.parse(store.syria_sim_v3_save); s.phase='end'; store.syria_sim_v3_save=JSON.stringify(s); vm.runInContext('UI.boot(data)',sandbox);
+  const before=writes, bytes=store.syria_sim_v3_save; click('resume'); assert.strictEqual(writes,before); assert.strictEqual(store.syria_sim_v3_save,bytes);
+});
+test('help returns to in-memory run when storage blocked',()=>{
+  delete store.syria_sim_v3_save; vm.runInContext('UI.boot(data)',sandbox); click('go'); readsFail=true; click('helpBtn');
+  try { assert(byId.returnRun); click('returnRun'); assert(classes.opt); } finally { readsFail=false; }
+});
+test('summary enter does not advance result',()=>{
+  delete store.syria_sim_v3_save; vm.runInContext('UI.boot(data)',sandbox); click('go'); option(); const before=store.syria_sim_v3_save;
+  document._h.keydown.slice(-1)[0]({key:'Enter',target:{tagName:'SUMMARY',closest:()=>true}});
+  assert.strictEqual(store.syria_sim_v3_save,before);
+});
+test('render uses preview probability',()=>{
+  delete store.syria_sim_v3_save; vm.runInContext('UI.boot(data)',sandbox);
+  const old=sandbox.SY.previewChance; sandbox.SY.previewChance=()=>13;
+  try { click('go'); assert(appEl.innerHTML.includes('فرصة النجاح: 13%')); } finally { sandbox.SY.previewChance=old; }
+});
+test('terminal chart uses current state without changing saved history',()=>{
+  const s=JSON.parse(store.syria_sim_v3_save); s.phase='end'; s.state.month=1; s.state.st.leg=80;
+  s.state.line=[{m:0,leg:10,coh:10,eco:10,sov:10,mil:10,press:10,shr:10},{m:1,leg:20,coh:20,eco:20,sov:20,mil:20,press:20,shr:20}];
+  store.syria_sim_v3_save=JSON.stringify(s); vm.runInContext('UI.boot(data)',sandbox); points.length=0; click('resume');
+  assert(points.some(p=>Math.abs(p[1]-42)<0.001)); assert.strictEqual(JSON.parse(store.syria_sim_v3_save).state.line[1].leg,20);
+});
+test('end and report expose deferred work',()=>{
+  const s=JSON.parse(store.syria_sim_v3_save); s.state.delay.push({at:40,eff:{leg:1}}); s.state.queue.push({id:'e1',at:40});
+  store.syria_sim_v3_save=JSON.stringify(s);vm.runInContext('UI.boot(data)',sandbox);click('resume');
+  assert(appEl.innerHTML.includes('معلّقة بعد الجولة')); click('dl'); assert(downloaded.includes('معلّقة بعد الجولة'));
+});
+test('help returns to a finished in-memory run',()=>{
+  const s=JSON.parse(store.syria_sim_v3_save); s.phase='end'; store.syria_sim_v3_save=JSON.stringify(s); vm.runInContext('UI.boot(data)',sandbox); click('resume');
+  vm.runInContext('UI.boot(data)',sandbox); click('returnRun'); assert(byId.again); assert(!byId.nextBtn);
+});
+test('decision and result hand focus to the next action',()=>{
+  delete store.syria_sim_v3_save; vm.runInContext('UI.boot(data)',sandbox); click('go');
+  assert.strictEqual(document.activeElement,classes.opt[0]); option(); assert.strictEqual(document.activeElement,byId.nextBtn);
+  click('nextBtn'); assert.strictEqual(document.activeElement,classes.opt[0]);
+});
+test('sidebar tab focus survives rerender',()=>{
+  const chart=classes.tab.find(x=>x.getAttribute('data-tab')==='chart'); chart.focus(); chart.onclick();
+  assert.strictEqual(document.activeElement.getAttribute('data-tab'),'chart'); assert.notStrictEqual(document.activeElement,chart);
+});
+test('invalid setup does not alter the live run',()=>{
+  const before=store.syria_sim_v3_save; click('helpBtn'); inputs.doc.forEach(x=>x.checked=false); click('go'); click('returnRun');
+  click('saveBtn'); assert.strictEqual(store.syria_sim_v3_save,before);
+});
+test('help cannot rebase a live run onto another tab save',()=>{
+  const foreign=store.syria_sim_v3_save+' ';store.syria_sim_v3_save=foreign;
+  click('helpBtn');click('returnRun');click('saveBtn');
+  assert.strictEqual(store.syria_sim_v3_save,foreign);
 });
 if(failures) process.exitCode=1;

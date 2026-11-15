@@ -12,6 +12,7 @@ import os
 import sys
 import tempfile
 import unittest
+import copy
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "src", "data")
@@ -182,6 +183,37 @@ class T5_Build(unittest.TestCase):
 
     def test_check_mode_returns_zero_on_valid_data(self):
         self.assertEqual(build.main(["--check"]), 0)
+
+    def test_empty_or_missing_corpora_rejected(self):
+        data = build.load_data(DATA)
+        for name in ("events", "endings", "news"):
+            for value in ([], None):
+                bad = dict(data)
+                if value is None:
+                    del bad[name]
+                else:
+                    bad[name] = value
+                with self.subTest(name=name, value=value):
+                    self.assertTrue(build.validate(bad))
+
+    def test_numeric_effects_and_probability_are_validated(self):
+        data = build.load_data(DATA)
+        for field, value in [("eff", {"leg": "bad"}), ("cost", {"leg": float('inf')}),
+                             ("eff", {"unknown": 1}),
+                             ("eff", []),
+                             ("prob", {"base": "bad", "mods": {}}),
+                             ("prob", {"base": float('nan'), "mods": {}}),
+                             ("prob", {"base": 50, "mods": {"bad_key": 1}}),
+                             ("prob", {"base": 50, "mods": {"leg": "bad"}}),
+                             ("delay", [{"in": "bad", "eff": {"leg": 1}}]),
+                             ("promise", {"metric": "leg", "target": 4, "in": 2, "reward": {"leg": "bad"}})]:
+            bad = copy.deepcopy(data)
+            opt = bad['events'][0]['options'][0]
+            opt[field] = value
+            if field == 'prob':
+                opt['out'] = {k: {'eff': {}, 'txt': ''} for k in ('ok', 'mid', 'bad')}
+            with self.subTest(field=field, value=value):
+                self.assertTrue(build.validate(bad))
 
 
 if __name__ == "__main__":

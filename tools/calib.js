@@ -28,7 +28,7 @@ const ADVISERS = { shaykh: { cat: "مجتمع", v: 6 }, hawk: { cat: "أمني",
   dipl: { cat: "دبلوماسي", v: 6 }, kurd: { cat: "مكونات", v: 6 }, tech: { cat: "اقتصادي", v: 6 } };
 function playOne(seed, mode, diff, doctrine, adv) {
   const S = SY.initialState(seed);
-  if (doctrine && DOCTRINES[doctrine]) { S.doctrine = DOCTRINES[doctrine]; SY.applyEff(S, S.doctrine.eff); }
+  if (doctrine && DOCTRINES[doctrine]) { S.doctrine = DOCTRINES[doctrine]; SY.applyEff(S, S.doctrine.eff); SY.addFlags(S, ["doc_" + doctrine]); }
   if (adv && ADVISERS[adv]) S.cabinet = [ADVISERS[adv]];
   if (diff) { S.diff = diff; S.difficulty = { easy: 1.18, normal: 1.0, hard: 0.84 }[diff]; }
   let g = 0, hit = { echo: 0, kept: 0, broken: 0, made: 0, opened: 0, ladder: 0, decree: 0 };

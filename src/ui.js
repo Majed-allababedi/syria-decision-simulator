@@ -8,10 +8,11 @@ var UI = (function () {
   var lastEv = null;     // الحدث المعروض
   var lastRes = null;    // نتيجة آخر قرار
   var view = "start";    // start | play | result | end
+  var returnView = "play";
   var tab = "gauges";
   var sideOpen = !(window.matchMedia && window.matchMedia("(max-width: 900px)").matches);
   var LS = "syria_sim_v3_save", LEGACY_LS = "syria_sim_v2_save";
-  var saveBlocked = false;
+  var saveBlocked = false, observedSave = null;
   function stats(method) {
     try { var a = window.answerStats; if (a && typeof a[method] === "function") return a[method].apply(a, Array.prototype.slice.call(arguments, 1)); } catch (e) { /* لا تعطل الإحصاءات اللعبة. */ }
   }
@@ -69,10 +70,12 @@ var UI = (function () {
 
   /* ============================ شاشة البداية ============================ */
   function showStart() {
+    var liveObserved = observedSave, liveBlocked = saveBlocked;
+    if (view !== "start") returnView = view;
     view = "start";
     var saved = null, warning = "";
     try {
-      var existing = localStorage.getItem(LS);
+      var existing = localStorage.getItem(LS); observedSave = existing;
       if (existing !== null) { saved = readSave(existing); saveBlocked = false; }
       else { saveBlocked = false; if (localStorage.getItem(LEGACY_LS)) warning = "الحفظ القديم محفوظ كما هو، لكن الاستئناف الدقيق غير متاح لأن حالة الحدث والعشوائية لم تُحفظ."; }
     } catch (e) { saveBlocked = true; warning = "الحفظ غير صالح أو غير مدعوم، أو التخزين غير متاح. لن نكتب فوقه."; }
@@ -106,7 +109,7 @@ var UI = (function () {
       "</div></div>" +
       '<p><label><input type="checkbox" id="statsConsent"' + (stats("enabled") ? ' checked' : '') + '> الموافقة على مشاركة نتائجي</label></p>' +
       '<div class="nextrow"><div class="tiny">بذرة عشوائية للنتائج: <span class="hl" id="seedlab">' + (Math.floor(Math.random() * 99999) + 1) + "</span> — يمكن استئناف الجولة لاحقاً.</div>" +
-      "<div>" + (saved ? '<button class="btn ghost" id="resume">استئناف جولة محفوظة</button> ' : "") +
+      "<div>" + (S ? '<button class="btn ghost" id="returnRun">العودة للجولة الحالية</button> ' : "") + (saved ? '<button class="btn ghost" id="resume">استئناف جولة محفوظة</button> ' : "") +
       '<button class="btn" id="go">ابدأ — 8 ديسمبر 2024</button></div></div></div>';
 
     if (warning) html += '<div class="card">' + esc(warning) + '</div>';
@@ -115,6 +118,7 @@ var UI = (function () {
     document.getElementById("go").onclick = start;
     var consentBox = document.getElementById("statsConsent"); if (consentBox) consentBox.onchange = function () { stats("consent", consentBox.checked); };
     var r = document.getElementById("resume"); if (r) r.onclick = resume;
+    var back = document.getElementById("returnRun"); if (back) back.onclick = function () { observedSave = liveObserved; saveBlocked = liveBlocked; view = returnView; if (view === "end") showEnd(); else render([]); };
   }
 
   function helpCard() {
@@ -138,27 +142,29 @@ var UI = (function () {
 
   function start() {
     var seed = parseInt((document.getElementById("seedlab") || {}).textContent || "7", 10);
-    S = SY.initialState(seed);
     var dv = document.querySelector('input[name=diff]:checked');
-    S.diff = dv ? dv.value : "normal";
-    S.difficulty = { easy: 1.18, normal: 1.0, hard: 0.84 }[S.diff];
     if (document.querySelectorAll('input[name=adv]:checked').length !== 2) { alert("اختر مستشارين اثنين فقط."); return; }
     var advs = Array.prototype.slice.call(document.querySelectorAll('input[name=adv]:checked')).map(function (i) {
       return ADVISERS.filter(function (a) { return a.id === i.value; })[0];
     }).filter(Boolean);
     if (advs.length < 2) { alert("اختر مستشارين اثنين على الأقل."); return; }
-    S.cabinet = advs;
-    advs.forEach(function (a) { if (a.cash) S.res.cash += a.cash; });
     var dcv = document.querySelector('input[name=doc]:checked');
     if (!dcv) { alert("اختر عقيدة الحكم قبل بدء الجولة."); return; }
     var doc = DOCTRINES.filter(function (x) { return x.id === dcv.value; })[0];
+    if (!doc || (dv && ["easy", "normal", "hard"].indexOf(dv.value) < 0)) { alert("إعداد الجولة غير صالح."); return; }
+    if ((S || (observedSave !== null && !saveBlocked)) && !confirm("بدء جولة جديدة سيستبدل الجولة الحالية أو المحفوظة. متابعة؟")) return;
+    S = SY.initialState(seed);
+    S.diff = dv ? dv.value : "normal";
+    S.difficulty = { easy: 1.18, normal: 1.0, hard: 0.84 }[S.diff];
+    S.cabinet = advs;
+    advs.forEach(function (a) { if (a.cash) S.res.cash += a.cash; });
     S.doctrine = doc; SY.applyEff(S, doc.eff); SY.addFlags(S, ["doc_" + doc.id]);
     S.line.push({ m: 0, leg: S.st.leg, coh: S.st.coh, eco: S.st.eco, mil: S.st.mil, sov: S.st.sov, dip: S.st.dip, sec: S.st.sec, dem: S.st.dem, srv: S.st.srv, press: S.st.press, frag: S.st.frag, shr: S.st.shr, cash: S.res.cash });
     nextMonth(true);
   }
   function resume() {
     try {
-      var raw = readSave(localStorage.getItem(LS));
+      var text = localStorage.getItem(LS), raw = readSave(text); observedSave = text; saveBlocked = false;
       SY.rngRestore(raw.state, raw.rng);
       S = raw.state; lastEv = raw.eventId ? D.byId[raw.eventId] : null;
       lastRes = raw.result; view = raw.phase;
@@ -203,11 +209,13 @@ var UI = (function () {
     if (saveBlocked) { alert("تعذّر الحفظ حفاظاً على بيانات موجودة غير صالحة أو غير مدعومة."); return false; }
     try {
       var existing = localStorage.getItem(LS);
+      if (existing !== observedSave) { saveBlocked = true; throw new Error("save changed"); }
       if (existing !== null) {
         try { readSave(existing); } catch (e) { saveBlocked = true; throw e; }
       }
       var c = JSON.parse(JSON.stringify(S));
-      localStorage.setItem(LS, JSON.stringify({ version: 3, state: c, rng: SY.rngSnapshot(S), eventId: lastEv ? lastEv.id : null, phase: view, result: lastRes }));
+      var text = JSON.stringify({ version: 3, state: c, rng: SY.rngSnapshot(S), eventId: lastEv ? lastEv.id : null, phase: view, result: lastRes });
+      localStorage.setItem(LS, text); observedSave = text;
       return true;
     } catch (e) { alert("تعذّر حفظ الجولة؛ تحقق من مساحة التخزين وإتاحته."); return false; }
   }
@@ -233,13 +241,13 @@ var UI = (function () {
     S.seen.push(ev.id);
     lastEv = ev; lastRes = null;
     view = "play";
-    render(notes);
+    render(notes, true);
     save();
     return;
     }
   }
 
-  function render(notes) {
+  function render(notes, handoff) {
     var st = S.st;
     var ev = lastEv;
     var riskCls = ev.risk === "مرتفع" ? "risk-high" : ev.risk === "متوسط" ? "risk-med" : "risk-low";
@@ -278,7 +286,7 @@ var UI = (function () {
     /* --- النتيجة أو الخيارات --- */
     if (!lastRes) {
       h += '<div class="opts">' + ev.options.map(function (o, i) {
-        var p = SY.chance(S, o);
+        var p = SY.previewChance(S, o);
         var cost = [];
         if (o.cost) {
           if (o.cost.cash) cost.push('<span class="pill cost">' + (o.cost.cash > 0 ? "+" : "") + o.cost.cash + " مليار $</span>");
@@ -317,6 +325,7 @@ var UI = (function () {
     bind();
     if (sideOpen && tab === "chart") drawChart();
     window.scrollTo(0, 0);
+    if (handoff) { var target = lastRes ? document.getElementById("nextBtn") : document.querySelector(".opt"); if (target) target.focus(); }
   }
 
   function pendingHint() {
@@ -441,6 +450,12 @@ var UI = (function () {
     x.strokeStyle = "#1c2634"; x.lineWidth = 1;
     for (var i = 0; i <= 4; i++) { var y = (H / 4) * i; x.beginPath(); x.moveTo(0, y); x.lineTo(W, y); x.stroke(); }
     var pts = S.line;
+    if (view === "end") {
+      pts = pts.slice();
+      var terminal = Object.assign({ m: S.month }, S.st);
+      if (pts.length && pts[pts.length - 1].m === S.month) pts[pts.length - 1] = terminal;
+      else pts.push(terminal);
+    }
     if (pts.length < 2) { x.fillStyle = "#63768c"; x.fillText("لا بيانات كافية", 10, 30); return; }
     function X(i) { return W - (i / (SY.MONTHS_TOTAL - 1)) * W; } // RTL: الزمن من اليمين
     var keys = ["leg", "coh", "eco", "sov", "mil", "press", "shr"];
@@ -466,7 +481,7 @@ var UI = (function () {
     lastRes = SY.resolve(S, lastEv, o);
     view = "result";
     stats("choice", lastEv.id, i);
-    render([]);
+    render([], true);
     save();
   }
   function bind() {
@@ -484,10 +499,10 @@ var UI = (function () {
     var n = document.getElementById("nextBtn"); if (n) n.onclick = function () { if (view !== "result") return; view = "play"; lastRes = null; nextMonth(false); };
     var s = document.getElementById("saveBtn"); if (s) s.onclick = function () { if (save()) s.textContent = "✓ حُفظ"; };
     var rp = document.getElementById("reportBtn"); if (rp) rp.onclick = downloadReport;
-    var rb = document.getElementById("restartBtn"); if (rb) rb.onclick = function () { if (confirm("بدء جولة جديدة؟")) { if (!saveBlocked) localStorage.removeItem(LS); showStart(); } };
+    var rb = document.getElementById("restartBtn"); if (rb) rb.onclick = function () { if (confirm("بدء جولة جديدة؟")) showStart(); };
     var hb = document.getElementById("helpBtn"); if (hb) hb.onclick = function () { showStart(); };
     Array.prototype.forEach.call(document.querySelectorAll(".tab"), function (t) {
-      t.onclick = function () { tab = t.getAttribute("data-tab"); render([]); };
+      t.onclick = function () { tab = t.getAttribute("data-tab"); render([]); var buttons = document.querySelectorAll(".tab"); Array.prototype.forEach.call(buttons, function (b) { if (b.getAttribute("data-tab") === tab) b.focus(); }); };
     });
   }
 
@@ -512,7 +527,8 @@ var UI = (function () {
       L.push("   الأثر: " + Object.keys(l.eff || {}).map(function (k) { return nameOf(k) + " " + (l.eff[k] > 0 ? "+" : "") + num(l.eff[k]); }).join(" | "));
       L.push("   ما جرى: " + l.txt);
     });
-    if (S.over && S.over.id && S.over.id.indexOf("X_") === 0) { L.push("\n=== نهاية مبكرة ==="); L.push(S.over.t + " — " + S.over.d); }
+    if (S.over && S.over.id && S.over.id.indexOf("X_") === 0) { L.push(S.month < SY.MONTHS_TOTAL - 1 ? "\n=== نهاية مبكرة ===" : "\n=== انهيار ==="); L.push(S.over.t + " — " + S.over.d); }
+    L.push("\n" + pendingEnd());
     return L.join("\n");
   }
   function downloadReport() {
@@ -527,17 +543,19 @@ var UI = (function () {
   function finish() {
     var end = S.over || SY.ending(S, D.endings).end;
     if (end) stats("end", end.id);
-    showEnd();
+    showEnd(); document.getElementById("again").focus(); save();
+  }
+  function pendingEnd() {
+    return "التزامات معلّقة بعد الجولة: " + S.delay.length + " آثار متأجلة، " + S.queue.length + " أحداث، " + S.promises.length + " وعود.";
   }
   function showEnd() {
     view = "end";
-    save();
     var sc = SY.score(S);
     var early = S.over && S.over.id && S.over.id.indexOf("X_") === 0;
     var e = early ? { title: S.over.t, desc: S.over.d } : SY.ending(S, D.endings).end;
     var realNote = "هذه حصيلة قواعد المحاكاة واختياراتك، وليست تقييمًا علميًا للواقع أو حكمًا على مجتمع أو اتجاه سياسي. الأوزان والاحتمالات افتراضات قابلة للمراجعة، والسيناريوهات المستقبلية ليست وقائع.";
     var h = '<div class="wrap"><div class="card finalhead">' +
-      '<div class="chip">' + (early ? "نهاية مبكرة — " + SY.monthLabel(S.month) : "النهاية — ديسمبر 2027") + "</div>" +
+      '<div class="chip">' + (early ? (S.month < SY.MONTHS_TOTAL - 1 ? "نهاية مبكرة — " : "انهيار — ") + SY.monthLabel(S.month) : "النهاية — ديسمبر 2027") + "</div>" +
       '<div class="big">' + esc(e.title) + "</div>" +
       '<p style="max-width:820px;margin:0 auto">' + rich(e.desc) + "</p>" +
       '<div class="scorebox"><div><b>' + sc.grade + "</b><span>التقدير</span></div>" +
@@ -545,7 +563,7 @@ var UI = (function () {
       "<div><b>" + num(sc.avg) + "</b><span>متوسط المؤشرات</span></div>" +
       "<div><b>" + esc(num(S.st.press)) + "</b><span>الضغط الإسرائيلي</span></div>" +
       "<div><b>" + Math.round(sc.compAvg) + "</b><span>ثقة المكونات</span></div></div>" +
-      '<div class="reality" style="max-width:820px;margin:0 auto"><div class="rt">خط المرجع</div>' + realNote + "</div>" +
+      '<div class="reality" style="max-width:820px;margin:0 auto"><div class="rt">خط المرجع</div>' + realNote + "</div><p>" + esc(pendingEnd()) + "</p>" +
       '<div style="margin-top:16px"><button class="btn" id="again">جولة جديدة</button> <button class="btn ghost" id="dl">تحميل تقرير قراراتي</button>' +
       (stats("enabled") ? ' <button class="btn ghost" id="withdrawStats">سحب موافقة الإحصاءات</button>' : '') + '</div></div>';
 
@@ -565,7 +583,7 @@ var UI = (function () {
       }).join("") + "</div></div></div>";
 
     document.getElementById("app").innerHTML = h;
-    document.getElementById("again").onclick = function () { if (!saveBlocked) localStorage.removeItem(LS); showStart(); };
+    document.getElementById("again").onclick = showStart;
     document.getElementById("dl").onclick = downloadReport;
     var withdraw = document.getElementById("withdrawStats"); if (withdraw) withdraw.onclick = function () { stats("consent", false); showEnd(); };
     drawChart();
@@ -582,7 +600,7 @@ var UI = (function () {
       if (!RISK[e.risk]) e.risk = (String(e.risk || "").indexOf("عال") === 0) ? "مرتفع" : "متوسط";
     });
     document.addEventListener("keydown", function (e) {
-      if (e.repeat || (e.target && /^(INPUT|TEXTAREA|SELECT|BUTTON|A)$/.test(e.target.tagName))) return;
+      if (e.repeat || (e.target && (/^(INPUT|TEXTAREA|SELECT|BUTTON|A|SUMMARY)$/.test(e.target.tagName) || e.target.isContentEditable || (e.target.closest && e.target.closest('input,textarea,select,button,a,summary,[contenteditable]:not([contenteditable="false"]),[role="button"],[role="link"]'))))) return;
       if (view === "play" && !lastRes) {
         var k = String(e.key || "").replace(/[٠-٩]/g, function (c) { return "٠١٢٣٤٥٦٧٨٩".indexOf(c); });
         if (["1", "2", "3", "4", "5"].indexOf(k) >= 0) choose(+k - 1);
