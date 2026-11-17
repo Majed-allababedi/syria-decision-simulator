@@ -23,7 +23,7 @@
   window.answerStats = {
     consent: function (value) { allowed = value === true; if (!allowed) queue = []; else flush(); },
     enabled: function () { return allowed; },
-    choice: function (id, index) { record('answer-' + id + '-' + index); },
+    choice: function (id, statsId) { if (typeof statsId === 'string' && statsId) record('answer-' + id + '-' + statsId); },
     end: function (id) { record('ending-' + id); },
     flush: flush
   };

@@ -176,12 +176,14 @@ test('final decision uses real collapse without advancing',()=>{
 });
 test('إرسال الخيارات والنهاية مرة واحدة وسحب الموافقة',()=>{
   delete store.syria_sim_v3_save;
+  for (const event of events) event.options[0].statsId='v2-stable';
   let consent=false;const sent=[];
   sandbox.window.answerStats={enabled:()=>consent,consent:v=>{consent=v},choice:(id,i)=>{if(consent)sent.push(['choice',id,i])},end:id=>{if(consent)sent.push(['end',id])}};
   sandbox.data.endings[0].id='test-ending';
   vm.runInContext('UI.boot(data)',sandbox);click('go');option();assert.strictEqual(sent.length,0);
   vm.runInContext('UI.boot(data)',sandbox);byId.statsConsent.checked=true;byId.statsConsent.onchange();click('resume');assert.strictEqual(sent.length,0);
   click('nextBtn');const choose=classes.opt[0].onclick;choose({});choose({});assert.strictEqual(sent.length,1);
+  assert.strictEqual(sent[0][2],'v2-stable','يرسل معرّف الخيار لا ترتيبه');
   click('withdrawStats');click('nextBtn');option();assert.strictEqual(sent.length,1);
   const saved=JSON.parse(store.syria_sim_v3_save);saved.state.month=36;store.syria_sim_v3_save=JSON.stringify(saved);
   vm.runInContext('UI.boot(data)',sandbox);byId.statsConsent.checked=true;byId.statsConsent.onchange();click('resume');

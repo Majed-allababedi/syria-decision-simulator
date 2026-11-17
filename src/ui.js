@@ -480,7 +480,7 @@ var UI = (function () {
     if (o.cost && o.cost.cap && S.res.cap + o.cost.cap < 0 && !confirm("رصيدك السياسي لا يكفي لهذا القرار. تريد المضي رغم ذلك؟")) return;
     lastRes = SY.resolve(S, lastEv, o);
     view = "result";
-    stats("choice", lastEv.id, i);
+    stats("choice", lastEv.id, o.statsId);
     render([], true);
     save();
   }

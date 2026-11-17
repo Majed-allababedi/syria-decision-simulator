@@ -36,7 +36,7 @@
   DATA.events.forEach(function (e, i) { var o = element('option', e.title); o.value = i; select.appendChild(o); });
   function question() {
     var e = DATA.events[+select.value];
-    display(results, e.options.map(function (o, i) { return { title: o, path: 'answer-' + e.id + '-' + i }; }), ++generation);
+    display(results, e.options.map(function (o) { return { title: o.title, path: 'answer-' + e.id + '-' + o.statsId }; }), ++generation);
   }
   select.onchange = question; question();
   display(ends, DATA.endings.map(function (e) { return { title: e.title, path: 'ending-' + e.id }; }));

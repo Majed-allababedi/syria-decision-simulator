@@ -114,7 +114,13 @@ def validate(data):
             errs.append("%s: month خارج المدى 0..36" % e.get("id", "?"))
         if len(e.get("options", [])) < 2:
             errs.append("%s: أقل من خيارين" % e.get("id", "?"))
+        stats_ids = set()
         for o in e.get("options", []):
+            stats_id = o.get("statsId")
+            if not isinstance(stats_id, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", stats_id) or stats_id in stats_ids:
+                errs.append("%s: statsId مفقود أو غير صالح أو مكرر" % e.get("id"))
+            else:
+                stats_ids.add(stats_id)
             if "t" not in o:
                 errs.append("%s: خيار بلا عنوان" % e.get("id"))
             has_det = "eff" in o and "txt" in o
@@ -260,7 +266,7 @@ def main(argv=None):
             .replace("__FONT_LICENSE__", font_license())
             .replace("__DATA__", json.dumps(data, ensure_ascii=False).replace("</", "<\\/")))
     early = re.findall(r'id: "(X_[^"]+)", t: "([^"]+)"', read(os.path.join(SRC, "engine.js")))
-    stats_data = {"events": [{"id": e["id"], "title": e["title"], "options": [o["t"] for o in e["options"]]} for e in data["events"]],
+    stats_data = {"events": [{"id": e["id"], "title": e["title"], "options": [{"title": o["t"], "statsId": o["statsId"]} for o in e["options"]]} for e in data["events"]],
                   "endings": [{"id": e["id"], "title": e["title"]} for e in data["endings"]] + [{"id": i, "title": t} for i, t in early]}
     stats_html = (read(os.path.join(SRC, "stats.html"))
                   .replace("__CSS__", embed_fonts(read(os.path.join(SRC, "css", "style.css"))))

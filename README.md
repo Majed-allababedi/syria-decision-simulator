@@ -48,6 +48,7 @@
 - لا نرسل ملف الحفظ أو البذرة أو معرّف لاعب، ولا نرسل اختيارات سبقت الموافقة. تُطلب الموافقة من جديد بعد إعادة تحميل الصفحة.
 - الأعداد تمثل اختيارات مسجّلة، لا أشخاصًا فريدين ولا استطلاعًا ممثلًا. تتأثر بالجولات المتكررة والتلاعب وحجب الإحصاءات، وقد تتأخر حتى أربع ساعات.
 - تحتاج صفحة الإحصاءات إلى الإنترنت؛ لا تُرسل اختيارات النسخة المحلية أو المتصفحات التي تفعّل عدم التتبّع.
+- `statsId` is part of an option's public counter identity. Keep it when reordering; use a new, unused ID if the choice changes meaning or its results must be counted separately. Never reuse a retired ID within the same event.
 
 افتح `index.html` في أي متصفح (يعمل بلا إنترنت، ولا اعتماد على أي ملف خارجي)، أو استخدم الرابط أعلاه.
 
